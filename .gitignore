@@ -1,3 +1,10 @@
 node_modules
 .idea
 ./src/.umi/
+./src/.umi-production/
+./src/.umi-test/
+.electron
+.umi
+.umi-production
+.umi-test
+dist/
