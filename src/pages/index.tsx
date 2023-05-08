@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button, Col, Container, Form, Image, ListGroup, Nav, Navbar, Row} from "react-bootstrap";
+import {Button, ButtonGroup, Col, Container, Form, Image, ListGroup, Nav, Navbar, Row} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import styles from './less/index.less';
 import rehypeRaw from "rehype-raw";
@@ -14,11 +14,7 @@ export default function HomePage() {
                     <Navbar.Brand href="#">Debug客栈</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll"/>
                     <Navbar.Collapse id="navbarScroll">
-                        <Nav
-                            className="me-auto my-2 my-lg-0"
-                            style={{maxHeight: '100px'}}
-                            navbarScroll
-                        >
+                        <Nav className="me-auto my-2 my-lg-0" style={{maxHeight: '100px'}} navbarScroll>
                             <Nav.Link href="https://debuginn.cn">主页</Nav.Link>
                             <Nav.Link href="https://blog.debuginn.cn">博客</Nav.Link>
                             <Nav.Link href="https://notes.debuginn.cn">笔记</Nav.Link>
@@ -27,11 +23,11 @@ export default function HomePage() {
                         <Form className="d-flex">
                             <Form.Control
                                 type="search"
-                                placeholder="Search"
+                                placeholder="敬请期待"
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-success">Search</Button>
+                            <Button variant="outline-success">loading</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
@@ -114,57 +110,79 @@ export default function HomePage() {
                             <Row>
                                 <Col>
                                     <div className={styles.commonPaddingTop}>
-                                        <div className="card">
-                                            <div className="card-header">
-                                                Quote
-                                            </div>
-                                            <div className="card-body" id={"a"}>
-                                                <ReactMarkdown rehypePlugins={[rehypeRaw]} children={markdown}/>
-                                            </div>
-                                        </div>
+                                        <ButtonGroup size="sm">
+                                            <Button variant="outline-primary" href="https://blog.debuginn.cn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" className="bi bi-house-check-fill"
+                                                     viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                                                    <path
+                                                        d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                                                    <path
+                                                        d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.707l.547.547 1.17-1.951a.5.5 0 1 1 .858.514Z"/>
+                                                </svg>
+                                                &nbsp; 访问博客
+                                            </Button>
+                                            <Button variant="outline-primary"
+                                                    href="https://blog.debuginn.cn/pages/friends/">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" className="bi bi-rss" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                    <path
+                                                        d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"/>
+                                                </svg>
+                                                &nbsp; 订阅本站
+                                            </Button>
+                                            <Button variant="outline-primary"
+                                                    href="https://blog.debuginn.cn/pages/friends/">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" className="bi bi-person-check"
+                                                     viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                                                    <path
+                                                        d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                                                </svg>
+                                                &nbsp; 友情链接
+                                            </Button>
+                                        </ButtonGroup>
+                                        <ButtonGroup size="sm" style={{float: "right"}}>
+                                            <Button variant="outline-success" href="https://www.travellings.cn/go.html"
+                                                    target="_blank">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor"
+                                                     className="bi bi-train-freight-front" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M5.065.158A1.5 1.5 0 0 1 5.736 0h4.528a1.5 1.5 0 0 1 .67.158l3.237 1.618a1.5 1.5 0 0 1 .83 1.342V13.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V3.118a1.5 1.5 0 0 1 .828-1.342L5.065.158ZM2 9.372V13.5A1.5 1.5 0 0 0 3.5 15h4V8h-.853a.5.5 0 0 0-.144.021L2 9.372ZM8.5 15h4a1.5 1.5 0 0 0 1.5-1.5V9.372l-4.503-1.35A.5.5 0 0 0 9.353 8H8.5v7ZM14 8.328v-5.21a.5.5 0 0 0-.276-.447l-3.236-1.618A.5.5 0 0 0 10.264 1H5.736a.5.5 0 0 0-.223.053L2.277 2.67A.5.5 0 0 0 2 3.118v5.21l1-.3V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3.028l1 .3Zm-2-.6V5H8.5v2h.853a1.5 1.5 0 0 1 .431.063L12 7.728ZM7.5 7V5H4v2.728l2.216-.665A1.5 1.5 0 0 1 6.646 7H7.5Zm-1-5a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm-3 8a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm9 0a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1ZM5 13a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm7 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>
+                                                </svg>
+                                                &nbsp; travelling 开往
+                                            </Button>
+                                            <Button variant="outline-success" href="http://foreverblog.cn/go.html"
+                                                    target="_blank">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" className="bi bi-c-circle" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"/>
+                                                </svg>
+                                                &nbsp; wormhole 虫洞
+                                            </Button>
+                                        </ButtonGroup>
                                     </div>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
                                     <div className={styles.commonPaddingTop}>
-                                        <Button variant="outline-primary" size="sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                                 className="bi bi-train-freight-front" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M5.065.158A1.5 1.5 0 0 1 5.736 0h4.528a1.5 1.5 0 0 1 .67.158l3.237 1.618a1.5 1.5 0 0 1 .83 1.342V13.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V3.118a1.5 1.5 0 0 1 .828-1.342L5.065.158ZM2 9.372V13.5A1.5 1.5 0 0 0 3.5 15h4V8h-.853a.5.5 0 0 0-.144.021L2 9.372ZM8.5 15h4a1.5 1.5 0 0 0 1.5-1.5V9.372l-4.503-1.35A.5.5 0 0 0 9.353 8H8.5v7ZM14 8.328v-5.21a.5.5 0 0 0-.276-.447l-3.236-1.618A.5.5 0 0 0 10.264 1H5.736a.5.5 0 0 0-.223.053L2.277 2.67A.5.5 0 0 0 2 3.118v5.21l1-.3V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3.028l1 .3Zm-2-.6V5H8.5v2h.853a1.5 1.5 0 0 1 .431.063L12 7.728ZM7.5 7V5H4v2.728l2.216-.665A1.5 1.5 0 0 1 6.646 7H7.5Zm-1-5a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Zm-3 8a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm9 0a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1ZM5 13a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm7 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>
-                                            </svg>
-                                            &nbsp; travelling 开往
-                                        </Button>
-                                        &nbsp;
-                                        <Button variant="outline-success" size="sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                 fill="currentColor" className="bi bi-c-circle" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"/>
-                                            </svg>
-                                            &nbsp; wormhole 虫洞
-                                        </Button>
-                                        &nbsp;
-                                        <Button variant="outline-warning" size="sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                 fill="currentColor" className="bi bi-person-check" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
-                                                <path
-                                                    d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
-                                            </svg>
-                                            &nbsp; 友情链接
-                                        </Button>
-                                        &nbsp;
-                                        <Button variant="outline-success" size="sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                 fill="currentColor" className="bi bi-c-circle" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"/>
-                                            </svg>
-                                            &nbsp; wormhole 虫洞
-                                        </Button>
+                                        <div className="card">
+                                            <div className="card-header">
+                                                profile
+                                            </div>
+                                            <div className="card-body" id={"a"}>
+                                                <ReactMarkdown rehypePlugins={[rehypeRaw]} children={markdown}/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </Col>
                             </Row>
@@ -174,7 +192,22 @@ export default function HomePage() {
 
             </Container>
             <Container>
-
+                <Row>
+                    <Col>
+                        <div>
+                             <span style={{paddingTop: "30px", paddingBottom: "30px", float: "left"}}>
+                            Debug客栈 ©️2017-2023 Meng小羽 CC BY-NC 4.0
+                        </span>
+                            <span
+                                style={{paddingTop: "30px", paddingBottom: "30px", float: "left", paddingLeft: "10px"}}>
+                            鲁ICP备18012789号
+                        </span>
+                            <span style={{paddingTop: "30px", paddingBottom: "30px", float: "right"}}>
+                            由 @Julissa 倾心设计，耐心指导构建～
+                        </span>
+                        </div>
+                    </Col>
+                </Row>
             </Container>
         </React.Fragment>
     );
@@ -202,7 +235,9 @@ const markdown = `
   </a>
 </p>
 
-[![My Skills](https://skillicons.dev/icons?i=go,java,spring,maven,mysql,redis,linux,bash,docker,kubernetes,grafana,prometheus,nginx,git,vim,idea,vscode,md&theme=light)](https://blog.debuginn.cn/pages/project/)
+<p>
+    <img src="https://skillicons.dev/icons?i=go,java,spring,maven,mysql,redis,linux,bash,docker,kubernetes,grafana,prometheus,nginx,git,vim,idea,vscode,md&theme=light" width="100%" alt="language">
+</p>
 
 <p>
     <img src="https://user-images.githubusercontent.com/28979768/205839699-c9820d6f-6187-4399-ac08-f5dcd7678c94.png" width="100%" alt="公众号">
