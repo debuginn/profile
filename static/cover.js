@@ -3,7 +3,6 @@ bodyBgs[0] = "https://image.debuginn.cn/202303120016035.jpeg";
 bodyBgs[1] = "https://image.debuginn.cn/202303120014022.jpeg";
 bodyBgs[2] = "https://image.debuginn.cn/202303120017184.jpeg";
 bodyBgs[3] = "https://image.debuginn.cn/202303120020529.jpeg";
-bodyBgs[4] = "https://image.debuginn.cn/202303120020735.jpeg";
 
 const randomBgIndex = Math.round(Math.random() * 4);
 
