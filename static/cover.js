@@ -7,5 +7,10 @@ bodyBgs[4] = "https://image.debuginn.cn/202303120018416.jpeg"; // 徒步凤凰�
 bodyBgs[5] = "https://image.debuginn.cn/202303120018147.jpeg"; // 鱼鳞云层
 
 // 输出随机的背景图
-const randomBgIndex = Math.round(Math.random() * (bodyBgs.length-1));
-document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0; background-size: 100% ;background-attachment: fixed;background-size: cover;-webkit-background-size: cover;-o-background-size: cover;}</style>');
+const randomBgIndex = Math.round(Math.random() * (bodyBgs.length - 1));
+$("body").css({
+    "background": 'url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0',
+    "background-attachment": "fixed",
+    "background-size": "cover",
+    "-webkit-background-size": "cover;-o-background-size: cover"
+})
