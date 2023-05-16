@@ -72,6 +72,11 @@ body {
     margin-bottom: 10px;
 }
 
+.masthead-brand > a:hover,
+.masthead-brand > a:focus {
+    text-decoration:none;
+}
+
 .masthead-nav > li {
     display: inline-block;
 }
@@ -131,7 +136,7 @@ body {
     margin: 50% auto;
 }
 
-#title404{
+#title404 {
     font-size: 66px;
 }
 
