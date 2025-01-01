@@ -22,14 +22,14 @@ bodyBgs[17] = "https://webp.debuginn.com/202312241448297.jpg"; // 伏地魔十�
 bodyBgs[18] = "https://webp.debuginn.com/202312241459045.jpg"; // 搁浅的布鲁维斯号
 bodyBgs[19] = "https://webp.debuginn.com/202312241509754.jpg"; // 青岛的浪
 // 2024 年
-bodyBgs[20] = "https://webp.debuginn.com/20241228gr94gS.jpeg"; // 新疆伊犁·果子沟大桥
-bodyBgs[21] = "https://webp.debuginn.com/20241228My3dwt.jpeg"; // 北京鸟巢·五月天
-bodyBgs[22] = "https://webp.debuginn.com/20241228Z3n53I.jpeg"; // 北京鸟巢·五月天
-bodyBgs[23] = "https://webp.debuginn.com/20241228nHD7Ty.jpeg"; // 内蒙古·乌兰布统
-bodyBgs[24] = "https://webp.debuginn.com/20241228saMFA5.jpeg"; // 内蒙古·乌兰布统
-bodyBgs[25] = "https://webp.debuginn.com/20241228uzvV3a.jpeg"; // 甘肃兰州·黄河中山大桥
-bodyBgs[26] = "https://webp.debuginn.com/202412283ihOzS.jpeg"; // 甘肃金昌·银河
-bodyBgs[27] = "https://webp.debuginn.com/20241228JpvCdy.jpeg"; // 北京·司马台长城
+bodyBgs[20] = "https://webp.debuginn.com/20250101R4kCmh.jpg"; // 新疆伊犁·果子沟大桥
+bodyBgs[21] = "https://webp.debuginn.com/20250101gM3cIt.jpg"; // 北京鸟巢·五月天
+bodyBgs[22] = "https://webp.debuginn.com/20250101M4FjnX.jpg"; // 北京鸟巢·五月天
+bodyBgs[23] = "https://webp.debuginn.com/202501014ap3u9.jpg"; // 内蒙古·乌兰布统
+bodyBgs[24] = "https://webp.debuginn.com/20250101V6b86k.jpg"; // 内蒙古·乌兰布统
+bodyBgs[25] = "https://webp.debuginn.com/20250101DxpIDD.jpg"; // 甘肃兰州·黄河中山大桥
+bodyBgs[26] = "https://webp.debuginn.com/202501014MMQzm.jpg"; // 甘肃金昌·银河
+bodyBgs[27] = "https://webp.debuginn.com/202501018dy1Ym.jpg"; // 北京·司马台长城
 
 // 输出随机的背景图
 const randomBgIndex = Math.round(Math.random() * (bodyBgs.length - 1));
