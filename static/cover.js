@@ -31,68 +31,11 @@ bodyBgs[25] = "https://webp.debuginn.com/20250101DxpIDD.jpg"; // 甘肃兰州·�
 bodyBgs[26] = "https://webp.debuginn.com/202501014MMQzm.jpg"; // 甘肃金昌·银河
 bodyBgs[27] = "https://webp.debuginn.com/202501018dy1Ym.jpg"; // 北京·司马台长城
 
-// 创建马赛克模糊到清晰的背景加载效果
-function loadBackgroundWithMosaicEffect() {
-    const randomBgIndex = Math.round(Math.random() * (bodyBgs.length - 1));
-    const imageUrl = bodyBgs[randomBgIndex];
-    
-    // 初始设置模糊背景
-    $("body").css({
-        "background": 'url(' + imageUrl + ') no-repeat 50% 0',
-        "background-attachment": "fixed",
-        "background-size": "cover",
-        "-webkit-background-size": "cover",
-        "filter": "blur(20px) contrast(0.8)",
-        "-webkit-filter": "blur(20px) contrast(0.8)",
-        "transition": "filter 2s ease-in-out",
-        "-webkit-transition": "-webkit-filter 2s ease-in-out"
-    });
-    
-    // 预加载图片
-    const img = new Image();
-    img.onload = function() {
-        // 图片加载完成后，逐步清晰化
-        setTimeout(() => {
-            $("body").css({
-                "filter": "blur(10px) contrast(0.9)",
-                "-webkit-filter": "blur(10px) contrast(0.9)"
-            });
-        }, 300);
-        
-        setTimeout(() => {
-            $("body").css({
-                "filter": "blur(5px) contrast(0.95)",
-                "-webkit-filter": "blur(5px) contrast(0.95)"
-            });
-        }, 800);
-        
-        setTimeout(() => {
-            $("body").css({
-                "filter": "blur(2px) contrast(1)",
-                "-webkit-filter": "blur(2px) contrast(1)"
-            });
-        }, 1300);
-        
-        setTimeout(() => {
-            $("body").css({
-                "filter": "none",
-                "-webkit-filter": "none"
-            });
-        }, 1800);
-    };
-    
-    img.onerror = function() {
-        // 如果图片加载失败，直接显示无模糊效果
-        $("body").css({
-            "filter": "none",
-            "-webkit-filter": "none"
-        });
-    };
-    
-    img.src = imageUrl;
-}
-
-// 页面加载完成后执行背景加载效果
-$(document).ready(function() {
-    loadBackgroundWithMosaicEffect();
+// 输出随机的背景图
+const randomBgIndex = Math.round(Math.random() * (bodyBgs.length - 1));
+$("body").css({
+    "background": 'url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0',
+    "background-attachment": "fixed",
+    "background-size": "cover",
+    "-webkit-background-size": "cover;-o-background-size: cover"
 });
