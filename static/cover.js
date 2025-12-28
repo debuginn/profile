@@ -30,6 +30,25 @@ bodyBgs[24] = "https://webp.debuginn.com/20250101V6b86k.jpg"; // 内蒙古·乌�
 bodyBgs[25] = "https://webp.debuginn.com/20250101DxpIDD.jpg"; // 甘肃兰州·黄河中山大桥
 bodyBgs[26] = "https://webp.debuginn.com/202501014MMQzm.jpg"; // 甘肃金昌·银河
 bodyBgs[27] = "https://webp.debuginn.com/202501018dy1Ym.jpg"; // 北京·司马台长城
+// 2025 年
+bodyBgs[28] = "https://webp.debuginn.com/2025051038jxzl.jpg"; // 烟台·渔人码头
+bodyBgs[29] = "https://webp.debuginn.com/202505109vsKjY.jpg"; // 东营·孤东海堤
+bodyBgs[30] = "https://webp.debuginn.com/20250510yJb8ur.jpeg"; // 东营·孤东海堤
+bodyBgs[31] = "https://webp.debuginn.com/20250510MCKPqG.jpg"; // 东营·磕头机
+bodyBgs[32] = "https://webp.debuginn.com/20250510Y48j7B.jpg"; // 烟台·烟大沙滩
+bodyBgs[33] = "https://webp.debuginn.com/202505105A03Qm.jpg"; // 烟台·渤海黄海分割线
+bodyBgs[34] = "https://webp.debuginn.com/20250510zkQn5O.jpg"; // 烟台·蓬莱仙境
+bodyBgs[35] = "https://webp.debuginn.com/20250510zQqYeK.jpg"; // 烟台·蓬莱阁
+bodyBgs[36] = "https://webp.debuginn.com/20250727qmakyu.jpg"; // 香港·维多利亚海湾
+bodyBgs[37] = "https://webp.debuginn.com/20250828uaMPQa.jpg"; // 张北草原
+bodyBgs[38] = "https://webp.debuginn.com/20250831RN4Jmt.jpg"; // 张北草原
+bodyBgs[39] = "https://webp.debuginn.com/20250902G7dA4g.jpg"; // 张北草原
+bodyBgs[40] = "https://webp.debuginn.com/20250902gFdYgH.jpg"; // 张北草原
+bodyBgs[41] = "https://webp.debuginn.com/20250902GbJQtR.JPG"; // 张北草原·薰衣草
+bodyBgs[42] = "https://webp.debuginn.com/20250902ASdtvq.jpg"; // 张北草原·跑道
+bodyBgs[43] = "https://webp.debuginn.com/20251215creWKt.jpg"; // 福建·爱心树
+bodyBgs[44] = "https://webp.debuginn.com/20251215dbzf0t.jpg"; // 泉州·日落
+bodyBgs[45] = "https://webp.debuginn.com/20251215d5bKCo.jpg"; // 泉州·我们
 
 // 创建马赛克模糊到清晰的背景加载效果
 function loadBackgroundWithMosaicEffect() {
