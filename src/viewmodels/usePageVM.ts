@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export type ActivePage = string;
 
@@ -8,11 +8,14 @@ export function usePageVM(pageIds: string[], backgrounds: string[]) {
   const [activePage, setActivePage] = useState<ActivePage>("home");
   const [hitokoto, setHitokoto] = useState(":D 获取中...");
   const [hitokotoUrl, setHitokotoUrl] = useState("#");
-  const bgUrl = useRef(
-    backgrounds.length > 0
-      ? backgrounds[Math.floor(Math.random() * backgrounds.length)]
-      : ""
-  ).current;
+  const [bgUrl, setBgUrl] = useState("");
+
+  useEffect(() => {
+    if (backgrounds.length > 0) {
+      setBgUrl(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     fetch("https://v1.hitokoto.cn/?encode=json")
