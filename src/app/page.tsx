@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import config from "../lib/config";
 import { usePageVM } from "../viewmodels/usePageVM";
 import Header from "../components/Header";
@@ -11,24 +12,96 @@ import SocialSection from "../components/SocialSection";
 import PageDots from "../components/PageDots";
 
 const PAGE_IDS = config.sections.map((s) => s.id);
+const FIRST_PAGE_ID = PAGE_IDS[0];
+const LAST_PAGE_ID = PAGE_IDS[PAGE_IDS.length - 1];
 const LIGHT_BG_SECTIONS = new Set(
   config.sections.filter((s) => s.type === "flybay").map((s) => s.id)
 );
 
 export default function Home() {
   const { activePage, setActivePage, hitokoto, bgUrl, bgUrlSocial } = usePageVM(PAGE_IDS, config.home.backgrounds);
+  const [headerTone, setHeaderTone] = useState<"light" | "dark">("light");
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
   const nextSection = config.sections[activeIdx + 1];
   const isLight = LIGHT_BG_SECTIONS.has(activePage);
 
+  useEffect(() => {
+    const getToneFromImage = async (src: string, fallback: "light" | "dark") => {
+      if (!src) return fallback;
+      return new Promise<"light" | "dark">((resolve) => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.referrerPolicy = "no-referrer";
+        img.onload = () => {
+          try {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d", { willReadFrequently: true });
+            if (!ctx) {
+              resolve(fallback);
+              return;
+            }
+            canvas.width = 32;
+            canvas.height = 32;
+            ctx.drawImage(img, 0, 0, 32, 32);
+            const { data } = ctx.getImageData(0, 0, 32, 32);
+            let lumTotal = 0;
+            let count = 0;
+            for (let i = 0; i < data.length; i += 4) {
+              const r = data[i];
+              const g = data[i + 1];
+              const b = data[i + 2];
+              lumTotal += 0.2126 * r + 0.7152 * g + 0.0722 * b;
+              count += 1;
+            }
+            const avgLum = count > 0 ? lumTotal / count : 0;
+            resolve(avgLum > 150 ? "dark" : "light");
+          } catch {
+            resolve(fallback);
+          }
+        };
+        img.onerror = () => resolve(fallback);
+        img.src = src;
+      });
+    };
+
+    let cancelled = false;
+    const syncTone = async () => {
+      if (activePage === FIRST_PAGE_ID) {
+        const tone = await getToneFromImage(bgUrl, "light");
+        if (!cancelled) setHeaderTone(tone);
+        return;
+      }
+      if (activePage === LAST_PAGE_ID) {
+        const tone = await getToneFromImage(bgUrlSocial, "light");
+        if (!cancelled) setHeaderTone(tone);
+      }
+    };
+
+    syncTone();
+    return () => {
+      cancelled = true;
+    };
+  }, [activePage, bgUrl, bgUrlSocial]);
+
   return (
     <main className="page-stack">
-      <Header
-        brand={config.site.title}
-        brandHref={config.site.url}
-        nav={config.nav}
-      />
+      {activePage === FIRST_PAGE_ID && (
+        <Header
+          brand={config.site.title}
+          brandHref={config.site.url}
+          nav={config.nav}
+          tone={headerTone}
+        />
+      )}
+      {activePage === LAST_PAGE_ID && (
+        <Header
+          brand={config.site.title}
+          brandHref={config.site.url}
+          nav={config.nav}
+          tone={headerTone}
+        />
+      )}
 
       {config.sections.map((section) => {
         if (section.type === "home") {
