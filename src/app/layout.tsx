@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import config from "../lib/config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Debug客栈",
-  description: "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。"
+  title: config.site.title,
+  description: config.site.description
 };
 
 export default function RootLayout({
@@ -28,9 +29,6 @@ export default function RootLayout({
         {children}
         <Script src="/static/jquery.min.js" strategy="beforeInteractive" />
         <Script src="/static/bootstrap.min.js" strategy="afterInteractive" />
-        <Script src="/static/ie10-viewport-bug-workaround.js" strategy="afterInteractive" />
-        <Script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" strategy="afterInteractive" />
-        <Script src="/static/cover.js" strategy="afterInteractive" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-B1XEJXPQPW" strategy="afterInteractive" />
         <Script id="ga" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];

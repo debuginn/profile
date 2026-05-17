@@ -1,0 +1,86 @@
+export type NavItem = {
+  label: string;
+  href: string;
+};
+
+export type PhotoCredit = {
+  text: string;
+  linkLabel: string;
+  linkHref: string;
+  suffix: string;
+};
+
+export type ButtonVariant = "primary" | "ghost";
+export type ButtonIcon = "apple" | "chevron-right";
+
+export type CtaButton = {
+  label: string;
+  href: string;
+  variant: ButtonVariant;
+  icon: ButtonIcon;
+};
+
+export type SectionType = "home" | "iassets" | "flybay" | "social";
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: string;
+};
+
+export type SectionDef = {
+  id: string;
+  type: SectionType;
+  dotLabel: string;
+};
+
+export type InstitutionCard = {
+  name: string;
+  slug: string;
+  type: "证券" | "银行";
+  official: number;
+  rebate: number;
+  badge: string;
+  tags: string[];
+  logo: string;
+  gradient: string;
+  href: string;
+};
+
+export type SiteConfig = {
+  site: {
+    title: string;
+    url: string;
+    description: string;
+    copyrightYear: string;
+  };
+  nav: NavItem[];
+  sections: SectionDef[];
+  home: {
+    photoCredit: PhotoCredit | null;
+    scrollToId: string;
+    backgrounds: string[];
+  };
+  iassets: {
+    mosaicShots: string[];
+    mosaicColumns: number;
+    mosaicDurations: string[];
+    mosaicDelays: string[];
+    buttons: CtaButton[];
+  };
+  flybay: {
+    titleLines: string[];
+    descriptionLines: string[];
+    siteHref: string;
+    primaryHref: string;
+    secondaryHref: string;
+    logo: string;
+    institutions: InstitutionCard[];
+    ctaLabel: string;
+  };
+  social: {
+    links: SocialLink[];
+  };
+};
+
+export { default } from "../config/site";

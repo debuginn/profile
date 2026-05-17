@@ -1,0 +1,188 @@
+{
+  "site": {
+    "title": "Debug客栈",
+    "url": "https://debuginn.cn",
+    "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
+    "copyrightYear": "2017-2026"
+  },
+  "nav": [
+    { "label": "Blog",   "href": "https://blog.debuginn.com" },
+    { "label": "Photo",  "href": "https://photo.debuginn.com" },
+    { "label": "GitHub", "href": "https://github.com/debuginn" }
+  ],
+  "sections": [
+    { "id": "home",    "type": "home",    "dotLabel": "跳转到首页" },
+    { "id": "iassets", "type": "iassets", "dotLabel": "跳转到 iAssets 页" },
+    { "id": "flybay",  "type": "flybay",  "dotLabel": "跳转到 FlyBay 飞湾计划" },
+    { "id": "social",  "type": "social",  "dotLabel": "跳转到社交媒体" }
+  ],
+  "home": {
+    "photoCredit": {
+      "text": "背景图片均来自于站长",
+      "linkLabel": "年度摄影精选照片",
+      "linkHref": "https://photo.debuginn.com",
+      "suffix": "，由 @Julissa 设计与指导 💗"
+    },
+    "scrollToId": "iassets",
+    "backgrounds": [
+      "https://webp.debuginn.com/202303120016035.jpeg",
+      "https://webp.debuginn.com/202303120014022.jpeg",
+      "https://webp.debuginn.com/202303120017184.jpeg",
+      "https://webp.debuginn.com/202303120020529.jpeg",
+      "https://webp.debuginn.com/202303120018416.jpeg",
+      "https://webp.debuginn.com/202303120018147.jpeg",
+      "https://webp.debuginn.com/202305162149771.jpg",
+      "https://webp.debuginn.com/202305162151707.jpg",
+      "https://webp.debuginn.com/202305162152763.jpg",
+      "https://webp.debuginn.com/202305162152732.jpg",
+      "https://webp.debuginn.com/202305162153714.jpg",
+      "https://webp.debuginn.com/202305162153417.jpg",
+      "https://webp.debuginn.com/202305162154852.jpg",
+      "https://webp.debuginn.com/202305162154677.jpg",
+      "https://webp.debuginn.com/202305162155271.jpg",
+      "https://webp.debuginn.com/202305162155529.jpg",
+      "https://webp.debuginn.com/202312241440666.jpg",
+      "https://webp.debuginn.com/202312241448297.jpg",
+      "https://webp.debuginn.com/202312241459045.jpg",
+      "https://webp.debuginn.com/202312241509754.jpg",
+      "https://webp.debuginn.com/20250101R4kCmh.jpg",
+      "https://webp.debuginn.com/20250101gM3cIt.jpg",
+      "https://webp.debuginn.com/20250101M4FjnX.jpg",
+      "https://webp.debuginn.com/202501014ap3u9.jpg",
+      "https://webp.debuginn.com/20250101V6b86k.jpg",
+      "https://webp.debuginn.com/20250101DxpIDD.jpg",
+      "https://webp.debuginn.com/202501014MMQzm.jpg",
+      "https://webp.debuginn.com/202501018dy1Ym.jpg",
+      "https://webp.debuginn.com/2025051038jxzl.jpg",
+      "https://webp.debuginn.com/202505109vsKjY.jpg",
+      "https://webp.debuginn.com/20250510yJb8ur.jpeg",
+      "https://webp.debuginn.com/20250510MCKPqG.jpg",
+      "https://webp.debuginn.com/20250510Y48j7B.jpg",
+      "https://webp.debuginn.com/202505105A03Qm.jpg",
+      "https://webp.debuginn.com/20250510zkQn5O.jpg",
+      "https://webp.debuginn.com/20250510zQqYeK.jpg",
+      "https://webp.debuginn.com/20250727qmakyu.jpg",
+      "https://webp.debuginn.com/20250828uaMPQa.jpg",
+      "https://webp.debuginn.com/20250831RN4Jmt.jpg",
+      "https://webp.debuginn.com/20250902G7dA4g.jpg",
+      "https://webp.debuginn.com/20250902gFdYgH.jpg",
+      "https://webp.debuginn.com/20250902GbJQtR.JPG",
+      "https://webp.debuginn.com/20250902ASdtvq.jpg",
+      "https://webp.debuginn.com/20251215creWKt.jpg",
+      "https://webp.debuginn.com/20251215dbzf0t.jpg",
+      "https://webp.debuginn.com/20251215d5bKCo.jpg"
+    ]
+  },
+  "iassets": {
+    "mosaicShots": [
+      "/assets/hero-fan/hero-1.png",
+      "/assets/hero-fan/hero-2.png",
+      "/assets/hero-fan/hero-3.png",
+      "/assets/hero-fan/hero-4.png",
+      "/assets/hero-fan/hero-5.png"
+    ],
+    "mosaicColumns": 10,
+    "mosaicDurations": ["120s", "136s", "128s", "144s"],
+    "mosaicDelays": ["0s", "-3s", "-8s", "-6s"],
+    "buttons": [
+      {
+        "label": "App Store",
+        "href": "https://apps.apple.com/cn/app/iassets/id6759790991",
+        "variant": "primary",
+        "icon": "apple"
+      },
+      {
+        "label": "查看官网",
+        "href": "https://iassets.debuginn.com",
+        "variant": "ghost",
+        "icon": "chevron-right"
+      }
+    ]
+  },
+  "flybay": {
+    "titleLines": ["一趟大湾区之行", "通过补贴报销往返交通"],
+    "descriptionLines": [
+      "官方开户激励 + 渠道返利回馈，预估到手约 ¥2,000+。",
+      "你拿到的不只是补贴，还有一次港美股与海外银行账户的启动机会。"
+    ],
+    "siteHref": "https://flybay.debuginn.com",
+    "primaryHref": "https://flybay.debuginn.com/#calculator",
+    "secondaryHref": "https://flybay.debuginn.com/#institutions",
+    "logo": "/assets/flybay-logo-v7.png",
+    "ctaLabel": "分享计划",
+    "institutions": [
+      {
+        "name": "香港复星证券",
+        "slug": "fosun-securities",
+        "type": "证券",
+        "official": 400,
+        "rebate": 150,
+        "badge": "Fosun Securities",
+        "tags": ["香港持牌", "终身免佣", "内地身份开户"],
+        "logo": "/assets/fosun-securities-logo.webp",
+        "gradient": "linear-gradient(135deg,#7a2d00 0%,#b84400 54%,#d45f00 115%)",
+        "href": "https://flybay.debuginn.com/detail/fosun-securities"
+      },
+      {
+        "name": "香港腾达证券",
+        "slug": "tendata-securities",
+        "type": "证券",
+        "official": 100,
+        "rebate": 300,
+        "badge": "GigaMoney Securities",
+        "tags": ["香港持牌", "终身免佣", "内地身份开户", "长桥系统"],
+        "logo": "/assets/tendata-securities-logo.webp",
+        "gradient": "linear-gradient(135deg,#a07800 0%,#d4a000 54%,#f5c800 115%)",
+        "href": "https://flybay.debuginn.com/detail/tendata-securities"
+      },
+      {
+        "name": "澳门蚂蚁银行",
+        "slug": "ant-bank-macau",
+        "type": "银行",
+        "official": 260,
+        "rebate": 150,
+        "badge": "Ant Bank Macau",
+        "tags": ["澳门虚拟银行", "赴澳开户", "内地身份开户"],
+        "logo": "/assets/ant-bank-macau-logo.webp",
+        "gradient": "linear-gradient(135deg,#0a3fa8 0%,#1565d8 54%,#3d8ef0 115%)",
+        "href": "https://flybay.debuginn.com/detail/ant-bank-macau"
+      },
+      {
+        "name": "香港众安银行",
+        "slug": "za-bank",
+        "type": "银行",
+        "official": 200,
+        "rebate": 150,
+        "badge": "ZA Bank",
+        "tags": ["香港虚拟银行", "赴港开户", "内地身份开户"],
+        "logo": "/assets/za-bank-logo.webp",
+        "gradient": "linear-gradient(135deg,#12433a 0%,#1f8f77 54%,#46d1af 115%)",
+        "href": "https://flybay.debuginn.com/detail/za-bank"
+      },
+      {
+        "name": "香港致富证券",
+        "slug": "chief-securities",
+        "type": "证券",
+        "official": 150,
+        "rebate": 150,
+        "badge": "Chief Securities",
+        "tags": ["香港持牌", "内地身份开户"],
+        "logo": "/assets/chief-securities-logo.webp",
+        "gradient": "linear-gradient(135deg,#1a1a6e 0%,#2b2b9e 54%,#4a4abf 115%)",
+        "href": "https://flybay.debuginn.com/detail/chief-securities"
+      }
+    ]
+  },
+  "social": {
+    "links": [
+      { "label": "微信",    "href": "https://debuginn.cn/wechat",                                              "icon": "/assets/social-wechat.svg" },
+      { "label": "微博",    "href": "https://weibo.com/u/7096209693",                                         "icon": "/assets/social-weibo.svg" },
+      { "label": "小红书",  "href": "https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068",       "icon": "/assets/social-xiaohongshu.svg" },
+      { "label": "知乎",    "href": "https://www.zhihu.com/people/debuginn",                                  "icon": "/assets/social-zhihu.svg" },
+      { "label": "X",       "href": "https://x.com/idebuginn",                                                "icon": "/assets/social-x.svg" },
+      { "label": "Telegram","href": "https://t.me/xiaoyupark",                                                "icon": "/assets/social-telegram.svg" },
+      { "label": "GitHub",  "href": "https://github.com/debuginn",                                            "icon": "github" },
+      { "label": "Blog",    "href": "https://blog.debuginn.com",                                              "icon": "blog" }
+    ]
+  }
+}
