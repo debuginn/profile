@@ -9,10 +9,16 @@ export function usePageVM(pageIds: string[], backgrounds: string[]) {
   const [hitokoto, setHitokoto] = useState(":D 获取中...");
   const [hitokotoUrl, setHitokotoUrl] = useState("#");
   const [bgUrl, setBgUrl] = useState("");
+  const [bgUrlSocial, setBgUrlSocial] = useState("");
 
   useEffect(() => {
     if (backgrounds.length > 0) {
-      setBgUrl(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
+      const pick = () => backgrounds[Math.floor(Math.random() * backgrounds.length)];
+      let a = pick();
+      let b = pick();
+      if (backgrounds.length > 1) while (b === a) b = pick();
+      setBgUrl(a);
+      setBgUrlSocial(b);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -62,5 +68,5 @@ export function usePageVM(pageIds: string[], backgrounds: string[]) {
     };
   }, [pageIds]);
 
-  return { activePage, setActivePage, hitokoto, hitokotoUrl, bgUrl };
+  return { activePage, setActivePage, hitokoto, hitokotoUrl, bgUrl, bgUrlSocial };
 }

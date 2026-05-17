@@ -16,7 +16,7 @@ const LIGHT_BG_SECTIONS = new Set(
 );
 
 export default function Home() {
-  const { activePage, setActivePage, hitokoto, bgUrl } = usePageVM(PAGE_IDS, config.home.backgrounds);
+  const { activePage, setActivePage, hitokoto, bgUrl, bgUrlSocial } = usePageVM(PAGE_IDS, config.home.backgrounds);
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
   const nextSection = config.sections[activeIdx + 1];
@@ -72,7 +72,7 @@ export default function Home() {
             <SocialSection
               key={section.id}
               links={config.social.links}
-              bgUrl={bgUrl}
+              bgUrl={bgUrlSocial}
               isLight={isLight}
             />
           );
