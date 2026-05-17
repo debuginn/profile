@@ -4,11 +4,12 @@ type Props = {
   brand: string;
   brandHref: string;
   nav: NavItem[];
+  tone?: "light" | "dark";
 };
 
-export default function Header({ brand, brandHref, nav }: Props) {
+export default function Header({ brand, brandHref, nav, tone = "light" }: Props) {
   return (
-    <div className="global-header masthead clearfix">
+    <div className={`global-header masthead clearfix global-header--${tone}`}>
       <div className="inner">
         <h3 className="masthead-brand">
           <a href={brandHref} target="_blank" rel="noreferrer">{brand}</a>
