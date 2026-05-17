@@ -12,7 +12,7 @@ function PageFooter({ showPhotoCredit }: { showPhotoCredit: boolean }) {
             <a href="https://photo.debuginn.com" target="_blank" rel="noreferrer">
               年度摄影精选照片
             </a>
-            ，由 @Julissa 设计与指导
+            ，由 @Julissa 设计与指导 💗
           </p>
         ) : null}
         <p className="copyright-text">
@@ -50,6 +50,15 @@ export default function Home() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        const hash = window.location.hash;
+        if (hash === "#iassets") {
+          setActivePage("iassets");
+          return;
+        }
+        if (hash === "#home") {
+          setActivePage("home");
+          return;
+        }
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];

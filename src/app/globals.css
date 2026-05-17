@@ -127,13 +127,16 @@ body {
   color: var(--text-dim);
 }
 
-.page-screen-home .mastfoot .inner .photo-credit {
+.global-footer .photo-credit {
   font-size: 10px;
-  color: rgba(248, 251, 255, 0.5);
+  color: #8f96a3 !important;
+  text-shadow: none !important;
+  opacity: 0.9;
 }
 
-.page-screen-home .mastfoot .inner .photo-credit a {
-  color: rgba(248, 251, 255, 0.5);
+.global-footer .photo-credit a {
+  color: #8f96a3 !important;
+  text-shadow: none !important;
 }
 
 .page-screen-iassets {
@@ -241,7 +244,7 @@ body {
   text-decoration: none;
   position: absolute;
   left: 50%;
-  bottom: 128px;
+  bottom: 76px;
   transform: translateX(-50%);
   animation: down-breathe 2.2s ease-in-out infinite;
 }
