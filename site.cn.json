@@ -1,22 +1,15 @@
 {
   "site": {
-    "title": "Debug客栈",
+    "title": "Meng小羽爱编程",
+    "homeHref": "/",
     "url": "https://debuginn.cn",
     "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
-    "copyrightYear": "2017-2026"
+    "copyrightStartYear": 2017
   },
   "nav": [
     {
-      "label": "Blog",
-      "href": "https://blog.debuginn.com"
-    },
-    {
       "label": "Photo",
       "href": "https://photo.debuginn.com"
-    },
-    {
-      "label": "GitHub",
-      "href": "https://github.com/debuginn"
     }
   ],
   "sections": [
@@ -29,11 +22,6 @@
       "id": "iassets",
       "type": "iassets",
       "dotLabel": "跳转到 iAssets 页"
-    },
-    {
-      "id": "flybay",
-      "type": "flybay",
-      "dotLabel": "跳转到 FlyBay 飞湾计划"
     },
     {
       "id": "social",
@@ -300,26 +288,6 @@
         "label": "知乎",
         "href": "https://www.zhihu.com/people/debuginn",
         "icon": "/assets/social-zhihu.svg"
-      },
-      {
-        "label": "X",
-        "href": "https://x.com/idebuginn",
-        "icon": "/assets/social-x.svg"
-      },
-      {
-        "label": "Telegram",
-        "href": "https://t.me/xiaoyupark",
-        "icon": "/assets/social-telegram.svg"
-      },
-      {
-        "label": "GitHub",
-        "href": "https://github.com/debuginn",
-        "icon": "github"
-      },
-      {
-        "label": "Blog",
-        "href": "https://blog.debuginn.com",
-        "icon": "blog"
       }
     ]
   }

@@ -50,9 +50,10 @@ export type InstitutionCard = {
 export type SiteConfig = {
   site: {
     title: string;
+    homeHref: string;
     url: string;
     description: string;
-    copyrightYear: string;
+    copyrightStartYear: number;
   };
   nav: NavItem[];
   sections: SectionDef[];

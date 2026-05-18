@@ -304,8 +304,7 @@ body {
   height: auto;
   border-radius: 14px;
   border: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  opacity: 1;
 }
 
 .cta-mosaic-card img.is-loaded {
@@ -359,15 +358,15 @@ body {
 }
 
 .iassets-btn-ghost {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.6) inset;
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.78) inset;
   color: #fff;
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .iassets-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 0 1.5px rgba(255, 255, 255, 0.8) inset;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 0 1.5px rgba(255, 255, 255, 0.92) inset;
 }
 
 .page-screen-iassets ~ .global-footer .mastfoot .inner,
@@ -395,13 +394,20 @@ body {
   color: rgba(255, 255, 255, 0.96);
   text-decoration: none;
   animation: down-breathe 2.2s ease-in-out infinite;
-  transition: opacity 0.18s ease;
+  transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
 .global-page-down:hover {
   color: rgba(255, 255, 255, 0.96);
   opacity: 0.7;
   text-decoration: none;
+}
+
+.global-page-down--fadeout {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.92);
+  animation: none;
+  pointer-events: none;
 }
 
 .global-page-down-arrow {

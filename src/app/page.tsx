@@ -25,10 +25,24 @@ export default function Home() {
     config.home.backgroundsThumb ?? []
   );
   const [headerTone, setHeaderTone] = useState<"light" | "dark">("light");
+  const [showPageDown, setShowPageDown] = useState(true);
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
   const nextSection = config.sections[activeIdx + 1];
   const isLight = LIGHT_BG_SECTIONS.has(activePage);
+
+  useEffect(() => {
+    if (activePage !== LAST_PAGE_ID) {
+      setShowPageDown(true);
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setShowPageDown(false);
+    }, 360);
+
+    return () => window.clearTimeout(timer);
+  }, [activePage]);
 
   useEffect(() => {
     const getToneFromImage = async (src: string, fallback: "light" | "dark") => {
@@ -93,7 +107,7 @@ export default function Home() {
       {activePage === FIRST_PAGE_ID && (
         <Header
           brand={config.site.title}
-          brandHref={config.site.url}
+          brandHref={config.site.homeHref}
           nav={config.nav}
           tone={headerTone}
         />
@@ -101,7 +115,7 @@ export default function Home() {
       {activePage === LAST_PAGE_ID && (
         <Header
           brand={config.site.title}
-          brandHref={config.site.url}
+          brandHref={config.site.homeHref}
           nav={config.nav}
           tone={headerTone}
         />
@@ -159,9 +173,9 @@ export default function Home() {
         return null;
       })}
 
-      {nextSection && (
+      {showPageDown && nextSection && (
         <a
-          className={`global-page-down${isLight ? " global-page-down--light" : ""}`}
+          className={`global-page-down${isLight ? " global-page-down--light" : ""}${activePage === LAST_PAGE_ID ? " global-page-down--fadeout" : ""}`}
           href={`#${nextSection.id}`}
           aria-label="跳转到下一页"
         >
@@ -180,9 +194,9 @@ export default function Home() {
           showPhotoCredit={activePage === "home" || activePage === "social"}
           showCopyright={activePage === "social"}
           photoCredit={config.home.photoCredit}
-          copyrightYear={config.site.copyrightYear}
+          copyrightStartYear={config.site.copyrightStartYear}
           siteLabel={config.site.title}
-          siteHref={config.site.url}
+          siteHref={config.site.homeHref}
           tone={headerTone}
         />
       </div>

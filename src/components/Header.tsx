@@ -12,7 +12,7 @@ export default function Header({ brand, brandHref, nav, tone = "light" }: Props)
     <div className={`global-header masthead clearfix global-header--${tone}`}>
       <div className="inner">
         <h3 className="masthead-brand">
-          <a href={brandHref} target="_blank" rel="noreferrer">{brand}</a>
+          <a href={brandHref}>{brand}</a>
         </h3>
         <nav>
           <ul className="nav masthead-nav">
