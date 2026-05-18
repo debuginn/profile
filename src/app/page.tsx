@@ -19,7 +19,11 @@ const LIGHT_BG_SECTIONS = new Set(
 );
 
 export default function Home() {
-  const { activePage, setActivePage, hitokoto, bgUrl, bgUrlSocial } = usePageVM(PAGE_IDS, config.home.backgrounds);
+  const { activePage, setActivePage, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
+    PAGE_IDS,
+    config.home.backgrounds,
+    config.home.backgroundsThumb ?? []
+  );
   const [headerTone, setHeaderTone] = useState<"light" | "dark">("light");
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
@@ -110,6 +114,7 @@ export default function Home() {
               key={section.id}
               hitokoto={hitokoto}
               bgUrl={bgUrl}
+              bgThumb={bgThumb}
             />
           );
         }
@@ -146,6 +151,7 @@ export default function Home() {
               key={section.id}
               links={config.social.links}
               bgUrl={bgUrlSocial}
+              bgThumb={bgThumbSocial}
               isLight={isLight}
             />
           );
@@ -177,6 +183,7 @@ export default function Home() {
           copyrightYear={config.site.copyrightYear}
           siteLabel={config.site.title}
           siteHref={config.site.url}
+          tone={headerTone}
         />
       </div>
 

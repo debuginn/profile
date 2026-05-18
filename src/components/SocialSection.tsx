@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { SocialLink } from "../lib/config";
 
 function SocialIcon({ icon, label }: { icon: string; label: string }) {
@@ -16,22 +17,32 @@ function SocialIcon({ icon, label }: { icon: string; label: string }) {
       </svg>
     );
   }
-  return <img src={icon} alt={label} width={28} height={28} />;
+  return <img src={icon} alt={label} width={28} height={28} loading="lazy" decoding="async" />;
 }
 
 type Props = {
   links: SocialLink[];
   bgUrl: string;
+  bgThumb: string;
   isLight: boolean;
 };
 
-export default function SocialSection({ links, bgUrl, isLight }: Props) {
+export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props) {
   return (
-    <section
-      className="page-screen page-screen-social"
-      id="social"
-      style={bgUrl ? { backgroundImage: `url(${bgUrl})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
-    >
+    <section className="page-screen page-screen-social" id="social">
+      {bgUrl ? (
+        <div className="page-bg" aria-hidden="true">
+          <Image
+            src={bgUrl}
+            alt=""
+            fill
+            sizes="100vw"
+            placeholder={bgThumb ? "blur" : "empty"}
+            blurDataURL={bgThumb || undefined}
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        </div>
+      ) : null}
       <div className="social-page">
         <div className="social-links">
           {links.map((link) => {
@@ -51,7 +62,7 @@ export default function SocialSection({ links, bgUrl, isLight }: Props) {
                 <span className="social-btn-label">{link.label}</span>
                 {isWechat && (
                   <span className="social-btn-qr" aria-hidden="true">
-                    <img src="/assets/wechat-qr.jpg" alt="微信二维码" width={120} height={120} />
+                    <img src="/assets/wechat-qr.jpg" alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />
                   </span>
                 )}
               </a>

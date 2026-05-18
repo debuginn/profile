@@ -7,11 +7,12 @@ type Props = {
   copyrightYear: string;
   siteLabel: string;
   siteHref: string;
+  tone?: "light" | "dark";
 };
 
-export default function Footer({ showPhotoCredit, showCopyright, photoCredit, copyrightYear, siteLabel, siteHref }: Props) {
+export default function Footer({ showPhotoCredit, showCopyright, photoCredit, copyrightYear, siteLabel, siteHref, tone = "light" }: Props) {
   return (
-    <div className="mastfoot">
+    <div className={`mastfoot mastfoot--${tone}`}>
       <div className="inner">
         {showPhotoCredit && photoCredit ? (
           <p className="photo-credit">

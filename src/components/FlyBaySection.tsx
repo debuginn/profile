@@ -65,7 +65,14 @@ export default function FlyBaySection({ titleLines, descriptionLines, primaryHre
           <div className="fb-hero-inner">
             {/* 左侧内容 */}
             <div className="fb-hero-left">
-              <img src={logo} alt="FlyBay Plan 飞湾计划" className="fb-logo" />
+              <img
+                src={logo}
+                alt="FlyBay Plan 飞湾计划"
+                className="fb-logo"
+                loading="lazy"
+                decoding="async"
+                onLoad={(e) => e.currentTarget.classList.add("is-loaded")}
+              />
 
               <div className="fb-activity-tag">
                 <span className="fb-activity-dot" />

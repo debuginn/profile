@@ -71,7 +71,15 @@ export default function IAssetsSection({ shots, columns, durations, delays, butt
                     >
                       {doubled.map((src, idx) => (
                         <figure className="cta-mosaic-card" key={`${col}-${idx}`}>
-                          <img src={src} alt="" width={1410} height={2770} loading="lazy" decoding="async" />
+                          <img
+                            src={src}
+                            alt=""
+                            width={1410}
+                            height={2770}
+                            loading="lazy"
+                            decoding="async"
+                            onLoad={(e) => e.currentTarget.classList.add("is-loaded")}
+                          />
                         </figure>
                       ))}
                     </div>

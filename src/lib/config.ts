@@ -60,6 +60,7 @@ export type SiteConfig = {
     photoCredit: PhotoCredit | null;
     scrollToId: string;
     backgrounds: string[];
+    backgroundsThumb?: string[];
   };
   iassets: {
     mosaicShots: string[];
