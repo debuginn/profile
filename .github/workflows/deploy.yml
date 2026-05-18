@@ -22,6 +22,8 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run gen:lqip
+
       - run: npm run build
         env:
           SITE_VARIANT: com
@@ -46,6 +48,8 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      - run: npm run gen:lqip
 
       - run: npm run build
         env:
