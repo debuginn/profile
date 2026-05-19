@@ -4,9 +4,17 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Daily at 00:00 UTC (08:00 Asia/Shanghai) — refreshes blog.posts from RSS.
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
 
 jobs:
   build-com:
@@ -22,13 +30,25 @@ jobs:
 
       - run: npm ci
 
+      - name: Refresh blog and gate scheduled runs
+        id: gate
+        run: |
+          npm run gen:blog
+          if [[ "${{ github.event_name }}" == "schedule" ]] && git diff --quiet site.json site.cn.json; then
+            echo "Scheduled run with no RSS change — skipping build & deploy."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - run: npm run gen:lqip
+        if: steps.gate.outputs.skip != 'true'
 
       - run: npm run build
+        if: steps.gate.outputs.skip != 'true'
         env:
           SITE_VARIANT: com
 
       - name: Deploy to com branch
+        if: steps.gate.outputs.skip != 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -49,13 +69,25 @@ jobs:
 
       - run: npm ci
 
+      - name: Refresh blog and gate scheduled runs
+        id: gate
+        run: |
+          npm run gen:blog
+          if [[ "${{ github.event_name }}" == "schedule" ]] && git diff --quiet site.json site.cn.json; then
+            echo "Scheduled run with no RSS change — skipping build & deploy."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - run: npm run gen:lqip
+        if: steps.gate.outputs.skip != 'true'
 
       - run: npm run build
+        if: steps.gate.outputs.skip != 'true'
         env:
           SITE_VARIANT: cn
 
       - name: Deploy to cn branch
+        if: steps.gate.outputs.skip != 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

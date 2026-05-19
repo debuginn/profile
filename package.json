@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "gen:lqip": "node scripts/gen-lqip.mjs"
+    "gen:lqip": "node scripts/gen-lqip.mjs",
+    "gen:blog": "node scripts/gen-blog.mjs"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

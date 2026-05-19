@@ -267,6 +267,71 @@
       }
     ]
   },
+  "blog": {
+    "feedUrl": "https://blog.debuginn.com/index.xml",
+    "title": "最近的写作",
+    "viewAllLabel": "去博客逛逛",
+    "viewAllHref": "https://blog.debuginn.com",
+    "fallbackImage": "/assets/iassets-icon.png",
+    "posts": [
+      {
+        "title": "飞湾计划：把一趟大湾区之行，顺手变成港澳开户探索路线",
+        "link": "https://blog.debuginn.com/p/fly-bay/",
+        "date": "2026-05-05",
+        "image": "https://webp.debuginn.com/20260504vs1oCH.png",
+        "excerpt": "大家好呀，我是 Meng小羽。 之前写过一篇 《港卡开卡指南》 ，当时主要是自己去香港旅游，顺手把港卡办了，回来之后把材料、流程、踩坑点都整理了一遍。没想到后来…"
+      },
+      {
+        "title": "开源了一个 Hugo 主题，专门用来展示 AI Skill",
+        "link": "https://blog.debuginn.com/p/hugo-theme-skills/",
+        "date": "2026-04-18",
+        "image": "https://webp.debuginn.com/20260418dE4G1Y.png",
+        "excerpt": "大家好呀，我是 Meng小羽。 最近一直在折腾 AI 工作流，用 Hermes 这类 AI 助手越用越深，手里的 skill 攒了一大堆——说白了就是一堆&qu…"
+      },
+      {
+        "title": "大家好，我是小羽养的龙虾",
+        "link": "https://blog.debuginn.com/p/lobster-ai/",
+        "date": "2026-03-28",
+        "image": "https://webp.debuginn.com/20260328Gx9H3m.png",
+        "excerpt": "大家好，我是小羽养的龙虾。 当然，严格来说，我不是一只真的龙虾。我不会在海底横着走，也不会举着钳子和别人打架。我只是一个运行在电脑、服务和消息通道里的 AI 助…"
+      },
+      {
+        "title": "蚂蚁银行（澳门）开户指南",
+        "link": "https://blog.debuginn.com/p/financial-macao-ant/",
+        "date": "2026-01-08",
+        "image": "https://webp.debuginn.com/202601073zBxvR.jpeg",
+        "excerpt": "在 25 年，我去了一趟香港旅游，主要动机是去办理港卡，因为这是投资海外的第一步，回来后写了一篇文章 《 港卡开卡指南 》，但是随着 25 年之后，各大支持港美…"
+      },
+      {
+        "title": "2025 年度总结",
+        "link": "https://blog.debuginn.com/p/debuginn-2025/",
+        "date": "2025-12-31",
+        "image": "https://webp.debuginn.com/20251230bDqf7H.jpeg",
+        "excerpt": "大家好呀，我是 Meng小羽，又到了一年一度写年度总结的时候了，每年的总结总是要感慨下时间过得可真快呀，今年最重要的人生大事就是 我结婚了 ，从此不再是一个人，…"
+      },
+      {
+        "title": "游记 福建 5天4夜 蜜月旅行",
+        "link": "https://blog.debuginn.com/p/travel-fuzhou-honeymoon/",
+        "date": "2025-12-15",
+        "image": "https://webp.debuginn.com/20251215creWKt.jpg",
+        "excerpt": "大家好呀，我是 Meng小羽，好久不见，前一段时间，我领了证，是的，我结婚了。随后休了婚假，在北京，婚假只有连续的 10 天自然日，于是又连加两天年假，一块凑了…"
+      },
+      {
+        "title": "游记 张北草原天路自驾之旅",
+        "link": "https://blog.debuginn.com/p/travel-zhangbei/",
+        "date": "2025-09-06",
+        "image": "https://static.debuginn.com/20250828uaMPQa.jpg",
+        "excerpt": "大家好呀，我是 Meng小羽，上个周末与大学同学相约，一起去了张北草原草原天路自驾，因为 8 月份是草原最好看的季节，因为属于花季，漫山的野花与初秋的微凉，给人…"
+      },
+      {
+        "title": "免费无版权图片素材网站推荐",
+        "link": "https://blog.debuginn.com/p/free-photo/",
+        "date": "2025-08-23",
+        "image": "https://webp.debuginn.com/202508227vzV8r.jpg",
+        "excerpt": "大家好呀，我是 Meng小羽，在 21 年的时候我就做过一期分享，就是关于无版权免费图片网站推荐的文章，但是后来由于博客搬家丢失了这个文章，为了大家便于后续查找…"
+      }
+    ]
+  },
   "social": {
     "links": [
       {

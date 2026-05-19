@@ -71,7 +71,6 @@ export default function FlyBaySection({ titleLines, descriptionLines, primaryHre
                 className="fb-logo"
                 loading="lazy"
                 decoding="async"
-                onLoad={(e) => e.currentTarget.classList.add("is-loaded")}
               />
 
               <div className="fb-activity-tag">
