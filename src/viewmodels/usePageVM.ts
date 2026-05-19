@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export type ActivePage = string;
 
 export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsThumb: string[] = []) {
   const [activePage, setActivePage] = useState<ActivePage>("home");
+  const [dotsVisible, setDotsVisible] = useState(true);
   const [hitokoto, setHitokoto] = useState(":D 获取中...");
   const [hitokotoUrl, setHitokotoUrl] = useState("#");
   const [bgUrl, setBgUrl] = useState("");
   const [bgUrlSocial, setBgUrlSocial] = useState("");
   const [bgThumb, setBgThumb] = useState("");
   const [bgThumbSocial, setBgThumbSocial] = useState("");
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (backgrounds.length === 0) return;
@@ -47,6 +49,7 @@ export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsT
 
     syncByHash();
     window.addEventListener("hashchange", syncByHash);
+    hideTimer.current = setTimeout(() => setDotsVisible(false), 1000);
 
     if (!root || els.length === 0) {
       return () => window.removeEventListener("hashchange", syncByHash);
@@ -59,6 +62,9 @@ export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsT
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (!visible) return;
         setActivePage(visible.target.id);
+        setDotsVisible(true);
+        if (hideTimer.current) clearTimeout(hideTimer.current);
+        hideTimer.current = setTimeout(() => setDotsVisible(false), 1000);
       },
       { root, threshold: [0.45, 0.6, 0.8] }
     );
@@ -68,8 +74,9 @@ export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsT
     return () => {
       observer.disconnect();
       window.removeEventListener("hashchange", syncByHash);
+      if (hideTimer.current) clearTimeout(hideTimer.current);
     };
   }, [pageIds]);
 
-  return { activePage, setActivePage, hitokoto, hitokotoUrl, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial };
+  return { activePage, setActivePage, dotsVisible, hitokoto, hitokotoUrl, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial };
 }

@@ -20,7 +20,7 @@ const LIGHT_BG_SECTIONS = new Set(
 );
 
 export default function Home() {
-  const { activePage, setActivePage, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
+  const { activePage, setActivePage, dotsVisible, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
     PAGE_IDS,
     config.home.backgrounds,
     config.home.backgroundsThumb ?? []
@@ -217,7 +217,7 @@ export default function Home() {
       <PageDots
         dots={config.sections.map((s) => ({ id: s.id, label: s.dotLabel }))}
         activePage={activePage}
-        onDotClick={setActivePage}
+        visible={dotsVisible}
       />
     </main>
   );
