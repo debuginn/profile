@@ -23,8 +23,8 @@ export default function BlogSection({ fallbackImage, posts }: Props) {
 
   return (
     <section className="page-screen page-screen-blog" id="blog">
+      <div className="blog-backdrop-word" aria-hidden="true">BLOG</div>
       <div className="blog-page">
-        <div className="blog-backdrop-word" aria-hidden="true">BLOG</div>
 
         <div className="blog-grid">
           {featuredPosts.map((post, index) => (
