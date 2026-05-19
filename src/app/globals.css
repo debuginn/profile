@@ -539,15 +539,18 @@ body {
     radial-gradient(ellipse at 88% 90%, rgba(249, 240, 207, 0.58) 0%, transparent 44%),
     #f5f7ee;
   color: #152118;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fb-page {
-  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 96px 20px 80px;
+  padding: 88px 20px;
   box-sizing: border-box;
 }
 
@@ -813,7 +816,7 @@ body {
 
 @media (max-width: 768px) {
   .fb-page {
-    padding: 44px 16px 56px;
+    padding: 72px 16px;
   }
 
   .fb-hero-panel {
@@ -1008,20 +1011,21 @@ body {
     radial-gradient(circle at 86% 72%, rgba(215, 169, 85, 0.18) 0%, transparent 34%),
     linear-gradient(135deg, #071016 0%, #101820 48%, #05080b 100%);
   color: #f8fbff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog-page {
   position: relative;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 112px 34px 88px;
-  max-width: 1320px;
-  margin: 0 auto;
+  padding: 100px 34px;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .blog-page::before {
@@ -1029,7 +1033,6 @@ body {
   position: absolute;
   inset: 12%;
   background:
-    linear-gradient(115deg, transparent 0 42%, rgba(255, 255, 255, 0.08) 42% 42.4%, transparent 42.4% 100%),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 82px);
   opacity: 0.42;
   transform: rotate(-8deg);
@@ -1039,11 +1042,11 @@ body {
 .blog-backdrop-word {
   position: absolute;
   left: 50%;
-  top: 44%;
+  top: 50%;
   z-index: 0;
   transform: translate(-50%, -50%);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(190px, 28vw, 420px);
+  font-size: clamp(280px, 38vw, 560px);
   font-weight: 700;
   line-height: 0.8;
   letter-spacing: -0.1em;
@@ -1076,15 +1079,19 @@ body {
   text-decoration: none !important;
   color: #fff;
   isolation: isolate;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  outline-offset: -1px;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
   transform: translateZ(0);
-  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.24s ease, outline-color 0.24s ease, box-shadow 0.24s ease;
 }
 
 .blog-card:hover {
   transform: translateY(-8px) rotate(-0.6deg);
-  border-color: rgba(255, 255, 255, 0.22);
+  outline-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
   text-decoration: none !important;
 }
@@ -1153,7 +1160,7 @@ body {
 }
 
 .blog-card-date {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.62);
   letter-spacing: 0.08em;
@@ -1165,7 +1172,7 @@ body {
   margin: 0;
   width: 100%;
   text-align: left;
-  font-size: clamp(14px, 1.2vw, 18px);
+  font-size: clamp(12px, 0.95vw, 15px);
   font-weight: 700;
   line-height: 1.32;
   color: rgba(255, 255, 255, 0.96);
@@ -1176,26 +1183,31 @@ body {
 }
 
 .blog-card--1 {
-  transform: translateY(-4px) rotate(-1.2deg);
+  transform: translateY(-16px) rotate(-4deg);
+  z-index: 1;
 }
 
 .blog-card--2 {
-  transform: translateY(7px) rotate(0.8deg);
+  transform: translateY(16px) rotate(2.5deg);
+  z-index: 1;
 }
 
 .blog-card--3 {
-  transform: translateY(-2px) rotate(-0.5deg);
+  transform: translateY(-16px) rotate(-3deg);
+  z-index: 1;
 }
 
 .blog-card--4 {
-  transform: translateY(9px) rotate(1.1deg);
+  transform: translateY(16px) rotate(3.5deg);
+  z-index: 1;
 }
 
 .blog-card--1:hover,
 .blog-card--2:hover,
 .blog-card--3:hover,
 .blog-card--4:hover {
-  transform: translateY(-8px) rotate(0deg);
+  transform: translateY(-12px) rotate(0deg);
+  z-index: 10;
 }
 
 @media (max-width: 1024px) {
