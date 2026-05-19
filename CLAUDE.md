@@ -6,27 +6,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `npm run dev` — start the Next.js dev server (defaults to the `com` variant).
 - `npm run build` — produce the static export in `out/`. Set `SITE_VARIANT` to choose locale: `SITE_VARIANT=com npm run build` or `SITE_VARIANT=cn npm run build`. Anything other than `cn` resolves to `com`.
-- `npm run start` — serve a previously built app (rarely useful here since `next.config.ts` sets `output: "export"`).
-- `npm run lint` — run ESLint (flat config in `eslint.config.mjs`, extends `eslint-config-next/core-web-vitals` + `/typescript`).
-- `npm run gen:lqip` — top up `home.backgroundsThumb` in both JSONs with base64 LQIPs for any new entries in `home.backgrounds`. Idempotent: existing thumbs are reused, only new URLs hit the network. CI also runs this before every build.
+- `npm run lint` — run ESLint (flat config in `eslint.config.mjs`).
+- `npm run gen:lqip` — top up `home.backgroundsThumb` in both JSONs with base64 LQIPs for any new entries in `home.backgrounds`. Idempotent. CI runs this before every build.
+- `npm run gen:blog` — fetch latest posts from the RSS feed and write them into `blog.posts` in both JSONs. CI runs this before every build; scheduled daily at 00:00 UTC.
 - No test runner is configured.
 
 ## Architecture
 
-This is a Next.js 16 App Router site exported as static HTML and deployed to GitHub Pages. The whole product is a single full-bleed scrollable page composed of four sections, parameterized by JSON so the same code ships two variants.
+This is a Next.js 16 App Router site exported as static HTML and deployed to GitHub Pages. The whole product is a single full-bleed scrollable page composed of sections, parameterized by JSON so the same code ships two variants.
 
 ### Variant system (com / cn)
 
-`next.config.ts` exposes `SITE_VARIANT` to the client. `src/lib/config.ts` imports both `site.json` and `site.cn.json` at build time and picks one based on `SITE_VARIANT`. **Never read `process.env.SITE_VARIANT` from components** — go through `src/lib/config.ts` (re-exported as the default of `src/lib/config`) so the right JSON is bundled. Types for the JSON shape live in `src/lib/config.ts` (`SiteConfig`, `SectionDef`, `InstitutionCard`, etc.); update both JSON files together when changing schema.
+`next.config.ts` exposes `SITE_VARIANT` to the client. `src/config/site.ts` imports both `site.json` and `site.cn.json` at build time and picks one based on `SITE_VARIANT`. **Never read `process.env.SITE_VARIANT` from components** — go through `src/lib/config.ts` (which re-exports the default of `src/config/site.ts`) so the right JSON is bundled. Types for the JSON shape live in `src/lib/config.ts` (`SiteConfig`, `SectionDef`, `InstitutionCard`, etc.); update both JSON files together when changing schema.
 
 ### Page composition
 
 `src/app/page.tsx` is the single client page. It:
 
-1. Calls `usePageVM(PAGE_IDS, config.home.backgrounds, config.home.backgroundsThumb)` (in `src/viewmodels/usePageVM.ts`) to get `activePage`, two independently-randomized background URLs (`bgUrl` for the home section, `bgUrlSocial` for the social section) paired with their LQIP thumbs (`bgThumb`, `bgThumbSocial`), and a hitokoto string fetched from `v1.hitokoto.cn`. URL and thumb are picked by index, never independently — keep them in sync.
-2. Maps `config.sections` (declared in JSON) to one of four section components (`HomeSection`, `IAssetsSection`, `FlyBaySection`, `SocialSection`) by `section.type`. To add a section, extend the `SectionType` union in `src/lib/config.ts`, add a JSON entry, and add a branch in `page.tsx`.
-3. Decides the `headerTone` (`light`/`dark`) by sampling the active background image's average luminance through a 32×32 canvas — needed because backgrounds are random and arbitrary. The same tone drives the `Header` (first and last sections only) and the `Footer` photo-credit, so brand text and credit text always agree.
-4. Renders a global page-down chevron pointing at `config.sections[activeIdx + 1]` and a `PageDots` rail driven by the same section list. The chevron's color uses a fixed `LIGHT_BG_SECTIONS` set (just `flybay` today) instead of the canvas-derived tone, because flybay is the one section with a guaranteed light background.
+1. Calls `usePageVM(PAGE_IDS, config.home.backgrounds, config.home.backgroundsThumb)` (in `src/viewmodels/usePageVM.ts`) to get `activePage`, two independently-randomized background URLs (`bgUrl` for the home section, `bgUrlSocial` for the social section) paired with their LQIP thumbs (`bgThumb`, `bgThumbSocial`), and a hitokoto string fetched from `v1.hitokoto.cn`. URL and thumb are picked by index — keep them in sync.
+2. Maps `config.sections` to section components (`HomeSection`, `IAssetsSection`, `FlyBaySection`, `BlogSection`, `SocialSection`) by `section.type`. To add a section, extend the `SectionType` union in `src/lib/config.ts`, add a JSON entry, and add a branch in `page.tsx`.
+3. Renders a global page-down chevron pointing at `config.sections[activeIdx + 1]` and a `PageDots` rail. The chevron and dots use a fixed `LIGHT_BG_SECTIONS` set (just `flybay` today) to switch between dark/light color themes.
 
 ### Background image pipeline (LQIP)
 
@@ -37,21 +36,25 @@ Home and social sections use `next/image` with `placeholder="blur"`, not CSS `ba
 3. The two arrays are paired by index — `usePageVM` picks an index, then reads URL and thumb from the same slot.
 4. `next.config.ts` sets `images.unoptimized: true` so `<Image>` works with arbitrary remote URLs under `output: "export"`.
 
-To add a new background: append the URL to both JSONs' `home.backgrounds`, then either run `npm run gen:lqip` locally or just commit and push — CI regenerates missing thumbs before the build. The home section's `<Image>` has `priority` for LCP; the social one is lazy. The luminance probe in `page.tsx` is a *separate* `new Image()` request (with `crossOrigin="anonymous"` so the canvas can read pixels) from the one Next renders — expect two network requests per visible bg.
+To add a new background: append the URL to both JSONs' `home.backgrounds`, then run `npm run gen:lqip` locally or just commit and push — CI regenerates missing thumbs before the build.
 
-Stacking inside home/social: the `<Image>` lives inside an absolute `.page-bg` div at z-index 0; the content wrapper (`.site-wrapper` on home, `.social-page` on social) is `position: relative; z-index: 1` so its inset vignette shadow paints over the photo, not under it.
+Stacking inside home/social: the `<Image>` lives inside an absolute `.page-bg` div at z-index 0; the content wrapper is `position: relative; z-index: 1`.
+
+### Blog section
+
+`blog.posts` in both JSONs is written by `scripts/gen-blog.mjs`, which fetches `https://blog.debuginn.com/index.xml` and extracts the latest posts. CI refreshes this daily; on scheduled runs with no RSS change the build is skipped entirely (gated in the workflow). `BlogSection` renders the first 4 posts as cards with a large decorative "BLOG" backdrop word.
 
 ### Active-section tracking
 
-`usePageVM` syncs `activePage` from two sources: the URL hash (`hashchange`) and an `IntersectionObserver` rooted at `.page-stack` watching each section element. Section ids in the JSON must match the DOM ids the section components render. The `.page-stack` container is the scroll root (see `globals.css`) — sections do not scroll the window.
+`usePageVM` syncs `activePage` from two sources: the URL hash (`hashchange`) and an `IntersectionObserver` rooted at `.page-stack` watching each section element. Section ids in the JSON must match the DOM ids the section components render. The `.page-stack` container is the scroll root — sections do not scroll the window.
 
 ### Static assets and legacy CSS
 
-The site still pulls Bootstrap 3 + jQuery from `public/static/` (loaded as `<Script>` in `src/app/layout.tsx`) and uses `cover.css` for layout primitives. Don't delete these; section markup depends on Bootstrap utility classes. Section-specific images live under `public/assets/`. `index.html` and `404.html` at the repo root are legacy artifacts and are not part of the Next.js build.
+The site still pulls Bootstrap 3 + jQuery from `public/static/` (loaded as `<Script>` in `src/app/layout.tsx`) and uses `cover.css` for layout primitives. Don't delete these; section markup depends on Bootstrap utility classes.
 
 ### Deployment
 
-`.github/workflows/deploy.yml` runs on pushes to `main` and builds twice in parallel — once with `SITE_VARIANT=com` (deployed via `peaceiris/actions-gh-pages` to the `com` branch) and once with `SITE_VARIANT=cn` (to the `cn` branch). Each job runs `npm ci` → `npm run gen:lqip` → `npm run build`; the gen step is a no-op when `backgroundsThumb` is already complete. Both deploys use `force_orphan: true`, so each branch is rewritten on every deploy. Day-to-day work happens on `dev`; merge to `main` to ship.
+`.github/workflows/deploy.yml` runs on pushes to `main`, on a daily schedule (00:00 UTC), and on manual dispatch. It builds both variants in parallel (`SITE_VARIANT=com` → `com` branch, `SITE_VARIANT=cn` → `cn` branch) via `peaceiris/actions-gh-pages` with `force_orphan: true`. Each job runs `npm ci` → `npm run gen:blog` → `npm run gen:lqip` → `npm run build`. Day-to-day work happens on `dev`; merge to `main` to ship.
 
 ### Path alias
 

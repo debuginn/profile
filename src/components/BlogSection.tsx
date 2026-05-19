@@ -18,25 +18,19 @@ function formatDate(iso: string) {
   return `${y} / ${m} / ${day}`;
 }
 
-export default function BlogSection({ title, viewAllLabel, viewAllHref, fallbackImage, posts }: Props) {
+export default function BlogSection({ fallbackImage, posts }: Props) {
+  const featuredPosts = posts.slice(0, 4);
+
   return (
     <section className="page-screen page-screen-blog" id="blog">
       <div className="blog-page">
-        <div className="blog-header">
-          <h2 className="blog-title">{title}</h2>
-          <a className="blog-view-all" href={viewAllHref} target="_blank" rel="noreferrer">
-            {viewAllLabel}
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </a>
-        </div>
+        <div className="blog-backdrop-word" aria-hidden="true">BLOG</div>
 
         <div className="blog-grid">
-          {posts.map((post) => (
+          {featuredPosts.map((post, index) => (
             <a
               key={post.link}
-              className="blog-card"
+              className={`blog-card blog-card--post blog-card--${index + 1}`}
               href={post.link}
               target="_blank"
               rel="noreferrer"
@@ -50,9 +44,8 @@ export default function BlogSection({ title, viewAllLabel, viewAllHref, fallback
                 />
               </div>
               <div className="blog-card-body">
-                <div className="blog-card-meta">{formatDate(post.date)}</div>
+                <div className="blog-card-date">{formatDate(post.date)}</div>
                 <h3 className="blog-card-title">{post.title}</h3>
-                <p className="blog-card-excerpt">{post.excerpt}</p>
               </div>
             </a>
           ))}
