@@ -79,7 +79,6 @@ export default function IAssetsSection({ shots, columns, durations, delays, butt
                             loading={idx < 2 ? "eager" : "lazy"}
                             fetchPriority={idx < 2 ? "high" : "auto"}
                             decoding="async"
-                            onLoad={(e) => e.currentTarget.classList.add("is-loaded")}
                           />
                         </figure>
                       ))}
