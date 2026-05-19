@@ -9,18 +9,33 @@ type DotDef = {
 type Props = {
   dots: DotDef[];
   activePage: ActivePage;
-  onDotClick: (id: ActivePage) => void;
+  visible: boolean;
 };
 
 const LIGHT_BG_SECTIONS = new Set(
   config.sections.filter((s) => s.type === "flybay").map((s) => s.id)
 );
 
-export default function PageDots({ dots, activePage, onDotClick }: Props) {
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const container = document.querySelector(".page-stack") as HTMLElement | null;
+  if (container) {
+    container.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+  } else {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+  window.location.hash = id;
+}
+
+export default function PageDots({ dots, activePage, visible }: Props) {
   const isLight = LIGHT_BG_SECTIONS.has(activePage);
 
   return (
-    <nav className={`page-dots${isLight ? " page-dots--light" : ""}`} aria-label="页面导航">
+    <nav
+      className={`page-dots${isLight ? " page-dots--light" : ""}${visible ? "" : " page-dots--hidden"}`}
+      aria-label="页面导航"
+    >
       {dots.map((dot) => (
         <a
           key={dot.id}
@@ -28,7 +43,10 @@ export default function PageDots({ dots, activePage, onDotClick }: Props) {
           href={`#${dot.id}`}
           aria-label={dot.label}
           aria-current={activePage === dot.id ? "page" : undefined}
-          onClick={() => onDotClick(dot.id as ActivePage)}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection(dot.id);
+          }}
         />
       ))}
     </nav>

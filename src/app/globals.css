@@ -40,7 +40,7 @@ body {
 .page-screen {
   height: 100vh;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: clip;
   scroll-snap-align: start;
   position: relative;
 }
@@ -454,6 +454,24 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.page-dots--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-dots--hidden::after {
+  content: "";
+  position: absolute;
+  inset: -8px -16px;
+  pointer-events: auto;
+}
+
+.page-dots--hidden:hover {
+  opacity: 1;
 }
 
 .page-dot {
@@ -571,6 +589,8 @@ body {
   box-sizing: border-box;
   text-shadow: none;
   text-align: left;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  transform: translateZ(0);
 }
 
 /* Glow accents */
@@ -1240,21 +1260,23 @@ body {
   }
 
   .blog-backdrop-word {
-    top: 42%;
-    font-size: 148px;
+    font-size: clamp(100px, 56vw, 200px);
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+    overflow: visible;
   }
 
   .blog-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
-    max-width: 420px;
+    gap: 32px;
+    max-width: 380px;
     margin: 0 auto;
   }
 
   .blog-card {
     min-height: 0;
     aspect-ratio: 1.62 / 1;
-    border-radius: 18px;
+    border-radius: 14px;
   }
 
   .blog-card::after {
@@ -1268,15 +1290,15 @@ body {
   }
 
   .blog-card-body {
-    padding: 16px 16px 15px;
+    padding: 12px 12px 11px;
   }
 
   .blog-card-date {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .blog-card-title {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1.35;
   }
 }
