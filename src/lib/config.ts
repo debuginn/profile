@@ -20,7 +20,15 @@ export type CtaButton = {
   icon: ButtonIcon;
 };
 
-export type SectionType = "home" | "iassets" | "flybay" | "social";
+export type SectionType = "home" | "iassets" | "flybay" | "blog" | "social";
+
+export type BlogPost = {
+  title: string;
+  link: string;
+  date: string;
+  image: string;
+  excerpt: string;
+};
 
 export type SocialLink = {
   label: string;
@@ -78,6 +86,14 @@ export type SiteConfig = {
     logo: string;
     institutions: InstitutionCard[];
     ctaLabel: string;
+  };
+  blog: {
+    feedUrl: string;
+    title: string;
+    viewAllLabel: string;
+    viewAllHref: string;
+    fallbackImage: string;
+    posts: BlogPost[];
   };
   social: {
     links: SocialLink[];

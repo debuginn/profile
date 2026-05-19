@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import HomeSection from "../components/HomeSection";
 import IAssetsSection from "../components/IAssetsSection";
 import FlyBaySection from "../components/FlyBaySection";
+import BlogSection from "../components/BlogSection";
 import SocialSection from "../components/SocialSection";
 import PageDots from "../components/PageDots";
 
@@ -142,6 +143,18 @@ export default function Home() {
               logo={config.flybay.logo}
               institutions={config.flybay.institutions}
               ctaLabel={config.flybay.ctaLabel}
+            />
+          );
+        }
+        if (section.type === "blog") {
+          return (
+            <BlogSection
+              key={section.id}
+              title={config.blog.title}
+              viewAllLabel={config.blog.viewAllLabel}
+              viewAllHref={config.blog.viewAllHref}
+              fallbackImage={config.blog.fallbackImage}
+              posts={config.blog.posts}
             />
           );
         }
