@@ -19,13 +19,8 @@ const LIGHT_BG_SECTIONS = new Set(
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
-  const container = document.querySelector(".page-stack") as HTMLElement | null;
-  if (container) {
-    container.scrollTo({ top: el.offsetTop, behavior: "smooth" });
-  } else {
-    el.scrollIntoView({ behavior: "smooth" });
-  }
-  window.location.hash = id;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.replaceState(null, "", `#${id}`);
 }
 
 export default function PageDots({ dots, activePage, visible }: Props) {
