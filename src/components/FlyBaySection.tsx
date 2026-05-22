@@ -2,18 +2,13 @@
 
 import { useMemo } from "react";
 import { geoMercator, geoPath } from "d3-geo";
-import { feature } from "topojson-client";
-import worldAtlas from "world-atlas/countries-110m.json";
 import type { Feature, FeatureCollection, Geometry, GeoJsonProperties } from "geojson";
+import chinaBounds from "../assets/china-bounds.json";
 import type { InstitutionCard } from "../lib/config";
 
-const atlasData = worldAtlas as unknown as { objects: { countries: unknown } };
-const countries = feature(
-  atlasData as never,
-  atlasData.objects.countries as never,
-) as unknown as FeatureCollection<Geometry, GeoJsonProperties>;
-const chinaFeature = countries.features.find((f) => String(f.id) === "156");
-const taiwanFeature = countries.features.find((f) => String(f.id) === "158");
+const bounds = chinaBounds as unknown as FeatureCollection<Geometry, GeoJsonProperties>;
+const chinaFeature = bounds.features.find((f) => String(f.id) === "156");
+const taiwanFeature = bounds.features.find((f) => String(f.id) === "158");
 
 const CITY_NODES = [
   { name: "北京", lng: 116.4074, lat: 39.9042 },
