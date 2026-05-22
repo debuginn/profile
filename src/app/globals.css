@@ -1,3 +1,28 @@
+/* Inlined from Bootstrap 3 — only the rules the layout actually uses. */
+.lead {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  .lead {
+    font-size: 21px;
+  }
+}
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
+ul.nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 :root {
   --text: #f8fbff;
   --text-dim: rgba(248, 251, 255, 0.82);

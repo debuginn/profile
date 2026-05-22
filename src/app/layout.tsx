@@ -24,14 +24,10 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
         <link rel="manifest" href="/static/site.webmanifest" />
         <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5" />
-        <link rel="stylesheet" href="/static/bootstrap.min.css" />
-        <link rel="stylesheet" href="/static/ie10-viewport-bug-workaround.css" />
         <link rel="stylesheet" href="/static/cover.css" />
       </head>
       <body>
         {children}
-        <Script src="/static/jquery.min.js" strategy="beforeInteractive" />
-        <Script src="/static/bootstrap.min.js" strategy="afterInteractive" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-B1XEJXPQPW" strategy="afterInteractive" />
         <Script id="ga" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
