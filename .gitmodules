@@ -1,3 +1,0 @@
-[submodule "vendor/flybay"]
-	path = vendor/flybay
-	url = https://github.com/debuginn/flyBay.git
