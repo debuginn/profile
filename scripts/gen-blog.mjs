@@ -76,11 +76,17 @@ for (const file of FILES) {
     continue;
   }
   process.stdout.write(`[${file}] fetching ${feedUrl}\n`);
-  const res = await fetch(feedUrl);
-  if (!res.ok) throw new Error(`fetch failed (${res.status}) for ${feedUrl}`);
-  const xml = await res.text();
-  const posts = parseFeed(xml).slice(0, LIMIT);
-  json.blog.posts = posts;
-  await writeFile(path, JSON.stringify(json, null, 2) + "\n");
-  console.log(`[${file}] wrote ${posts.length} posts`);
+  try {
+    const res = await fetch(feedUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const xml = await res.text();
+    const posts = parseFeed(xml).slice(0, LIMIT);
+    if (posts.length === 0) throw new Error("no posts parsed from feed");
+    json.blog.posts = posts;
+    await writeFile(path, JSON.stringify(json, null, 2) + "\n");
+    console.log(`[${file}] wrote ${posts.length} posts`);
+  } catch (err) {
+    const cached = Array.isArray(json.blog?.posts) ? json.blog.posts.length : 0;
+    console.warn(`[${file}] feed fetch failed (${err.message}); keeping ${cached} cached posts`);
+  }
 }
