@@ -67,7 +67,6 @@ export default function FlyBaySection({ titleLines, descriptionLines, primaryHre
             </a>
           }
           mapSlot={<WorldMap />}
-          maxWidth="1088px"
         />
       </div>
     </section>
