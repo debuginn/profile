@@ -37,6 +37,10 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vendor/flybay/src/app",
+    "vendor/flybay/src/lib",
+    "vendor/flybay/src/components/HomeInstitutionCard.tsx",
+    "vendor/flybay/src/components/detail"
   ]
 }
