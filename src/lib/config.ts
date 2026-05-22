@@ -101,4 +101,11 @@ export type SiteConfig = {
   };
 };
 
+import siteConfig from "../config/site";
+
+/** Sections that render on a light/photo-y background — used to flip nav + dot tones. */
+export const LIGHT_BG_SECTIONS = new Set(
+  siteConfig.sections.filter((s) => s.type === "flybay").map((s) => s.id),
+);
+
 export { default } from "../config/site";

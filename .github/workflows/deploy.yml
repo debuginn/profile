@@ -17,11 +17,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-com:
-    name: Build → com branch
+  prepare:
+    name: Prepare site assets
     runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.gate.outputs.skip }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
@@ -42,13 +47,44 @@ jobs:
       - run: npm run gen:lqip
         if: steps.gate.outputs.skip != 'true'
 
-      - run: npm run build
+      - name: Upload prepared site sources
         if: steps.gate.outputs.skip != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-sources
+          path: |
+            site.json
+            site.cn.json
+          retention-days: 1
+
+  build-com:
+    name: Build → com branch
+    needs: prepare
+    if: needs.prepare.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Restore prepared site sources
+        uses: actions/download-artifact@v4
+        with:
+          name: site-sources
+
+      - run: npm run build
         env:
           SITE_VARIANT: com
 
       - name: Deploy to com branch
-        if: steps.gate.outputs.skip != 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -58,9 +94,14 @@ jobs:
 
   build-cn:
     name: Build → cn branch
+    needs: prepare
+    if: needs.prepare.outputs.skip != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
@@ -69,25 +110,16 @@ jobs:
 
       - run: npm ci
 
-      - name: Refresh blog and gate scheduled runs
-        id: gate
-        run: |
-          npm run gen:blog
-          if [[ "${{ github.event_name }}" == "schedule" ]] && git diff --quiet site.json site.cn.json; then
-            echo "Scheduled run with no RSS change — skipping build & deploy."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - run: npm run gen:lqip
-        if: steps.gate.outputs.skip != 'true'
+      - name: Restore prepared site sources
+        uses: actions/download-artifact@v4
+        with:
+          name: site-sources
 
       - run: npm run build
-        if: steps.gate.outputs.skip != 'true'
         env:
           SITE_VARIANT: cn
 
       - name: Deploy to cn branch
-        if: steps.gate.outputs.skip != 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

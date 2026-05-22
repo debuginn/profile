@@ -6,12 +6,7 @@
     "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
     "copyrightStartYear": 2017
   },
-  "nav": [
-    {
-      "label": "Photo",
-      "href": "https://photo.debuginn.com"
-    }
-  ],
+  "nav": [],
   "sections": [
     {
       "id": "home",
@@ -140,14 +135,34 @@
       "/assets/hero-fan/hero-2.png",
       "/assets/hero-fan/hero-3.png",
       "/assets/hero-fan/hero-4.png",
-      "/assets/hero-fan/hero-5.png"
+      "/assets/hero-fan/hero-5.png",
+      "/assets/hero-fan-en/hero-1.png",
+      "/assets/hero-fan-en/hero-2.png",
+      "/assets/hero-fan-en/hero-3.png",
+      "/assets/hero-fan-en/hero-4.png",
+      "/assets/hero-fan-en/hero-5.png",
+      "/assets/hero-fan-zh-hant/hero-1.png",
+      "/assets/hero-fan-zh-hant/hero-2.png",
+      "/assets/hero-fan-zh-hant/hero-3.png",
+      "/assets/hero-fan-zh-hant/hero-4.png",
+      "/assets/hero-fan-zh-hant/hero-5.png",
+      "/assets/hero-fan-ja/hero-1.png",
+      "/assets/hero-fan-ja/hero-2.png",
+      "/assets/hero-fan-ja/hero-3.png",
+      "/assets/hero-fan-ja/hero-4.png",
+      "/assets/hero-fan-ja/hero-5.png",
+      "/assets/hero-fan-ko/hero-1.png",
+      "/assets/hero-fan-ko/hero-2.png",
+      "/assets/hero-fan-ko/hero-3.png",
+      "/assets/hero-fan-ko/hero-4.png",
+      "/assets/hero-fan-ko/hero-5.png"
     ],
     "mosaicColumns": 10,
     "mosaicDurations": [
-      "120s",
-      "136s",
-      "128s",
-      "144s"
+      "600s",
+      "660s",
+      "630s",
+      "690s"
     ],
     "mosaicDelays": [
       "0s",
@@ -164,7 +179,7 @@
       },
       {
         "label": "查看官网",
-        "href": "https://iassets.debuginn.com",
+        "href": "https://iassets.debuginn.cn/zh/",
         "variant": "ghost",
         "icon": "chevron-right"
       }

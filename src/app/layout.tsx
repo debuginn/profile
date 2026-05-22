@@ -3,9 +3,35 @@ import Script from "next/script";
 import config from "../lib/config";
 import "./globals.css";
 
+const ogImage = config.home.backgrounds[0];
+const altUrl = config.site.url.includes(".cn") ? "https://debuginn.com" : "https://debuginn.cn";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(config.site.url),
   title: config.site.title,
-  description: config.site.description
+  description: config.site.description,
+  alternates: {
+    canonical: config.site.url,
+    languages: {
+      "zh-CN": config.site.url.includes(".cn") ? config.site.url : altUrl,
+      "x-default": config.site.url.includes(".cn") ? altUrl : config.site.url,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: config.site.title,
+    title: config.site.title,
+    description: config.site.description,
+    url: config.site.url,
+    locale: config.site.url.includes(".cn") ? "zh_CN" : "en_US",
+    images: ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: config.site.title }] : undefined,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: config.site.title,
+    description: config.site.description,
+    images: ogImage ? [ogImage] : undefined,
+  },
 };
 
 export default function RootLayout({
@@ -24,14 +50,9 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
         <link rel="manifest" href="/static/site.webmanifest" />
         <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5" />
-        <link rel="stylesheet" href="/static/bootstrap.min.css" />
-        <link rel="stylesheet" href="/static/ie10-viewport-bug-workaround.css" />
-        <link rel="stylesheet" href="/static/cover.css" />
       </head>
       <body>
         {children}
-        <Script src="/static/jquery.min.js" strategy="beforeInteractive" />
-        <Script src="/static/bootstrap.min.js" strategy="afterInteractive" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-B1XEJXPQPW" strategy="afterInteractive" />
         <Script id="ga" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];

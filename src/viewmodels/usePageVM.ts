@@ -21,8 +21,8 @@ export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsT
     const ia = pickIdx();
     let ib = pickIdx();
     if (backgrounds.length > 1) while (ib === ia) ib = pickIdx();
-    setBgUrl(backgrounds[ia]);
-    setBgUrlSocial(backgrounds[ib]);
+    setBgUrl(backgrounds[ia] ?? "");
+    setBgUrlSocial(backgrounds[ib] ?? "");
     setBgThumb(backgroundsThumb[ia] ?? "");
     setBgThumbSocial(backgroundsThumb[ib] ?? "");
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,7 +35,10 @@ export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsT
         setHitokoto(data.hitokoto || "");
         setHitokotoUrl(data.from ? `https://hitokoto.cn/?id=${data.id}` : "#");
       })
-      .catch(() => {});
+      .catch(() => {
+        setHitokoto("");
+        setHitokotoUrl("#");
+      });
   }, []);
 
   useEffect(() => {

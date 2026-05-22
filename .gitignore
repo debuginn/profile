@@ -1,5 +1,7 @@
 .idea/
 .vscode/
+.claude/
 node_modules/
 .next/
 out/
+tsconfig.tsbuildinfo
