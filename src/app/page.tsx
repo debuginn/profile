@@ -1,23 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import config from "../lib/config";
+import dynamic from "next/dynamic";
+import config, { LIGHT_BG_SECTIONS } from "../lib/config";
 import { usePageVM } from "../viewmodels/usePageVM";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HomeSection from "../components/HomeSection";
-import IAssetsSection from "../components/IAssetsSection";
-import FlyBaySection from "../components/FlyBaySection";
-import BlogSection from "../components/BlogSection";
-import SocialSection from "../components/SocialSection";
 import PageDots from "../components/PageDots";
+
+const IAssetsSection = dynamic(() => import("../components/IAssetsSection"));
+const FlyBaySection = dynamic(() => import("../components/FlyBaySection"));
+const BlogSection = dynamic(() => import("../components/BlogSection"));
+const SocialSection = dynamic(() => import("../components/SocialSection"));
 
 const PAGE_IDS = config.sections.map((s) => s.id);
 const FIRST_PAGE_ID = PAGE_IDS[0];
 const LAST_PAGE_ID = PAGE_IDS[PAGE_IDS.length - 1];
-const LIGHT_BG_SECTIONS = new Set(
-  config.sections.filter((s) => s.type === "flybay").map((s) => s.id)
-);
 
 export default function Home() {
   const { activePage, setActivePage, dotsVisible, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
@@ -46,74 +45,46 @@ export default function Home() {
   }, [activePage]);
 
   useEffect(() => {
-    const getToneFromImage = async (src: string, fallback: "light" | "dark") => {
-      if (!src) return fallback;
-      return new Promise<"light" | "dark">((resolve) => {
-        const img = new Image();
-        img.crossOrigin = "anonymous";
-        img.referrerPolicy = "no-referrer";
-        img.onload = () => {
-          try {
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d", { willReadFrequently: true });
-            if (!ctx) {
-              resolve(fallback);
-              return;
-            }
-            canvas.width = 32;
-            canvas.height = 32;
-            ctx.drawImage(img, 0, 0, 32, 32);
-            const { data } = ctx.getImageData(0, 0, 32, 32);
-            let lumTotal = 0;
-            let count = 0;
-            for (let i = 0; i < data.length; i += 4) {
-              const r = data[i];
-              const g = data[i + 1];
-              const b = data[i + 2];
-              lumTotal += 0.2126 * r + 0.7152 * g + 0.0722 * b;
-              count += 1;
-            }
-            const avgLum = count > 0 ? lumTotal / count : 0;
-            resolve(avgLum > 150 ? "dark" : "light");
-          } catch {
-            resolve(fallback);
-          }
-        };
-        img.onerror = () => resolve(fallback);
-        img.src = src;
-      });
-    };
+    if (activePage !== FIRST_PAGE_ID && activePage !== LAST_PAGE_ID) return;
+    const thumb = activePage === FIRST_PAGE_ID ? bgThumb : bgThumbSocial;
+    if (!thumb) return;
 
     let cancelled = false;
-    const syncTone = async () => {
-      if (activePage === FIRST_PAGE_ID) {
-        const tone = await getToneFromImage(bgUrl, "light");
-        if (!cancelled) setHeaderTone(tone);
-        return;
-      }
-      if (activePage === LAST_PAGE_ID) {
-        const tone = await getToneFromImage(bgUrlSocial, "light");
-        if (!cancelled) setHeaderTone(tone);
+    const img = new window.Image();
+    img.onload = () => {
+      if (cancelled) return;
+      try {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        if (!ctx) return;
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        ctx.drawImage(img, 0, 0);
+        const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let lumTotal = 0;
+        const px = data.length / 4;
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i] ?? 0;
+          const g = data[i + 1] ?? 0;
+          const b = data[i + 2] ?? 0;
+          lumTotal += 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        }
+        const avgLum = px > 0 ? lumTotal / px : 0;
+        setHeaderTone(avgLum > 150 ? "dark" : "light");
+      } catch {
+        setHeaderTone("light");
       }
     };
-
-    syncTone();
+    img.onerror = () => !cancelled && setHeaderTone("light");
+    img.src = thumb;
     return () => {
       cancelled = true;
     };
-  }, [activePage, bgUrl, bgUrlSocial]);
+  }, [activePage, bgThumb, bgThumbSocial]);
 
   return (
     <main className="page-stack">
-      {activePage === FIRST_PAGE_ID && (
-        <Header
-          brand={config.site.title}
-          brandHref={config.site.homeHref}
-          nav={config.nav}
-          tone={headerTone}
-        />
-      )}
-      {activePage === LAST_PAGE_ID && (
+      {(activePage === FIRST_PAGE_ID || activePage === LAST_PAGE_ID) && (
         <Header
           brand={config.site.title}
           brandHref={config.site.homeHref}

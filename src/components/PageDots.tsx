@@ -1,5 +1,5 @@
 import type { ActivePage } from "../viewmodels/usePageVM";
-import config from "../lib/config";
+import { LIGHT_BG_SECTIONS } from "../lib/config";
 
 type DotDef = {
   id: string;
@@ -11,10 +11,6 @@ type Props = {
   activePage: ActivePage;
   visible: boolean;
 };
-
-const LIGHT_BG_SECTIONS = new Set(
-  config.sections.filter((s) => s.type === "flybay").map((s) => s.id)
-);
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
