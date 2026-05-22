@@ -120,6 +120,17 @@ body {
   margin: 0 auto;
 }
 
+.masthead-brand > a,
+.masthead-nav > li > a,
+.mastfoot a {
+  text-decoration: none;
+}
+
+.masthead-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .global-header--light .masthead-brand > a,
 .global-header--light .masthead-nav > li > a {
   color: rgba(255, 255, 255, 0.92);
