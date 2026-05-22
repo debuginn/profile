@@ -3,9 +3,35 @@ import Script from "next/script";
 import config from "../lib/config";
 import "./globals.css";
 
+const ogImage = config.home.backgrounds[0];
+const altUrl = config.site.url.includes(".cn") ? "https://debuginn.com" : "https://debuginn.cn";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(config.site.url),
   title: config.site.title,
-  description: config.site.description
+  description: config.site.description,
+  alternates: {
+    canonical: config.site.url,
+    languages: {
+      "zh-CN": config.site.url.includes(".cn") ? config.site.url : altUrl,
+      "x-default": config.site.url.includes(".cn") ? altUrl : config.site.url,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: config.site.title,
+    title: config.site.title,
+    description: config.site.description,
+    url: config.site.url,
+    locale: config.site.url.includes(".cn") ? "zh_CN" : "en_US",
+    images: ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: config.site.title }] : undefined,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: config.site.title,
+    description: config.site.description,
+    images: ogImage ? [ogImage] : undefined,
+  },
 };
 
 export default function RootLayout({
