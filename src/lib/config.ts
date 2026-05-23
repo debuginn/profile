@@ -87,6 +87,13 @@ export type SiteConfig = {
     logo: string;
     institutions: InstitutionCard[];
     ctaLabel: string;
+    poster: {
+      tag: string;
+      title: string;
+      subtitle: string;
+      logo: string;
+      qrImage: string;
+    };
   };
   blog: {
     feedUrl: string;

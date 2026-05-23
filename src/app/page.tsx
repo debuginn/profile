@@ -128,6 +128,7 @@ export default function Home() {
               logo={config.flybay.logo}
               institutions={config.flybay.institutions}
               ctaLabel={config.flybay.ctaLabel}
+              poster={config.flybay.poster}
             />
           );
         }
