@@ -48,6 +48,8 @@ a:hover {
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: left;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .masthead-brand > a:hover,
