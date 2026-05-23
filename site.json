@@ -226,8 +226,8 @@
       "tag": "活动宣传",
       "title": "一趟大湾区之行",
       "subtitle": "通过补贴报销往返交通",
-      "logo": "/assets/flybay-logo-v7.png",
-      "qrImage": "/assets/wechat-qr.jpg"
+      "logo": "https://flybay.debuginn.com/flybay-logo-v7.webp",
+      "qrImage": "https://flybay.debuginn.com/wechat-qrcode.jpg"
     },
     "institutions": [
       {
