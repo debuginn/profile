@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Geist, Geist_Mono } from "next/font/google";
 import config from "../lib/config";
 import "./globals.css";
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
 
 const ogImage = config.home.backgrounds[0];
 const altUrl = config.site.url.includes(".cn") ? "https://debuginn.com" : "https://debuginn.cn";
@@ -40,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
         <link rel="dns-prefetch" href="https://webp.debuginn.com" />
         <link rel="preconnect" href="https://webp.debuginn.com" />

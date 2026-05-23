@@ -2,6 +2,14 @@ import Image from "next/image";
 import type { SocialLink } from "../lib/config";
 
 function SocialIcon({ icon, label }: { icon: string; label: string }) {
+  if (icon === "email") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m2 7 10 7 10-7" />
+      </svg>
+    );
+  }
   if (icon === "github") {
     return (
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -11,9 +19,10 @@ function SocialIcon({ icon, label }: { icon: string; label: string }) {
   }
   if (icon === "blog") {
     return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="5" cy="19" r="2" />
+        <path d="M4 4a16 16 0 0 1 16 16h-3A13 13 0 0 0 4 7V4z" />
+        <path d="M4 11a9 9 0 0 1 9 9H10a6 6 0 0 0-6-6v-3z" />
       </svg>
     );
   }
