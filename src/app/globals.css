@@ -48,6 +48,8 @@ a:hover {
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: left;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .masthead-brand > a:hover,
@@ -234,6 +236,7 @@ body {
 body {
   color: var(--text);
   overflow: hidden;
+  font-family: var(--font-geist), var(--font-noto-sans-sc), "PingFang SC", sans-serif;
 }
 
 .page-stack::-webkit-scrollbar {

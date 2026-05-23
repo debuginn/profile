@@ -357,6 +357,11 @@
   "social": {
     "links": [
       {
+        "label": "Email",
+        "href": "mailto:idebuginn@gmail.com",
+        "icon": "email"
+      },
+      {
         "label": "微信",
         "href": "https://debuginn.cn/wechat",
         "icon": "/assets/social-wechat.svg"

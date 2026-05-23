@@ -380,6 +380,16 @@
   "social": {
     "links": [
       {
+        "label": "Email",
+        "href": "mailto:idebuginn@gmail.com",
+        "icon": "email"
+      },
+      {
+        "label": "Blog",
+        "href": "https://blog.debuginn.com",
+        "icon": "blog"
+      },
+      {
         "label": "微信",
         "href": "https://debuginn.com/wechat",
         "icon": "/assets/social-wechat.svg"
@@ -413,11 +423,6 @@
         "label": "GitHub",
         "href": "https://github.com/debuginn",
         "icon": "github"
-      },
-      {
-        "label": "Blog",
-        "href": "https://blog.debuginn.com",
-        "icon": "blog"
       }
     ]
   }
