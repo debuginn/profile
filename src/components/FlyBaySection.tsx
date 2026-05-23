@@ -1,8 +1,8 @@
 "use client";
 
-import HeroSection from "./flybay/HeroSection";
-import WorldMap from "./flybay/WorldMap";
-import type { HeroAction } from "./flybay/HeroSection";
+import HeroSection from "../../vendor/flybay/src/components/HeroSection";
+import WorldMap from "../../vendor/flybay/src/components/WorldMap";
+import type { HeroAction } from "../../vendor/flybay/src/components/HeroSection";
 
 type Props = {
   titleLines: string[];
