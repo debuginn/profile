@@ -199,6 +199,13 @@
     "secondaryHref": "https://flybay.debuginn.com/#institutions",
     "logo": "/assets/flybay-logo-v7.png",
     "ctaLabel": "分享计划",
+    "poster": {
+      "tag": "活动宣传",
+      "title": "一趟大湾区之行",
+      "subtitle": "通过补贴报销往返交通",
+      "logo": "/assets/flybay-logo-v7.png",
+      "qrImage": "/assets/wechat-qr.jpg"
+    },
     "institutions": [
       {
         "name": "香港复星证券",
