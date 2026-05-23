@@ -28,8 +28,9 @@ jobs:
           ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
 
       - uses: actions/checkout@v4
-        with:
-          submodules: true
+
+      - name: Fetch submodules via SSH
+        run: git submodule update --init --recursive
 
       - uses: actions/setup-node@v4
         with:
@@ -71,8 +72,9 @@ jobs:
           ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
 
       - uses: actions/checkout@v4
-        with:
-          submodules: true
+
+      - name: Fetch submodules via SSH
+        run: git submodule update --init --recursive
 
       - uses: actions/setup-node@v4
         with:
@@ -109,8 +111,9 @@ jobs:
           ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
 
       - uses: actions/checkout@v4
-        with:
-          submodules: true
+
+      - name: Fetch submodules via SSH
+        run: git submodule update --init --recursive
 
       - uses: actions/setup-node@v4
         with:
