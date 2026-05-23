@@ -23,18 +23,20 @@ jobs:
     outputs:
       skip: ${{ steps.gate.outputs.skip }}
     steps:
-      - uses: webfactory/ssh-agent@v0.9.0
+      - uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
 
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Fetch submodules via SSH
         run: git submodule update --init --recursive
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
@@ -67,18 +69,20 @@ jobs:
     if: needs.prepare.outputs.skip != 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: webfactory/ssh-agent@v0.9.0
+      - uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
 
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Fetch submodules via SSH
         run: git submodule update --init --recursive
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
@@ -106,18 +110,20 @@ jobs:
     if: needs.prepare.outputs.skip != 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: webfactory/ssh-agent@v0.9.0
+      - uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
 
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Fetch submodules via SSH
         run: git submodule update --init --recursive
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
