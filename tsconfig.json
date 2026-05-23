@@ -41,6 +41,7 @@
     "vendor/flybay/src/app",
     "vendor/flybay/src/lib",
     "vendor/flybay/src/components/HomeInstitutionCard.tsx",
+    "vendor/flybay/src/components/PosterButton.tsx",
     "vendor/flybay/src/components/detail"
   ]
 }
