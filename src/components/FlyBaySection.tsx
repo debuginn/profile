@@ -9,6 +9,8 @@ import flyBayConfig from "../../vendor/flybay/config/flybay.config.json";
 
 function buildProps() {
   const config = flyBayConfig;
+  const BASE = config.site.baseUrl;
+  const abs = (src: string) => src.startsWith("/") ? `${BASE}${src}` : src;
   const hero = config.home.hero;
   const month = new Date().getMonth() + 1;
   const institutionsBySlug = new Map(config.institutions.map((i) => [i.slug, i]));
@@ -21,11 +23,11 @@ function buildProps() {
     tag: config.poster.tag,
     title: config.poster.title,
     subtitle: config.poster.subtitle,
-    logo: config.poster.logo,
-    qrImage: config.poster.qrImage,
+    logo: abs(config.poster.logo),
+    qrImage: abs(config.poster.qrImage),
     logos: featuredItems
       .filter((i) => i.card.logo)
-      .map((i) => ({ src: i.card.logo as string, name: i.name })),
+      .map((i) => ({ src: abs(i.card.logo as string), name: i.name })),
     stats: config.home.metrics.counters.map((c) => ({ num: String(c.value), label: c.label })),
   };
 
@@ -38,7 +40,7 @@ function buildProps() {
     tag: `${month} 月${hero.activityTagText}`,
     titleLines: hero.titleLines,
     descriptionLines: hero.descriptionLines,
-    logo: config.site.logo,
+    logo: abs(config.site.logo),
     actions,
     shareActionLabel: hero.shareActionLabel,
     poster,
