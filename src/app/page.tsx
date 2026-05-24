@@ -118,18 +118,7 @@ export default function Home() {
         }
         if (section.type === "flybay") {
           return (
-            <FlyBaySection
-              key={section.id}
-              titleLines={config.flybay.titleLines}
-              descriptionLines={config.flybay.descriptionLines}
-              siteHref={config.flybay.siteHref}
-              primaryHref={config.flybay.primaryHref}
-              secondaryHref={config.flybay.secondaryHref}
-              logo={config.flybay.logo}
-              institutions={config.flybay.institutions}
-              ctaLabel={config.flybay.ctaLabel}
-              poster={config.flybay.poster}
-            />
+            <FlyBaySection key={section.id} />
           );
         }
         if (section.type === "blog") {
