@@ -40,12 +40,13 @@ function buildProps() {
     logo: abs(config.site.logo),
     actions,
     shareActionLabel: hero.shareActionLabel,
+    showShareButton: hero.showShareButton ?? false,
     poster,
   };
 }
 
 export default function FlyBaySection() {
-  const { tag, titleLines, descriptionLines, logo, actions, shareActionLabel, poster } = buildProps();
+  const { tag, titleLines, descriptionLines, logo, actions, shareActionLabel, showShareButton, poster } = buildProps();
 
   return (
     <section className="page-screen page-screen-flybay" id="flybay">
@@ -64,9 +65,7 @@ export default function FlyBaySection() {
           title={titleLines}
           description={descriptionLines}
           actions={actions}
-          extraActions={
-            <PosterButton poster={poster} label={shareActionLabel} variant="outline" />
-          }
+          extraActions={showShareButton ? <PosterButton poster={poster} label={shareActionLabel} variant="outline" /> : null}
           mapSlot={<WorldMap />}
         />
       </div>
