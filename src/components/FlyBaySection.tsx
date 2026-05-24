@@ -13,11 +13,6 @@ function buildProps() {
   const abs = (src: string) => src.startsWith("/") ? `${BASE}${src}` : src;
   const hero = config.home.hero;
   const month = new Date().getMonth() + 1;
-  const institutionsBySlug = new Map(config.institutions.map((i) => [i.slug, i]));
-  const featuredGroup = config.home.groups.find((g) => g.id === "featured");
-  const featuredItems = (featuredGroup?.slugs ?? [])
-    .map((slug) => institutionsBySlug.get(slug))
-    .filter((i): i is NonNullable<typeof i> => !!i);
 
   const poster: PosterConfig = {
     tag: config.poster.tag,
@@ -25,7 +20,7 @@ function buildProps() {
     subtitle: config.poster.subtitle,
     logo: abs(config.poster.logo),
     qrImage: abs(config.poster.qrImage),
-    logos: featuredItems
+    logos: config.institutions
       .filter((i) => i.card.logo)
       .map((i) => ({ src: abs(i.card.logo as string), name: i.name })),
     stats: config.home.metrics.counters.map((c) => ({ num: String(c.value), label: c.label })),
