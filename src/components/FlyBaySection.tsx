@@ -5,26 +5,48 @@ import WorldMap from "../../vendor/flybay/src/components/WorldMap";
 import PosterButton from "../../vendor/flybay/src/components/PosterButton";
 import type { HeroAction } from "../../vendor/flybay/src/components/HeroSection";
 import type { PosterConfig } from "../../vendor/flybay/src/components/PosterButton";
+import flyBayConfig from "../../vendor/flybay/config/flybay.config.json";
 
-type Props = {
-  titleLines: string[];
-  descriptionLines: string[];
-  siteHref: string;
-  primaryHref: string;
-  secondaryHref: string;
-  logo: string;
-  institutions: unknown[];
-  ctaLabel: string;
-  poster: PosterConfig;
-};
-
-export default function FlyBaySection({ titleLines, descriptionLines, primaryHref, secondaryHref, logo, ctaLabel, poster }: Props) {
+function buildProps() {
+  const config = flyBayConfig;
+  const hero = config.home.hero;
   const month = new Date().getMonth() + 1;
+  const institutionsBySlug = new Map(config.institutions.map((i) => [i.slug, i]));
+  const featuredGroup = config.home.groups.find((g) => g.id === "featured");
+  const featuredItems = (featuredGroup?.slugs ?? [])
+    .map((slug) => institutionsBySlug.get(slug))
+    .filter((i): i is NonNullable<typeof i> => !!i);
+
+  const poster: PosterConfig = {
+    tag: config.poster.tag,
+    title: config.poster.title,
+    subtitle: config.poster.subtitle,
+    logo: config.poster.logo,
+    qrImage: config.poster.qrImage,
+    logos: featuredItems
+      .filter((i) => i.card.logo)
+      .map((i) => ({ src: i.card.logo as string, name: i.name })),
+    stats: config.home.metrics.counters.map((c) => ({ num: String(c.value), label: c.label })),
+  };
 
   const actions: HeroAction[] = [
-    { label: "立即测算返利", href: primaryHref },
-    { label: "查看可开机构", href: secondaryHref },
+    { label: hero.primaryAction.label, href: hero.primaryAction.href },
+    { label: hero.secondaryAction.label, href: hero.secondaryAction.href },
   ];
+
+  return {
+    tag: `${month} 月${hero.activityTagText}`,
+    titleLines: hero.titleLines,
+    descriptionLines: hero.descriptionLines,
+    logo: config.site.logo,
+    actions,
+    shareActionLabel: hero.shareActionLabel,
+    poster,
+  };
+}
+
+export default function FlyBaySection() {
+  const { tag, titleLines, descriptionLines, logo, actions, shareActionLabel, poster } = buildProps();
 
   return (
     <section className="page-screen page-screen-flybay" id="flybay">
@@ -39,12 +61,12 @@ export default function FlyBaySection({ titleLines, descriptionLines, primaryHre
               decoding="async"
             />
           }
-          tag={`${month} 月返利加码中`}
+          tag={tag}
           title={titleLines}
           description={descriptionLines}
           actions={actions}
           extraActions={
-            <PosterButton poster={poster} label={ctaLabel} variant="outline" />
+            <PosterButton poster={poster} label={shareActionLabel} variant="outline" />
           }
           mapSlot={<WorldMap />}
         />
