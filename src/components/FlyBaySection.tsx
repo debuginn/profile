@@ -31,9 +31,11 @@ function buildProps() {
     stats: config.home.metrics.counters.map((c) => ({ num: String(c.value), label: c.label })),
   };
 
+  const absHref = (href: string) => href.startsWith("#") ? `${BASE}/${href}` : href;
+
   const actions: HeroAction[] = [
-    { label: hero.primaryAction.label, href: hero.primaryAction.href },
-    { label: hero.secondaryAction.label, href: hero.secondaryAction.href },
+    { label: hero.primaryAction.label, href: absHref(hero.primaryAction.href), target: "_blank" },
+    { label: hero.secondaryAction.label, href: absHref(hero.secondaryAction.href), target: "_blank" },
   ];
 
   return {
