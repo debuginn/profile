@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run sync:flybay && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "gen:lqip": "node scripts/gen-lqip.mjs",
-    "gen:blog": "node scripts/gen-blog.mjs"
+    "gen:blog": "node scripts/gen-blog.mjs",
+    "sync:flybay": "node scripts/sync-flybay.mjs"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

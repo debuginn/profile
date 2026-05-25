@@ -1,0 +1,16 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(20,10)">
+    <path d="M80 250V80C80 58 98 40 120 40H245C283 40 310 64 310 98C310 129 287 151 245 158L240 158V130H244C266 128 278 118 278 102C278 85 266 74 245 74H125C114 74 106 82 106 92V250H80Z" fill="#1C3A2A"/>
+    <path d="M210 250H246C278 250 302 227 302 195C302 162 278 140 246 140H234V110H248C298 110 336 147 336 196C336 246 298 284 248 284H176L210 250Z" fill="#1C3A2A"/>
+    <path d="M28 266C118 240 206 195 286 130C296 121 306 111 316 100L327 113C317 124 306 134 296 143C214 210 124 257 32 284L28 266Z" fill="#1C3A2A"/>
+    <path d="M318 106L364 95L343 138L336 121L318 106Z" fill="#1C3A2A"/>
+    <circle cx="372" cy="84" r="12" fill="#F28F16"/>
+  </g>
+
+  <g transform="translate(430,30)" fill="#1C3A2A">
+    <text x="0" y="130" font-family="PingFang SC, Noto Sans SC, Arial, sans-serif" font-size="110" font-weight="700" letter-spacing="1">FlyBay Plan</text>
+    <text x="250" y="220" font-family="PingFang SC, Noto Sans SC, Arial, sans-serif" font-size="72" font-weight="600" letter-spacing="8">飞湾计划</text>
+    <rect x="0" y="204" width="165" height="6" rx="3" fill="#1C3A2A"/>
+    <rect x="578" y="204" width="165" height="6" rx="3" fill="#1C3A2A"/>
+  </g>
+</svg>

@@ -63,6 +63,9 @@ jobs:
       - run: npm run gen:lqip
         if: steps.gate.outputs.skip != 'true'
 
+      - run: npm run sync:flybay
+        if: steps.gate.outputs.skip != 'true'
+
       - name: Upload prepared site sources
         if: steps.gate.outputs.skip != 'true'
         uses: actions/upload-artifact@v4

@@ -1,0 +1,15 @@
+<svg width="960" height="260" viewBox="0 0 960 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(8 6)">
+    <path d="M92 196V84C92 70.7 102.7 60 116 60H198C226 60 244 74 244 97C244 113 235 124 220 131C243 136 257 152 257 172C257 201 233 220 193 220H92V196Z" fill="#184D3B"/>
+    <path d="M136 101H191C203 101 211 95 211 86C211 76 202 71 189 71H136V101Z" fill="#EAF3EA"/>
+    <path d="M136 138H193C210 138 220 146 220 159C220 172 210 181 191 181H136V138Z" fill="#EAF3EA"/>
+    <path d="M56 214C102 201 140 178 171 148C206 114 235 91 274 80" stroke="#4FA06C" stroke-width="11" stroke-linecap="round"/>
+    <path d="M254 84L278 84L266 104L254 84Z" fill="#184D3B"/>
+    <circle cx="286" cy="80" r="8" fill="#F2A33A"/>
+  </g>
+
+  <g font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" fill="#184D3B">
+    <text x="325" y="126" font-size="76" font-weight="700">FlyBay Plan</text>
+    <text x="326" y="186" font-size="46" font-weight="600">飞湾计划</text>
+  </g>
+</svg>
