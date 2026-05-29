@@ -42,19 +42,6 @@ export type SectionDef = {
   dotLabel: string;
 };
 
-export type InstitutionCard = {
-  name: string;
-  slug: string;
-  type: "证券" | "银行";
-  official: number;
-  rebate: number;
-  badge: string;
-  tags: string[];
-  logo: string;
-  gradient: string;
-  href: string;
-};
-
 export type SiteConfig = {
   site: {
     title: string;
@@ -78,29 +65,11 @@ export type SiteConfig = {
     mosaicDelays: string[];
     buttons: CtaButton[];
   };
-  flybay: {
-    titleLines: string[];
-    descriptionLines: string[];
-    siteHref: string;
-    primaryHref: string;
-    secondaryHref: string;
-    logo: string;
-    institutions: InstitutionCard[];
-    ctaLabel: string;
-    poster: {
-      tag: string;
-      title: string;
-      subtitle: string;
-      logo: string;
-      qrImage: string;
-    };
-  };
   blog: {
     feedUrl: string;
     title: string;
     viewAllLabel: string;
     viewAllHref: string;
-    fallbackImage: string;
     posts: BlogPost[];
   };
   social: {

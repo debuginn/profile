@@ -71,7 +71,7 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
                 <span className="social-btn-label">{link.label}</span>
                 {isWechat && (
                   <span className="social-btn-qr" aria-hidden="true">
-                    <img src="/assets/wechat-qr.jpg" alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />
+                    <img src="https://webp.debuginn.com/20260529OjuRvn.jpg" alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />
                   </span>
                 )}
               </a>
