@@ -25,12 +25,7 @@
     }
   ],
   "home": {
-    "photoCredit": {
-      "text": "背景图片均来自于站长",
-      "linkLabel": "年度摄影精选照片",
-      "linkHref": "https://photo.debuginn.com",
-      "suffix": "，由 @Julissa 设计与指导 💗"
-    },
+    "photoCredit": null,
     "scrollToId": "iassets",
     "backgrounds": [
       "https://webp.debuginn.com/202303120016035.jpeg",
