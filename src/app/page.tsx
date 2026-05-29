@@ -128,7 +128,6 @@ export default function Home() {
               title={config.blog.title}
               viewAllLabel={config.blog.viewAllLabel}
               viewAllHref={config.blog.viewAllHref}
-              fallbackImage={config.blog.fallbackImage}
               posts={config.blog.posts}
             />
           );

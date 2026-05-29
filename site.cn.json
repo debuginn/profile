@@ -25,12 +25,7 @@
     }
   ],
   "home": {
-    "photoCredit": {
-      "text": "背景图片均来自于站长",
-      "linkLabel": "年度摄影精选照片",
-      "linkHref": "https://photo.debuginn.com",
-      "suffix": "，由 @Julissa 设计与指导 💗"
-    },
+    "photoCredit": null,
     "scrollToId": "iassets",
     "backgrounds": [
       "https://webp.debuginn.com/202303120016035.jpeg",
@@ -131,31 +126,31 @@
   },
   "iassets": {
     "mosaicShots": [
-      "/assets/hero-fan/hero-1.png",
-      "/assets/hero-fan/hero-2.png",
-      "/assets/hero-fan/hero-3.png",
-      "/assets/hero-fan/hero-4.png",
-      "/assets/hero-fan/hero-5.png",
-      "/assets/hero-fan-en/hero-1.png",
-      "/assets/hero-fan-en/hero-2.png",
-      "/assets/hero-fan-en/hero-3.png",
-      "/assets/hero-fan-en/hero-4.png",
-      "/assets/hero-fan-en/hero-5.png",
-      "/assets/hero-fan-zh-hant/hero-1.png",
-      "/assets/hero-fan-zh-hant/hero-2.png",
-      "/assets/hero-fan-zh-hant/hero-3.png",
-      "/assets/hero-fan-zh-hant/hero-4.png",
-      "/assets/hero-fan-zh-hant/hero-5.png",
-      "/assets/hero-fan-ja/hero-1.png",
-      "/assets/hero-fan-ja/hero-2.png",
-      "/assets/hero-fan-ja/hero-3.png",
-      "/assets/hero-fan-ja/hero-4.png",
-      "/assets/hero-fan-ja/hero-5.png",
-      "/assets/hero-fan-ko/hero-1.png",
-      "/assets/hero-fan-ko/hero-2.png",
-      "/assets/hero-fan-ko/hero-3.png",
-      "/assets/hero-fan-ko/hero-4.png",
-      "/assets/hero-fan-ko/hero-5.png"
+      "https://webp.debuginn.com/20260529YUU2cS.png",
+      "https://webp.debuginn.com/20260529X5Cz9s.png",
+      "https://webp.debuginn.com/20260529NpenQi.png",
+      "https://webp.debuginn.com/20260529gLXrE4.png",
+      "https://webp.debuginn.com/20260529XHiuhG.png",
+      "https://webp.debuginn.com/20260529dOY7Gw.png",
+      "https://webp.debuginn.com/20260529mHcIiV.png",
+      "https://webp.debuginn.com/20260529Q9oOii.png",
+      "https://webp.debuginn.com/20260529zmTNhp.png",
+      "https://webp.debuginn.com/202605296uFsCu.png",
+      "https://webp.debuginn.com/202605290txYeq.png",
+      "https://webp.debuginn.com/20260529dEtu6W.png",
+      "https://webp.debuginn.com/20260529daNRqI.png",
+      "https://webp.debuginn.com/20260529wLy3Yb.png",
+      "https://webp.debuginn.com/20260529KdM1kJ.png",
+      "https://webp.debuginn.com/20260529WcSrDP.png",
+      "https://webp.debuginn.com/202605299eJalD.png",
+      "https://webp.debuginn.com/202605295qALW3.png",
+      "https://webp.debuginn.com/202605292bN4ok.png",
+      "https://webp.debuginn.com/20260529sPeNE5.png",
+      "https://webp.debuginn.com/20260529ZYsLJi.png",
+      "https://webp.debuginn.com/20260529DhBnFc.png",
+      "https://webp.debuginn.com/202605299kYBuQ.png",
+      "https://webp.debuginn.com/20260529LBQbLk.png",
+      "https://webp.debuginn.com/202605299bAszf.png"
     ],
     "mosaicColumns": 10,
     "mosaicDurations": [
@@ -185,116 +180,11 @@
       }
     ]
   },
-  "flybay": {
-    "titleLines": [
-      "一趟大湾区之行",
-      "通过补贴报销往返交通"
-    ],
-    "descriptionLines": [
-      "官方开户激励 + 渠道返利回馈，预估到手约 ¥2,000+。",
-      "你拿到的不只是补贴，还有一次港美股与海外银行账户的启动机会。"
-    ],
-    "siteHref": "https://flybay.debuginn.com",
-    "primaryHref": "https://flybay.debuginn.com/#calculator",
-    "secondaryHref": "https://flybay.debuginn.com/#institutions",
-    "logo": "/assets/flybay-logo-v7.png",
-    "ctaLabel": "分享计划",
-    "poster": {
-      "tag": "活动宣传",
-      "title": "一趟大湾区之行",
-      "subtitle": "通过补贴报销往返交通",
-      "logo": "https://flybay.debuginn.com/flybay-logo-v7.webp",
-      "qrImage": "https://flybay.debuginn.com/wechat-qrcode.jpg"
-    },
-    "institutions": [
-      {
-        "name": "香港复星证券",
-        "slug": "fosun-securities",
-        "type": "证券",
-        "official": 400,
-        "rebate": 150,
-        "badge": "Fosun Securities",
-        "tags": [
-          "香港持牌",
-          "终身免佣",
-          "内地身份开户"
-        ],
-        "logo": "/assets/fosun-securities-logo.webp",
-        "gradient": "linear-gradient(135deg,#7a2d00 0%,#b84400 54%,#d45f00 115%)",
-        "href": "https://flybay.debuginn.com/detail/fosun-securities"
-      },
-      {
-        "name": "香港腾达证券",
-        "slug": "tendata-securities",
-        "type": "证券",
-        "official": 100,
-        "rebate": 300,
-        "badge": "GigaMoney Securities",
-        "tags": [
-          "香港持牌",
-          "终身免佣",
-          "内地身份开户",
-          "长桥系统"
-        ],
-        "logo": "/assets/tendata-securities-logo.webp",
-        "gradient": "linear-gradient(135deg,#a07800 0%,#d4a000 54%,#f5c800 115%)",
-        "href": "https://flybay.debuginn.com/detail/tendata-securities"
-      },
-      {
-        "name": "澳门蚂蚁银行",
-        "slug": "ant-bank-macau",
-        "type": "银行",
-        "official": 260,
-        "rebate": 150,
-        "badge": "Ant Bank Macau",
-        "tags": [
-          "澳门虚拟银行",
-          "赴澳开户",
-          "内地身份开户"
-        ],
-        "logo": "/assets/ant-bank-macau-logo.webp",
-        "gradient": "linear-gradient(135deg,#0a3fa8 0%,#1565d8 54%,#3d8ef0 115%)",
-        "href": "https://flybay.debuginn.com/detail/ant-bank-macau"
-      },
-      {
-        "name": "香港众安银行",
-        "slug": "za-bank",
-        "type": "银行",
-        "official": 200,
-        "rebate": 150,
-        "badge": "ZA Bank",
-        "tags": [
-          "香港虚拟银行",
-          "赴港开户",
-          "内地身份开户"
-        ],
-        "logo": "/assets/za-bank-logo.webp",
-        "gradient": "linear-gradient(135deg,#12433a 0%,#1f8f77 54%,#46d1af 115%)",
-        "href": "https://flybay.debuginn.com/detail/za-bank"
-      },
-      {
-        "name": "香港致富证券",
-        "slug": "chief-securities",
-        "type": "证券",
-        "official": 150,
-        "rebate": 150,
-        "badge": "Chief Securities",
-        "tags": [
-          "香港持牌",
-          "内地身份开户"
-        ],
-        "logo": "/assets/chief-securities-logo.webp",
-        "gradient": "linear-gradient(135deg,#1a1a6e 0%,#2b2b9e 54%,#4a4abf 115%)",
-        "href": "https://flybay.debuginn.com/detail/chief-securities"
-      }
-    ]
-  },
   "blog": {
     "feedUrl": "https://blog.debuginn.com/index.xml",
     "title": "最近的写作",
     "viewAllLabel": "去博客逛逛",
     "viewAllHref": "https://blog.debuginn.com",
-    "fallbackImage": "/assets/iassets-icon.png",
     "posts": [
       {
         "title": "飞湾计划：把一趟大湾区之行，顺手变成港澳开户探索路线",
@@ -364,22 +254,22 @@
       {
         "label": "微信",
         "href": "https://debuginn.cn/wechat",
-        "icon": "/assets/social-wechat.svg"
+        "icon": "https://webp.debuginn.com/20260529XetLUr.svg"
       },
       {
         "label": "微博",
         "href": "https://weibo.com/u/7096209693",
-        "icon": "/assets/social-weibo.svg"
+        "icon": "https://webp.debuginn.com/202605296DKhwc.svg"
       },
       {
         "label": "小红书",
         "href": "https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068",
-        "icon": "/assets/social-xiaohongshu.svg"
+        "icon": "https://webp.debuginn.com/202605290mdDFJ.svg"
       },
       {
         "label": "知乎",
         "href": "https://www.zhihu.com/people/debuginn",
-        "icon": "/assets/social-zhihu.svg"
+        "icon": "https://webp.debuginn.com/202605290NgP60.svg"
       }
     ]
   }

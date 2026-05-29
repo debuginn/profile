@@ -4,7 +4,6 @@ type Props = {
   title: string;
   viewAllLabel: string;
   viewAllHref: string;
-  fallbackImage: string;
   posts: BlogPost[];
 };
 
@@ -18,7 +17,7 @@ function formatDate(iso: string) {
   return `${y} / ${m} / ${day}`;
 }
 
-export default function BlogSection({ fallbackImage, posts }: Props) {
+export default function BlogSection({ posts }: Props) {
   const featuredPosts = posts.slice(0, 4);
 
   return (
@@ -35,14 +34,16 @@ export default function BlogSection({ fallbackImage, posts }: Props) {
               target="_blank"
               rel="noreferrer"
             >
-              <div className="blog-card-image">
-                <img
-                  src={post.image || fallbackImage}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              {post.image && (
+                <div className="blog-card-image">
+                  <img
+                    src={post.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
               <div className="blog-card-body">
                 <div className="blog-card-date">{formatDate(post.date)}</div>
                 <h3 className="blog-card-title">{post.title}</h3>
