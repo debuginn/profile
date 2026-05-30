@@ -17,7 +17,7 @@ This is a Next.js 16 App Router site exported as static HTML and deployed to Git
 
 ### Variant system (com / cn)
 
-`next.config.ts` exposes `SITE_VARIANT` to the client. `src/config/site.ts` imports both `site.json` and `site.cn.json` at build time and picks one based on `SITE_VARIANT`. **Never read `process.env.SITE_VARIANT` from components** — go through `src/lib/config.ts` (which re-exports the default of `src/config/site.ts`) so the right JSON is bundled. Types for the JSON shape live in `src/lib/config.ts` (`SiteConfig`, `SectionDef`, `InstitutionCard`, etc.); update both JSON files together when changing schema.
+`next.config.ts` exposes `SITE_VARIANT` to the client. `src/config/site.ts` imports both `site.json` and `site.cn.json` at build time and picks one based on `SITE_VARIANT`. **Never read `process.env.SITE_VARIANT` from components** — go through `src/lib/config.ts` (which re-exports the default of `src/config/site.ts`) so the right JSON is bundled. Types for the JSON shape live in `src/lib/config.ts` (`SiteConfig`, `SectionDef`, etc.); update both JSON files together when changing schema.
 
 ### Page composition
 
