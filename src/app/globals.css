@@ -1268,6 +1268,14 @@ body {
   pointer-events: none;
   box-sizing: border-box;
   letter-spacing: 0.02em;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.social-btn:hover .social-btn-badge {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .social-btn-badge--light {
