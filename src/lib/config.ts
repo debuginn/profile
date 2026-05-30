@@ -34,6 +34,7 @@ export type SocialLink = {
   label: string;
   href: string;
   icon: string;
+  followers?: number;
 };
 
 export type SectionDef = {

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import type { SocialLink } from "../lib/config";
 
 function SocialIcon({ icon, label }: { icon: string; label: string }) {
@@ -29,6 +32,36 @@ function SocialIcon({ icon, label }: { icon: string; label: string }) {
   return <img src={icon} alt={label} width={28} height={28} loading="lazy" decoding="async" />;
 }
 
+function useCountUp(target: number, active: boolean, duration = 800) {
+  const [count, setCount] = useState(0);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (!active) return;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [target, active, duration]);
+
+  return active ? count : 0;
+}
+
+function BadgeCount({ target, active, isLight }: { target: number; active: boolean; isLight: boolean }) {
+  const count = useCountUp(target, active);
+  return (
+    <span className={`social-btn-badge${isLight ? " social-btn-badge--light" : ""}`}>
+      {count}
+    </span>
+  );
+}
+
 type Props = {
   links: SocialLink[];
   bgUrl: string;
@@ -37,8 +70,24 @@ type Props = {
 };
 
 export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated) setAnimated(true);
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [animated]);
+
   return (
-    <section className="page-screen page-screen-social" id="social">
+    <section ref={sectionRef} className="page-screen page-screen-social" id="social">
       {bgUrl ? (
         <div className="page-bg" aria-hidden="true">
           <Image
@@ -69,6 +118,9 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
                   <SocialIcon icon={link.icon} label={link.label} />
                 </span>
                 <span className="social-btn-label">{link.label}</span>
+                {link.followers != null && (
+                  <BadgeCount target={link.followers} active={animated} isLight={isLight} />
+                )}
                 {isWechat && (
                   <span className="social-btn-qr" aria-hidden="true">
                     <img src="https://webp.debuginn.com/20260529OjuRvn.jpg" alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />

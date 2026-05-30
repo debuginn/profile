@@ -282,42 +282,50 @@
       {
         "label": "Blog",
         "href": "https://blog.debuginn.com",
-        "icon": "blog"
+        "icon": "blog",
+        "followers": 466
       },
       {
         "label": "微信",
         "href": "https://debuginn.com/wechat",
-        "icon": "https://webp.debuginn.com/20260529XetLUr.svg"
+        "icon": "https://webp.debuginn.com/20260529XetLUr.svg",
+        "followers": 1439
       },
       {
         "label": "微博",
         "href": "https://weibo.com/u/7096209693",
-        "icon": "https://webp.debuginn.com/202605296DKhwc.svg"
+        "icon": "https://webp.debuginn.com/202605296DKhwc.svg",
+        "followers": 1891
       },
       {
         "label": "小红书",
         "href": "https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068",
-        "icon": "https://webp.debuginn.com/202605290mdDFJ.svg"
+        "icon": "https://webp.debuginn.com/202605290mdDFJ.svg",
+        "followers": 101
       },
       {
         "label": "知乎",
         "href": "https://www.zhihu.com/people/debuginn",
-        "icon": "https://webp.debuginn.com/202605290NgP60.svg"
+        "icon": "https://webp.debuginn.com/202605290NgP60.svg",
+        "followers": 202
       },
       {
         "label": "X",
         "href": "https://x.com/idebuginn",
-        "icon": "https://webp.debuginn.com/20260529dntbQO.svg"
+        "icon": "https://webp.debuginn.com/20260529dntbQO.svg",
+        "followers": 87
       },
       {
         "label": "Telegram",
         "href": "https://t.me/xiaoyupark",
-        "icon": "https://webp.debuginn.com/2026052916fIxC.svg"
+        "icon": "https://webp.debuginn.com/2026052916fIxC.svg",
+        "followers": 36
       },
       {
         "label": "GitHub",
         "href": "https://github.com/debuginn",
-        "icon": "github"
+        "icon": "github",
+        "followers": 57
       }
     ]
   }
