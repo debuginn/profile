@@ -7,7 +7,9 @@ function shuffle<T>(arr: T[], seed: number): T[] {
   for (let i = a.length - 1; i > 0; i--) {
     s = (s * 1664525 + 1013904223) >>> 0;
     const j = s % (i + 1);
-    [a[i], a[j]] = [a[j], a[i]];
+    const tmp = a[i] as T;
+    a[i] = a[j] as T;
+    a[j] = tmp;
   }
   return a;
 }
@@ -17,9 +19,12 @@ function noAdjDup<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = 1; i < a.length; i++) {
     if (a[i] === a[i - 1]) {
-      // 找后面第一个不同的元素来交换
       const swap = a.findIndex((x, j) => j > i && x !== a[i - 1]);
-      if (swap !== -1) [a[i], a[swap]] = [a[swap], a[i]];
+      if (swap !== -1) {
+        const tmp = a[i] as T;
+        a[i] = a[swap] as T;
+        a[swap] = tmp;
+      }
     }
   }
   return a;
@@ -29,10 +34,13 @@ function buildColumn(shots: string[], col: number): string[] {
   const s1 = noAdjDup(shuffle(shots, col * 2654435761 + 1));
   const s2 = noAdjDup(shuffle(shots, col * 2654435761 + 999983));
   const joined = [...s1, ...s2];
-  // 修复拼接处
   if (joined[s1.length - 1] === joined[s1.length]) {
     const swap = joined.findIndex((x, i) => i > s1.length && x !== joined[s1.length - 1]);
-    if (swap !== -1) [joined[s1.length], joined[swap]] = [joined[swap], joined[s1.length]];
+    if (swap !== -1) {
+      const tmp = joined[s1.length] as string;
+      joined[s1.length] = joined[swap] as string;
+      joined[swap] = tmp;
+    }
   }
   return joined;
 }
