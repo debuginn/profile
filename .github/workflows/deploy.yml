@@ -33,7 +33,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch submodules via SSH (update to latest remote)
-        run: git submodule update --init --recursive
+        run: git submodule update --init --recursive --remote
 
       - uses: actions/setup-node@v4
         with:
@@ -56,7 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site.json site.cn.json
+          git add vendor/flybay site.json site.cn.json
           git diff --cached --quiet || git commit -m "chore(ci): update submodules and blog posts [skip ci]"
           git push origin main
 

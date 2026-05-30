@@ -5,7 +5,7 @@ import WorldMap from "../../vendor/flybay/src/components/WorldMap";
 import PosterButton from "../../vendor/flybay/src/components/PosterButton";
 import type { HeroAction } from "../../vendor/flybay/src/components/HeroSection";
 import type { PosterConfig } from "../../vendor/flybay/src/components/PosterButton";
-import flyBayConfig from "../../vendor/flybay/config/flybay.config.json";
+import flyBayConfig from "../../vendor/flybay/config/config.json";
 
 function buildProps() {
   const config = flyBayConfig;
