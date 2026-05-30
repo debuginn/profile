@@ -78,7 +78,7 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !animated) setAnimated(true);
+        if (entry?.isIntersecting && !animated) setAnimated(true);
       },
       { threshold: 0.3 }
     );
