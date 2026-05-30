@@ -1182,8 +1182,8 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
   text-decoration: none !important;
   transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
@@ -1192,8 +1192,8 @@ body {
 }
 
 .social-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
   color: #ffffff;
   text-decoration: none !important;
@@ -1245,6 +1245,35 @@ body {
   height: 120px;
   border-radius: 6px;
   filter: none;
+}
+
+.social-btn-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(30, 30, 40, 0.85);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  box-sizing: border-box;
+  letter-spacing: 0.02em;
+}
+
+.social-btn-badge--light {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(21, 33, 24, 0.15);
+  color: rgba(21, 33, 24, 0.8);
 }
 
 .social-btn-wechat:hover .social-btn-qr {
