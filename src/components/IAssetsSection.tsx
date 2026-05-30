@@ -118,7 +118,7 @@ export default function IAssetsSection({ shots, columns, durations, delays, butt
                         } as React.CSSProperties
                       }
                     >
-                      {columnImages[col].map((src, idx) => (
+                      {columnImages[col]!.map((src, idx) => (
                         <figure className="cta-mosaic-card" key={`${col}-${idx}`}>
                           <img
                             src={src}
