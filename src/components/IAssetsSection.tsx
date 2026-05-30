@@ -1,4 +1,42 @@
+import { useMemo } from "react";
 import type { CtaButton, ButtonIcon } from "../lib/config";
+
+function shuffle<T>(arr: T[], seed: number): T[] {
+  const a = [...arr];
+  let s = seed;
+  for (let i = a.length - 1; i > 0; i--) {
+    s = (s * 1664525 + 1013904223) >>> 0;
+    const j = s % (i + 1);
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// 消除相邻重复：把与前一个相同的元素往后换一个不同的
+function noAdjDup<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = 1; i < a.length; i++) {
+    if (a[i] === a[i - 1]) {
+      // 找后面第一个不同的元素来交换
+      const swap = a.findIndex((x, j) => j > i && x !== a[i - 1]);
+      if (swap !== -1) [a[i], a[swap]] = [a[swap], a[i]];
+    }
+  }
+  return a;
+}
+
+function buildColumn(shots: string[], col: number): string[] {
+  const s1 = noAdjDup(shuffle(shots, col * 2654435761 + 1));
+  const s2 = noAdjDup(shuffle(shots, col * 2654435761 + 999983));
+  const joined = [...s1, ...s2];
+  // 修复拼接处
+  if (joined[s1.length - 1] === joined[s1.length]) {
+    const swap = joined.findIndex((x, i) => i > s1.length && x !== joined[s1.length - 1]);
+    if (swap !== -1) [joined[s1.length], joined[swap]] = [joined[swap], joined[s1.length]];
+  }
+  return joined;
+}
+
 
 function ButtonIconSvg({ icon }: { icon: ButtonIcon }) {
   if (icon === "apple") {
@@ -34,7 +72,10 @@ type Props = {
 };
 
 export default function IAssetsSection({ shots, columns, durations, delays, buttons }: Props) {
-  const doubled = [...shots, ...shots];
+  const columnImages = useMemo(
+    () => Array.from({ length: columns }, (_, col) => buildColumn(shots, col)),
+    [shots, columns]
+  );
 
   return (
     <section className="page-screen page-screen-iassets" id="iassets">
@@ -69,7 +110,7 @@ export default function IAssetsSection({ shots, columns, durations, delays, butt
                         } as React.CSSProperties
                       }
                     >
-                      {doubled.map((src, idx) => (
+                      {columnImages[col].map((src, idx) => (
                         <figure className="cta-mosaic-card" key={`${col}-${idx}`}>
                           <img
                             src={src}
