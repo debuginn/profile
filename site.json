@@ -276,8 +276,9 @@
     "links": [
       {
         "label": "Email",
-        "href": "mailto:idebuginn@gmail.com",
-        "icon": "email"
+        "href": "https://blog.debuginn.com/subscribe/",
+        "icon": "email",
+        "followers": 40
       },
       {
         "label": "Blog",

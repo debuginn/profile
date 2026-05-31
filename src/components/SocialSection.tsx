@@ -73,6 +73,9 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
   const sectionRef = useRef<HTMLElement>(null);
   const [animated, setAnimated] = useState(false);
 
+  const total = links.reduce((sum, l) => sum + (l.followers ?? 0), 0);
+  const totalCount = useCountUp(total, animated);
+
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -131,6 +134,13 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
             );
           })}
         </div>
+        {total > 0 && (
+          <div className={`social-total${isLight ? " social-total--light" : ""}`}>
+            <span className="social-total-label">Total </span>
+            <span className="social-total-num">{totalCount}</span>
+            <span className="social-total-label"> Subscribers</span>
+          </div>
+        )}
       </div>
     </section>
   );
