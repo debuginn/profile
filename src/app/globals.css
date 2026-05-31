@@ -1160,6 +1160,7 @@ body {
   z-index: 1;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 96px 20px 80px;
@@ -1302,6 +1303,30 @@ body {
 
 .social-btn--light .social-btn-icon img {
   filter: brightness(0);
+}
+
+.social-total {
+  margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+.social-total-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  font-variant-numeric: tabular-nums;
+}
+
+.social-total--light {
+  color: rgba(21, 33, 24, 0.5);
+}
+
+.social-total--light .social-total-num {
+  color: rgba(21, 33, 24, 0.85);
 }
 
 @media (max-width: 768px) {
