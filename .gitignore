@@ -5,5 +5,10 @@ node_modules/
 .next/
 out/
 tsconfig.tsbuildinfo
+next-env.d.ts
 .DS_Store
 tmp/
+public/*.webp
+public/*.jpg
+public/*.png
+public/*.svg
