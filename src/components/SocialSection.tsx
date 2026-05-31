@@ -76,11 +76,12 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+    const root = el.closest(".page-stack") as HTMLElement | null;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting && !animated) setAnimated(true);
       },
-      { threshold: 0.3 }
+      { root, threshold: 0.3 }
     );
     observer.observe(el);
     return () => observer.disconnect();
