@@ -50,8 +50,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // iOS Safari：内容延伸到刘海/状态栏区域，配合 100dvh 消除顶部留白
+  // iOS Safari：内容延伸到刘海/状态栏区域，消除顶部留白
   viewportFit: "cover",
+  // Safari 状态栏/工具栏背景色：设为站点主深色，消除顶部黑条与底部工具栏色差
+  themeColor: "#0b1220",
 };
 
 export default function RootLayout({

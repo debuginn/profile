@@ -1629,6 +1629,14 @@ body {
     margin: 0 auto;
   }
 
+  /* 手机单列：清除杂志散落式旋转/位移，让两张卡正放、等大、居中 */
+  .blog-card--1,
+  .blog-card--2,
+  .blog-card--3,
+  .blog-card--4 {
+    transform: none !important;
+  }
+
   .blog-card {
     min-height: 0;
     aspect-ratio: 1.62 / 1;
