@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import config, { LIGHT_BG_SECTIONS } from "../lib/config";
+import config, { LIGHT_BG_SECTIONS, SECTION_THEME_COLORS } from "../lib/config";
 import { usePageVM } from "../viewmodels/usePageVM";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -81,6 +81,27 @@ export default function Home() {
       cancelled = true;
     };
   }, [activePage, bgThumb, bgThumbSocial]);
+
+  // iOS Safari：滚到某屏时把 <meta name="theme-color"> 切成该屏背景色，
+  // Safari 据此给顶部状态栏/底部工具栏区取色，消除黑条与上下留白。
+  // 同时把 <html> 底色设为当前屏色：viewport-fit=cover 下 html 背景铺满
+  // 整个物理屏(含刘海/Home条区)，作为 Safari 自动取色的可靠像素源，双保险。
+  useEffect(() => {
+    const color = SECTION_THEME_COLORS[activePage];
+    if (!color) return;
+    let meta = document.querySelector<HTMLMetaElement>(
+      'meta[name="theme-color"]:not([media])'
+    );
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "theme-color";
+      document.head.appendChild(meta);
+    }
+    if (meta.getAttribute("content") !== color) {
+      meta.setAttribute("content", color);
+    }
+    document.documentElement.style.backgroundColor = color;
+  }, [activePage]);
 
   return (
     <main className="page-stack" data-active={activePage}>
