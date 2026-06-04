@@ -281,6 +281,13 @@ body {
   background: radial-gradient(circle at 50% 8%, #2d3f57 0%, var(--home-bg) 58%, #0b1220 100%);
 }
 
+/* 照片背景屏：整屏向下扩展一个底部安全区高度，让 inset:0 的照片盖住 Home 条区，
+   内容用 padding-bottom 抵消，保证 scroll-snap 对齐不错位 */
+.page-screen-home,
+.page-screen-social {
+  height: calc(100vh + env(safe-area-inset-bottom, 0px));
+}
+
 .page-bg {
   position: absolute;
   inset: 0;
