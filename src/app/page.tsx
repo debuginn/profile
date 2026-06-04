@@ -83,7 +83,7 @@ export default function Home() {
   }, [activePage, bgThumb, bgThumbSocial]);
 
   return (
-    <main className="page-stack">
+    <main className="page-stack" data-active={activePage}>
       {(activePage === FIRST_PAGE_ID || activePage === LAST_PAGE_ID) && (
         <Header
           brand={config.site.title}

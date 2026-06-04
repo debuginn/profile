@@ -257,7 +257,17 @@ body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   position: relative;
+  /* 安全区(刘海/Home条)露出的底色，默认深色，下方按当前屏自动切换 */
+  background-color: var(--home-bg);
+  transition: background-color 0.45s ease;
 }
+
+/* 安全区底色按当前激活屏自动识别填充，与各屏背景主色一致 */
+.page-stack[data-active="home"] { background-color: #0b1220; }
+.page-stack[data-active="iassets"] { background-color: #060a12; }
+.page-stack[data-active="flybay"] { background-color: #f5f7ee; }
+.page-stack[data-active="blog"] { background-color: #05080b; }
+.page-stack[data-active="social"] { background-color: #0b1220; }
 
 .page-screen {
   height: 100vh;
