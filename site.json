@@ -323,6 +323,11 @@
         "followers": 36
       },
       {
+        "label": "Discord",
+        "href": "https://discord.gg/RF33jPV2r",
+        "icon": "discord"
+      },
+      {
         "label": "GitHub",
         "href": "https://github.com/debuginn",
         "icon": "github",
