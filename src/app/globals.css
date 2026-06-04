@@ -250,6 +250,7 @@ body {
 
 .page-stack {
   height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -258,7 +259,9 @@ body {
 
 .page-screen {
   height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow: clip;
   scroll-snap-align: start;
   position: relative;
@@ -280,6 +283,7 @@ body {
 .page-screen-home .site-wrapper-inner,
 .page-screen-home .cover-container {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .page-screen-home > .site-wrapper {
@@ -302,6 +306,8 @@ body {
   right: 0;
   z-index: 25;
   width: 100% !important;
+  /* viewport-fit=cover 下避开刘海/状态栏，防止 header 内容被遮挡 */
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .global-header.masthead {

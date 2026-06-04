@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import config from "../lib/config";
@@ -45,6 +45,13 @@ export const metadata: Metadata = {
     description: config.site.description,
     images: ogImage ? [ogImage] : undefined,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // iOS Safari：内容延伸到刘海/状态栏区域，配合 100dvh 消除顶部留白
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
