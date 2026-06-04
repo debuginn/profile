@@ -251,8 +251,8 @@ body {
 }
 
 .page-stack {
-  /* viewport-fit=cover 下 100vh = 含安全区的全屏物理高度，背景铺满到屏幕边缘 */
-  height: 100vh;
+  /* dvh 动态视口高度：iOS Safari 地址栏伸缩时不裁切、不错位 */
+  height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -270,8 +270,8 @@ body {
 .page-stack[data-active="social"] { background-color: #0b1220; }
 
 .page-screen {
-  height: 100vh;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   overflow: clip;
   scroll-snap-align: start;
   position: relative;
@@ -279,13 +279,6 @@ body {
 
 .page-screen-home {
   background: radial-gradient(circle at 50% 8%, #2d3f57 0%, var(--home-bg) 58%, #0b1220 100%);
-}
-
-/* 照片背景屏：整屏向下扩展一个底部安全区高度，让 inset:0 的照片盖住 Home 条区，
-   内容用 padding-bottom 抵消，保证 scroll-snap 对齐不错位 */
-.page-screen-home,
-.page-screen-social {
-  height: calc(100vh + env(safe-area-inset-bottom, 0px));
 }
 
 .page-bg {
