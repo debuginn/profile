@@ -231,6 +231,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  /* viewport-fit=cover 下，安全区(刘海/底部Home条)露出的底色与站点主背景一致，消除上下留白 */
+  background-color: var(--home-bg);
 }
 
 body {
@@ -249,8 +251,8 @@ body {
 }
 
 .page-stack {
+  /* viewport-fit=cover 下 100vh = 含安全区的全屏物理高度，背景铺满到屏幕边缘 */
   height: 100vh;
-  height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -259,9 +261,7 @@ body {
 
 .page-screen {
   height: 100vh;
-  height: 100dvh;
   min-height: 100vh;
-  min-height: 100dvh;
   overflow: clip;
   scroll-snap-align: start;
   position: relative;
@@ -283,7 +283,6 @@ body {
 .page-screen-home .site-wrapper-inner,
 .page-screen-home .cover-container {
   min-height: 100vh;
-  min-height: 100dvh;
 }
 
 .page-screen-home > .site-wrapper {
@@ -399,6 +398,8 @@ body {
   z-index: 24;
   width: 100%;
   pointer-events: none;
+  /* viewport-fit=cover 下避开底部 Home 指示条，防止 footer 文字被遮挡 */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .global-footer .mastfoot {
