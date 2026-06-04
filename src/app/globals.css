@@ -231,8 +231,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  /* viewport-fit=cover 下，安全区(刘海/底部Home条)露出的底色与站点主背景一致，消除上下留白 */
-  background-color: var(--home-bg);
 }
 
 body {
@@ -251,27 +249,16 @@ body {
 }
 
 .page-stack {
-  /* dvh 动态视口高度：iOS Safari 地址栏伸缩时不裁切、不错位 */
-  height: 100dvh;
+  height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   position: relative;
-  /* 安全区(刘海/Home条)露出的底色，默认深色，下方按当前屏自动切换 */
-  background-color: var(--home-bg);
-  transition: background-color 0.45s ease;
 }
 
-/* 安全区底色按当前激活屏自动识别填充，与各屏背景主色一致 */
-.page-stack[data-active="home"] { background-color: #0b1220; }
-.page-stack[data-active="iassets"] { background-color: #060a12; }
-.page-stack[data-active="flybay"] { background-color: #f5f7ee; }
-.page-stack[data-active="blog"] { background-color: #05080b; }
-.page-stack[data-active="social"] { background-color: #0b1220; }
-
 .page-screen {
-  height: 100dvh;
-  min-height: 100dvh;
+  height: 100vh;
+  min-height: 100vh;
   overflow: clip;
   scroll-snap-align: start;
   position: relative;
@@ -315,8 +302,6 @@ body {
   right: 0;
   z-index: 25;
   width: 100% !important;
-  /* viewport-fit=cover 下避开刘海/状态栏，防止 header 内容被遮挡 */
-  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .global-header.masthead {
@@ -408,8 +393,6 @@ body {
   z-index: 24;
   width: 100%;
   pointer-events: none;
-  /* viewport-fit=cover 下避开底部 Home 指示条，防止 footer 文字被遮挡 */
-  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .global-footer .mastfoot {
@@ -1620,14 +1603,6 @@ body {
     gap: 32px;
     max-width: 380px;
     margin: 0 auto;
-  }
-
-  /* 手机单列：清除杂志散落式旋转/位移，让两张卡正放、等大、居中 */
-  .blog-card--1,
-  .blog-card--2,
-  .blog-card--3,
-  .blog-card--4 {
-    transform: none !important;
   }
 
   .blog-card {
