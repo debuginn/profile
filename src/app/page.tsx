@@ -170,7 +170,6 @@ export default function Home() {
           copyrightStartYear={config.site.copyrightStartYear}
           siteLabel={config.site.title}
           siteHref={config.site.url}
-          slogan={config.site.slogan}
           tone={headerTone}
         />
       </div>
