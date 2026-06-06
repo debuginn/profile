@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import config from "../lib/config";
@@ -45,6 +45,15 @@ export const metadata: Metadata = {
     description: config.site.description,
     images: ogImage ? [ogImage] : undefined,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // iOS Safari：内容延伸进刘海/状态栏区域，消顶部留白
+  viewportFit: "cover",
+  // 单一静态深色：状态栏/工具栏染成与站点底色一致的深色
+  themeColor: "#0b1220",
 };
 
 export default function RootLayout({

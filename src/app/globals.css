@@ -231,6 +231,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  /* viewport-fit=cover 下安全区/图片加载前露出的可靠底色，与站点主背景同族 */
+  background-color: var(--home-bg);
 }
 
 body {
@@ -250,6 +252,7 @@ body {
 
 .page-stack {
   height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -258,7 +261,9 @@ body {
 
 .page-screen {
   height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow: clip;
   scroll-snap-align: start;
   position: relative;
@@ -280,6 +285,7 @@ body {
 .page-screen-home .site-wrapper-inner,
 .page-screen-home .cover-container {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .page-screen-home > .site-wrapper {
@@ -290,8 +296,8 @@ body {
 .page-screen-home .cover-container {
   display: flex;
   flex-direction: column;
-  padding-top: 96px;
-  padding-bottom: 86px;
+  padding-top: calc(96px + env(safe-area-inset-top));
+  padding-bottom: calc(86px + env(safe-area-inset-bottom));
   box-sizing: border-box;
 }
 
@@ -340,7 +346,7 @@ body {
 .global-header .inner {
   max-width: 700px;
   margin: 0 auto;
-  padding-top: 28px;
+  padding-top: calc(28px + env(safe-area-inset-top));
   padding-bottom: 16px;
   display: block;
   align-items: unset;
@@ -407,7 +413,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   padding-top: 8px;
-  padding-bottom: 12px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
   text-align: center;
 }
 
@@ -477,6 +483,7 @@ body {
 
 .iassets-page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   padding-top: 0;
@@ -515,6 +522,7 @@ body {
   width: 100%;
   max-width: none;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -786,6 +794,7 @@ body {
 
   .cta-box {
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 0;
     border-radius: 0;
   }
@@ -807,8 +816,8 @@ body {
   }
 
   .page-screen-home .cover-container {
-    padding-top: 88px;
-    padding-bottom: 78px;
+    padding-top: calc(88px + env(safe-area-inset-top));
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
   }
 
   .iassets-page {
@@ -1159,11 +1168,12 @@ body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 96px 20px 80px;
+  padding: calc(96px + env(safe-area-inset-top)) 20px calc(80px + env(safe-area-inset-bottom));
   box-sizing: border-box;
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
 }
