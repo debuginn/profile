@@ -50,6 +50,7 @@ export type SiteConfig = {
     url: string;
     description: string;
     copyrightStartYear: number;
+    slogan?: string;
   };
   nav: NavItem[];
   sections: SectionDef[];
