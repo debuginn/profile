@@ -7,10 +7,11 @@ type Props = {
   copyrightStartYear: number;
   siteLabel: string;
   siteHref: string;
+  slogan?: string;
   tone?: "light" | "dark";
 };
 
-export default function Footer({ showPhotoCredit, showCopyright, photoCredit, copyrightStartYear, siteLabel, siteHref, tone = "light" }: Props) {
+export default function Footer({ showPhotoCredit, showCopyright, photoCredit, copyrightStartYear, siteLabel, siteHref, slogan, tone = "light" }: Props) {
   const currentYear = new Date().getFullYear();
   const copyrightText =
     copyrightStartYear >= currentYear ? `${currentYear}` : `${copyrightStartYear}-${currentYear}`;
@@ -31,6 +32,7 @@ export default function Footer({ showPhotoCredit, showCopyright, photoCredit, co
           <p className="copyright-text">
             Copyright © {copyrightText}{" "}
             <a href={siteHref}>{siteLabel}</a>
+            {slogan ? <span className="footer-slogan"> · {slogan}</span> : null}
           </p>
         ) : null}
       </div>

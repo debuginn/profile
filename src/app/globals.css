@@ -454,6 +454,10 @@ body {
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
+.global-footer .footer-slogan {
+  opacity: 0.8;
+}
+
 .global-footer .mastfoot--light .photo-credit,
 .global-footer .mastfoot--light .photo-credit a,
 .global-footer .mastfoot--light .copyright-text,

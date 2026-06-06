@@ -4,7 +4,8 @@
     "homeHref": "/",
     "url": "https://debuginn.com",
     "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
-    "copyrightStartYear": 2017
+    "copyrightStartYear": 2017,
+    "slogan": "永远相信美好的事情即将发生"
   },
   "nav": [
     {
@@ -196,7 +197,7 @@
     "buttons": [
       {
         "label": "App Store",
-        "href": "https://apps.apple.com/us/app/iassets/id6759790991",
+        "href": "https://apps.apple.com/cn/app/%E7%9F%A5%E7%9B%88/id6759790991",
         "variant": "primary",
         "icon": "apple"
       },

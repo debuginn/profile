@@ -169,7 +169,8 @@ export default function Home() {
           photoCredit={config.home.photoCredit}
           copyrightStartYear={config.site.copyrightStartYear}
           siteLabel={config.site.title}
-          siteHref={config.site.homeHref}
+          siteHref={config.site.url}
+          slogan={config.site.slogan}
           tone={headerTone}
         />
       </div>
