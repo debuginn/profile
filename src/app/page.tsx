@@ -139,7 +139,7 @@ export default function Home() {
               links={config.social.links}
               bgUrl={bgUrlSocial}
               bgThumb={bgThumbSocial}
-              isLight={isLight}
+              isLight={headerTone === "dark"}
             />
           );
         }
