@@ -1432,8 +1432,7 @@ body {
 
 .blog-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
   min-height: 0;
   aspect-ratio: 1.62 / 1;
   border-radius: 18px;
@@ -1508,12 +1507,12 @@ body {
 }
 
 .blog-card-body {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 4;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 100%;
   align-items: flex-start;
   padding: 18px 18px 16px;
   box-sizing: border-box;
