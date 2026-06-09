@@ -29,9 +29,12 @@ function buildProps() {
   const absHref = (href: string) => href.startsWith("#") ? `${BASE}/${href}` : href;
 
   const actions: HeroAction[] = [
-    { label: hero.primaryAction.label, href: absHref(hero.primaryAction.href), target: "_blank" },
-    { label: hero.secondaryAction.label, href: absHref(hero.secondaryAction.href), target: "_blank" },
-  ];
+    hero.primaryAction,
+    hero.secondaryAction,
+    hero.tertiaryAction,
+  ]
+    .filter((a): a is { label: string; href: string } => Boolean(a))
+    .map((a) => ({ label: a.label, href: absHref(a.href), target: "_blank" }));
 
   return {
     tag: `${month} 月${hero.activityTagText}`,
