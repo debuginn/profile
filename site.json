@@ -215,6 +215,13 @@
     "viewAllHref": "https://blog.debuginn.com",
     "posts": [
       {
+        "title": "做了一款家庭资产管理 App — 知盈 iAssets",
+        "link": "https://blog.debuginn.com/p/iassets-app/",
+        "date": "2026-06-08",
+        "image": "https://webp.debuginn.com/20260607dSXDdX.jpeg",
+        "excerpt": "大家好呀，我是 Meng小羽 说起记账和资产管理，市面上其实不缺工具，但用了一圈下来，总觉得差点意思——有的只记流水不看全局，有的功能臃肿得像企业级 ERP，还…"
+      },
+      {
         "title": "飞湾计划：把一趟大湾区之行，顺手变成港澳开户探索路线",
         "link": "https://blog.debuginn.com/p/fly-bay/",
         "date": "2026-05-05",
@@ -262,13 +269,6 @@
         "date": "2025-09-06",
         "image": "https://static.debuginn.com/20250828uaMPQa.jpg",
         "excerpt": "大家好呀，我是 Meng小羽，上个周末与大学同学相约，一起去了张北草原草原天路自驾，因为 8 月份是草原最好看的季节，因为属于花季，漫山的野花与初秋的微凉，给人…"
-      },
-      {
-        "title": "免费无版权图片素材网站推荐",
-        "link": "https://blog.debuginn.com/p/free-photo/",
-        "date": "2025-08-23",
-        "image": "https://webp.debuginn.com/202508227vzV8r.jpg",
-        "excerpt": "大家好呀，我是 Meng小羽，在 21 年的时候我就做过一期分享，就是关于无版权免费图片网站推荐的文章，但是后来由于博客搬家丢失了这个文章，为了大家便于后续查找…"
       }
     ]
   },
