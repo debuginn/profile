@@ -851,6 +851,12 @@ body {
   box-sizing: border-box;
 }
 
+/* 全局 a:hover { color:#fff } 会覆盖 flybay 组件自身的按钮颜色，在此还原 */
+.fb-page a:hover,
+.fb-page a:focus {
+  color: inherit;
+}
+
 /* Hero panel card — matches flyBay hero-panel */
 .fb-hero-panel {
   position: relative;
