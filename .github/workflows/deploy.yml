@@ -5,8 +5,9 @@ on:
     branches:
       - main
   schedule:
-    # Daily at 00:00 UTC (08:00 Asia/Shanghai) — refreshes blog.posts from RSS and submodules.
+    # 08:00 and 14:00 Asia/Shanghai (00:00 and 06:00 UTC) — refreshes blog.posts from RSS and submodules.
     - cron: "0 0 * * *"
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
