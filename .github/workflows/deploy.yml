@@ -89,6 +89,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          ref: main
 
       - name: Fetch submodules via SSH
         run: git submodule update --init --recursive
@@ -130,6 +131,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          ref: main
 
       - name: Fetch submodules via SSH
         run: git submodule update --init --recursive
