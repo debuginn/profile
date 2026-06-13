@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://debuginn.cn
+Sitemap: https://debuginn.cn/sitemap.xml
