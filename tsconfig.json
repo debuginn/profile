@@ -34,9 +34,6 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "vendor/flybay/src/components/HeroSection.tsx",
-    "vendor/flybay/src/components/WorldMap.tsx",
-    "vendor/flybay/src/components/PosterButton.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
