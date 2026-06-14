@@ -1602,7 +1602,7 @@ body {
 
 @media (max-width: 640px) {
   .blog-page {
-    padding: 88px 16px 70px;
+    padding: 56px 16px 48px;
     gap: 16px;
   }
 
@@ -1615,7 +1615,8 @@ body {
 
   .blog-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 18px;
+    align-content: center;
     max-width: 380px;
     margin: 0 auto;
   }
