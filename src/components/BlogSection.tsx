@@ -39,7 +39,8 @@ export default function BlogSection({ posts }: Props) {
                   <img
                     src={post.image}
                     alt=""
-                    loading="lazy"
+                    loading={index < 2 ? "eager" : "lazy"}
+                    fetchPriority={index < 2 ? "high" : "auto"}
                     decoding="async"
                   />
                 </div>

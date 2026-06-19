@@ -1601,8 +1601,14 @@ body {
 }
 
 @media (max-width: 640px) {
+  .page-screen-blog {
+    align-items: stretch;
+  }
+
   .blog-page {
-    padding: 56px 16px 48px;
+    min-height: 100%;
+    justify-content: center;
+    padding: 56px 16px calc(48px + env(safe-area-inset-bottom));
     gap: 16px;
   }
 
@@ -1614,16 +1620,21 @@ body {
   }
 
   .blog-grid {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 18px;
-    align-content: center;
+    align-items: stretch;
     max-width: 380px;
+    width: 100%;
     margin: 0 auto;
   }
 
   .blog-card {
+    display: block;
+    width: 100%;
+    height: clamp(168px, 52vw, 218px);
     min-height: 0;
-    aspect-ratio: 1.62 / 1;
+    aspect-ratio: auto;
     border-radius: 14px;
   }
 
