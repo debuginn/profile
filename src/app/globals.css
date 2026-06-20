@@ -1577,6 +1577,10 @@ body {
   z-index: 10;
 }
 
+.blog-mobile-list {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .blog-page {
     max-width: 920px;
@@ -1620,44 +1624,80 @@ body {
   }
 
   .blog-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    align-items: stretch;
-    max-width: 380px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .blog-card {
-    display: block;
-    width: 100%;
-    height: clamp(168px, 52vw, 218px);
-    min-height: 0;
-    aspect-ratio: auto;
-    border-radius: 14px;
-  }
-
-  .blog-card::after {
-    width: 44px;
-    height: 44px;
-    inset: auto 10px 10px auto;
-  }
-
-  .blog-card:nth-child(n+3) {
     display: none;
   }
 
-  .blog-card-body {
-    padding: 12px 12px 11px;
+  .blog-mobile-list {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
   }
 
-  .blog-card-date {
+  .blog-mobile-card {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr);
+    align-items: stretch;
+    width: 100%;
+    min-height: 104px;
+    color: #fff;
+    text-decoration: none !important;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .blog-mobile-card-image {
+    display: block;
+    width: 108px;
+    height: 100%;
+    min-height: 104px;
+    object-fit: cover;
+    filter: saturate(0.92) brightness(0.86);
+  }
+
+  .blog-mobile-card-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 0;
+    padding: 12px 13px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, rgba(12, 20, 27, 0.92), rgba(20, 31, 39, 0.78));
+  }
+
+  .blog-mobile-card-date {
+    display: block;
+    margin-bottom: 7px;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 8px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
   }
 
-  .blog-card-title {
-    font-size: 12px;
-    line-height: 1.35;
+  .blog-mobile-card-title {
+    display: -webkit-box;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.36;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .blog-mobile-card:active {
+    background: rgba(255, 255, 255, 0.12);
   }
 }
