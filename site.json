@@ -284,13 +284,13 @@
         "label": "Blog",
         "href": "https://blog.debuginn.com",
         "icon": "blog",
-        "followers": 466
+        "followers": 410
       },
       {
         "label": "微信",
         "href": "https://debuginn.com/wechat",
         "icon": "https://webp.debuginn.com/20260529XetLUr.svg",
-        "followers": 1439
+        "followers": 1443
       },
       {
         "label": "微博",
@@ -302,7 +302,7 @@
         "label": "小红书",
         "href": "https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068",
         "icon": "https://webp.debuginn.com/202605290mdDFJ.svg",
-        "followers": 101
+        "followers": 106
       },
       {
         "label": "知乎",
@@ -314,18 +314,19 @@
         "label": "X",
         "href": "https://x.com/idebuginn",
         "icon": "https://webp.debuginn.com/20260529dntbQO.svg",
-        "followers": 87
+        "followers": 216
       },
       {
         "label": "Telegram",
         "href": "https://t.me/xdebuginn",
         "icon": "https://webp.debuginn.com/2026052916fIxC.svg",
-        "followers": 36
+        "followers": 42
       },
       {
         "label": "Discord",
         "href": "https://discord.gg/RF33jPV2r",
-        "icon": "discord"
+        "icon": "discord",
+        "followers": 8
       },
       {
         "label": "GitHub",
