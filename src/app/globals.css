@@ -1494,21 +1494,25 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #111820;
 }
 
 .blog-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: auto;
   display: block;
   filter: saturate(0.9) brightness(0.82);
-  transform: scale(1.04);
-  transition: transform 0.35s ease, filter 0.35s ease;
+  transition: filter 0.35s ease;
 }
 
 .blog-card:hover .blog-card-image img {
-  transform: scale(1.08);
   filter: saturate(0.96) brightness(0.86);
 }
 
@@ -1657,10 +1661,12 @@ body {
 
   .blog-mobile-card-image {
     display: block;
-    width: 108px;
-    height: 100%;
-    min-height: 104px;
-    object-fit: cover;
+    width: auto;
+    height: auto;
+    max-width: 108px;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
     filter: saturate(0.92) brightness(0.86);
   }
 
