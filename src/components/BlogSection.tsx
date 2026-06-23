@@ -35,10 +35,7 @@ export default function BlogSection({ posts }: Props) {
               rel="noreferrer"
             >
               {post.image && (
-                <div
-                  className="blog-card-image"
-                  style={{ backgroundImage: `url(${post.image})` }}
-                >
+                <div className="blog-card-image">
                   <img
                     src={post.image}
                     alt=""
@@ -66,21 +63,16 @@ export default function BlogSection({ posts }: Props) {
               rel="noreferrer"
             >
               {post.image && (
-                <span
-                  className="blog-mobile-card-image-wrap"
-                  style={{ backgroundImage: `url(${post.image})` }}
-                >
-                  <img
-                    className="blog-mobile-card-image"
-                    src={post.image}
-                    alt=""
-                    width={640}
-                    height={395}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    fetchPriority={index === 0 ? "high" : "auto"}
-                    decoding="async"
-                  />
-                </span>
+                <img
+                  className="blog-mobile-card-image"
+                  src={post.image}
+                  alt=""
+                  width={640}
+                  height={395}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
+                />
               )}
               <span className="blog-mobile-card-copy">
                 <span className="blog-mobile-card-date">{formatDate(post.date)}</span>
