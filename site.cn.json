@@ -4,7 +4,19 @@
     "homeHref": "/",
     "url": "https://debuginn.cn",
     "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
-    "copyrightStartYear": 2017
+    "copyrightStartYear": 2017,
+    "themeColor": "#0b1220",
+    "assetOrigins": [
+      "https://webp.debuginn.com"
+    ],
+    "alternates": {
+      "zh-CN": "https://debuginn.cn",
+      "x-default": "https://debuginn.com"
+    },
+    "analytics": {
+      "googleTagId": "G-B1XEJXPQPW",
+      "clarityId": "jsxxcoctis"
+    }
   },
   "nav": [],
   "sections": [
@@ -27,6 +39,10 @@
   "home": {
     "photoCredit": null,
     "scrollToId": "iassets",
+    "quoteApi": {
+      "endpoint": "https://v1.hitokoto.cn/?encode=json",
+      "linkBase": "https://hitokoto.cn/?id="
+    },
     "backgrounds": [
       "https://webp.debuginn.com/202303120016035.jpeg",
       "https://webp.debuginn.com/202303120014022.jpeg",
@@ -255,6 +271,7 @@
         "label": "微信",
         "href": "https://debuginn.cn/wechat",
         "icon": "https://webp.debuginn.com/20260529XetLUr.svg",
+        "qrImage": "https://webp.debuginn.com/20260529OjuRvn.jpg",
         "followers": 1443
       },
       {

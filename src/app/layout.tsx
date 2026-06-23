@@ -17,7 +17,15 @@ const geistMono = Geist_Mono({
 });
 
 const ogImage = config.home.backgrounds[0];
-const altUrl = config.site.url.includes(".cn") ? "https://debuginn.com" : "https://debuginn.cn";
+const alternateUrl = config.site.url.includes(".cn") ? "https://debuginn.com" : "https://debuginn.cn";
+const alternateLanguages = config.site.alternates ?? {
+  "zh-CN": config.site.url.includes(".cn") ? config.site.url : alternateUrl,
+  "x-default": config.site.url.includes(".cn") ? alternateUrl : config.site.url,
+};
+const themeColor = config.site.themeColor ?? "#0b1220";
+const assetOrigins = config.site.assetOrigins ?? [];
+const googleTagId = config.site.analytics?.googleTagId;
+const clarityId = config.site.analytics?.clarityId;
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.site.url),
@@ -25,10 +33,7 @@ export const metadata: Metadata = {
   description: config.site.description,
   alternates: {
     canonical: config.site.url,
-    languages: {
-      "zh-CN": config.site.url.includes(".cn") ? config.site.url : altUrl,
-      "x-default": config.site.url.includes(".cn") ? altUrl : config.site.url,
-    },
+    languages: alternateLanguages,
   },
   openGraph: {
     type: "website",
@@ -53,7 +58,7 @@ export const viewport: Viewport = {
   // iOS Safari：内容延伸进刘海/状态栏区域，消顶部留白
   viewportFit: "cover",
   // 单一静态深色：状态栏/工具栏染成与站点底色一致的深色
-  themeColor: "#0b1220",
+  themeColor,
 };
 
 export default function RootLayout({
@@ -64,25 +69,34 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
-        <link rel="dns-prefetch" href="https://webp.debuginn.com" />
-        <link rel="preconnect" href="https://webp.debuginn.com" />
-        <link rel="preconnect" href="https://webp.debuginn.com" crossOrigin="anonymous" />
+        {assetOrigins.map((origin) => (
+          <link key={`${origin}-dns`} rel="dns-prefetch" href={origin} />
+        ))}
+        {assetOrigins.map((origin) => (
+          <link key={`${origin}-preconnect`} rel="preconnect" href={origin} crossOrigin="anonymous" />
+        ))}
         <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
         <link rel="manifest" href="/static/site.webmanifest" />
-        <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color={themeColor} />
       </head>
       <body>
         {children}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-B1XEJXPQPW" strategy="afterInteractive" />
-        <Script id="ga" strategy="afterInteractive">
+        {googleTagId ? (
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`} strategy="afterInteractive" />
+        ) : null}
+        {googleTagId ? (
+          <Script id="ga" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-B1XEJXPQPW');`}
-        </Script>
-        <Script id="clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "jsxxcoctis");`}
-        </Script>
+function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${googleTagId}');`}
+          </Script>
+        ) : null}
+        {clarityId ? (
+          <Script id="clarity" strategy="afterInteractive">
+            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "${clarityId}");`}
+          </Script>
+        ) : null}
       </body>
     </html>
   );

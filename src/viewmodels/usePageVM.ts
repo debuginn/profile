@@ -4,42 +4,82 @@ import { useEffect, useState, useRef } from "react";
 
 export type ActivePage = string;
 
-export function usePageVM(pageIds: string[], backgrounds: string[], backgroundsThumb: string[] = []) {
+type BackgroundSelection = {
+  bgUrl: string;
+  bgUrlSocial: string;
+  bgThumb: string;
+  bgThumbSocial: string;
+};
+
+type QuoteApi = {
+  endpoint: string;
+  linkBase: string;
+};
+
+const DEFAULT_QUOTE_API: QuoteApi = {
+  endpoint: "https://v1.hitokoto.cn/?encode=json",
+  linkBase: "https://hitokoto.cn/?id=",
+};
+const EMPTY_BACKGROUNDS_THUMB: string[] = [];
+
+function pickBackgrounds(backgrounds: string[], backgroundsThumb: string[] = EMPTY_BACKGROUNDS_THUMB): BackgroundSelection {
+  if (backgrounds.length === 0) {
+    return { bgUrl: "", bgUrlSocial: "", bgThumb: "", bgThumbSocial: "" };
+  }
+
+  const pickIdx = () => Math.floor(Math.random() * backgrounds.length);
+  const primaryIdx = pickIdx();
+  let socialIdx = pickIdx();
+  if (backgrounds.length > 1) {
+    while (socialIdx === primaryIdx) socialIdx = pickIdx();
+  }
+
+  return {
+    bgUrl: backgrounds[primaryIdx] ?? "",
+    bgUrlSocial: backgrounds[socialIdx] ?? "",
+    bgThumb: backgroundsThumb[primaryIdx] ?? "",
+    bgThumbSocial: backgroundsThumb[socialIdx] ?? "",
+  };
+}
+
+export function usePageVM(
+  pageIds: string[],
+  backgrounds: string[],
+  backgroundsThumb: string[] = EMPTY_BACKGROUNDS_THUMB,
+  quoteApi: QuoteApi = DEFAULT_QUOTE_API
+) {
   const [activePage, setActivePage] = useState<ActivePage>("home");
   const [dotsVisible, setDotsVisible] = useState(true);
   const [hitokoto, setHitokoto] = useState(":D 获取中...");
   const [hitokotoUrl, setHitokotoUrl] = useState("#");
-  const [bgUrl, setBgUrl] = useState("");
-  const [bgUrlSocial, setBgUrlSocial] = useState("");
-  const [bgThumb, setBgThumb] = useState("");
-  const [bgThumbSocial, setBgThumbSocial] = useState("");
+  const [{ bgUrl, bgUrlSocial, bgThumb, bgThumbSocial }, setBackgroundSelection] = useState<BackgroundSelection>({
+    bgUrl: "",
+    bgUrlSocial: "",
+    bgThumb: "",
+    bgThumbSocial: "",
+  });
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (backgrounds.length === 0) return;
-    const pickIdx = () => Math.floor(Math.random() * backgrounds.length);
-    const ia = pickIdx();
-    let ib = pickIdx();
-    if (backgrounds.length > 1) while (ib === ia) ib = pickIdx();
-    setBgUrl(backgrounds[ia] ?? "");
-    setBgUrlSocial(backgrounds[ib] ?? "");
-    setBgThumb(backgroundsThumb[ia] ?? "");
-    setBgThumbSocial(backgroundsThumb[ib] ?? "");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const backgroundTimer = window.setTimeout(() => {
+      setBackgroundSelection(pickBackgrounds(backgrounds, backgroundsThumb));
+    }, 0);
+
+    return () => window.clearTimeout(backgroundTimer);
+  }, [backgrounds, backgroundsThumb]);
 
   useEffect(() => {
-    fetch("https://v1.hitokoto.cn/?encode=json")
+    fetch(quoteApi.endpoint)
       .then((r) => r.json())
       .then((data) => {
         setHitokoto(data.hitokoto || "");
-        setHitokotoUrl(data.from ? `https://hitokoto.cn/?id=${data.id}` : "#");
+        setHitokotoUrl(data.from ? `${quoteApi.linkBase}${data.id}` : "#");
       })
       .catch(() => {
         setHitokoto("");
         setHitokotoUrl("#");
       });
-  }, []);
+  }, [quoteApi.endpoint, quoteApi.linkBase]);
 
   useEffect(() => {
     const syncByHash = () => {

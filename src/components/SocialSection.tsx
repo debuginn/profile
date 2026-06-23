@@ -115,7 +115,7 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
       <div className="social-page">
         <div className="social-links">
           {links.map((link) => {
-            const isWechat = link.label === "微信";
+            const hasQrImage = Boolean(link.qrImage);
             return (
               <a
                 key={link.label}
@@ -123,7 +123,7 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
                 target="_blank"
                 rel="noreferrer"
                 aria-label={link.label}
-                className={`social-btn${isWechat ? " social-btn-wechat" : ""}${isLight ? " social-btn--light" : ""}`}
+                className={`social-btn${hasQrImage ? " social-btn-wechat" : ""}${isLight ? " social-btn--light" : ""}`}
               >
                 <span className="social-btn-icon">
                   <SocialIcon icon={link.icon} label={link.label} />
@@ -132,9 +132,9 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
                 {link.followers != null && (
                   <BadgeCount target={link.followers} active={animated} isLight={isLight} />
                 )}
-                {isWechat && (
+                {link.qrImage && (
                   <span className="social-btn-qr" aria-hidden="true">
-                    <img src="https://webp.debuginn.com/20260529OjuRvn.jpg" alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />
+                    <img src={link.qrImage} alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />
                   </span>
                 )}
               </a>

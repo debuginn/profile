@@ -19,26 +19,28 @@ const FIRST_PAGE_ID = PAGE_IDS[0];
 const LAST_PAGE_ID = PAGE_IDS[PAGE_IDS.length - 1];
 
 export default function Home() {
-  const { activePage, setActivePage, dotsVisible, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
+  const { activePage, dotsVisible, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
     PAGE_IDS,
     config.home.backgrounds,
-    config.home.backgroundsThumb ?? []
+    config.home.backgroundsThumb,
+    config.home.quoteApi
   );
   const [headerTone, setHeaderTone] = useState<"light" | "dark">("light");
-  const [showPageDown, setShowPageDown] = useState(true);
+  const [lastPageSettled, setLastPageSettled] = useState(false);
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
   const nextSection = config.sections[activeIdx + 1];
   const isLight = LIGHT_BG_SECTIONS.has(activePage);
+  const showPageDown = activePage !== LAST_PAGE_ID || !lastPageSettled;
 
   useEffect(() => {
     if (activePage !== LAST_PAGE_ID) {
-      setShowPageDown(true);
-      return;
+      const resetTimer = window.setTimeout(() => setLastPageSettled(false), 0);
+      return () => window.clearTimeout(resetTimer);
     }
 
     const timer = window.setTimeout(() => {
-      setShowPageDown(false);
+      setLastPageSettled(true);
     }, 360);
 
     return () => window.clearTimeout(timer);

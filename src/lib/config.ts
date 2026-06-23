@@ -35,6 +35,7 @@ export type SocialLink = {
   href: string;
   icon: string;
   followers?: number;
+  qrImage?: string;
 };
 
 export type SectionDef = {
@@ -50,6 +51,13 @@ export type SiteConfig = {
     url: string;
     description: string;
     copyrightStartYear: number;
+    themeColor?: string;
+    assetOrigins?: string[];
+    alternates?: Record<string, string>;
+    analytics?: {
+      googleTagId?: string;
+      clarityId?: string;
+    };
   };
   nav: NavItem[];
   sections: SectionDef[];
@@ -58,6 +66,10 @@ export type SiteConfig = {
     scrollToId: string;
     backgrounds: string[];
     backgroundsThumb?: string[];
+    quoteApi?: {
+      endpoint: string;
+      linkBase: string;
+    };
   };
   iassets: {
     mosaicShots: string[];
