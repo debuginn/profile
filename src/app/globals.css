@@ -1440,7 +1440,7 @@ body {
   position: relative;
   display: block;
   min-height: 0;
-  aspect-ratio: 1.62 / 1;
+  aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
   text-decoration: none !important;
@@ -1591,7 +1591,7 @@ body {
   }
 
   .blog-card {
-    aspect-ratio: 1.62 / 1;
+    aspect-ratio: 16 / 9;
   }
 
   .blog-card--1,
