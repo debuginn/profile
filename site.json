@@ -215,6 +215,13 @@
     "viewAllHref": "https://blog.debuginn.com",
     "posts": [
       {
+        "title": "渣打银行内地见证开户攻略",
+        "link": "https://blog.debuginn.com/p/bank-sc/",
+        "date": "2026-06-22",
+        "image": "https://webp.debuginn.com/20260621hOoPFn.png",
+        "excerpt": "大家好呀，我是 Meng小羽。 之前写过一篇《 港卡开卡指南 》，主要是分享我亲自去香港办卡的过程。后来又写了《 蚂蚁银行（澳门）开户指南 》，给大家补了一个澳…"
+      },
+      {
         "title": "做了一款家庭资产管理 App — 知盈 iAssets",
         "link": "https://blog.debuginn.com/p/iassets-app/",
         "date": "2026-06-08",
@@ -262,13 +269,6 @@
         "date": "2025-12-15",
         "image": "https://webp.debuginn.com/20251215creWKt.jpg",
         "excerpt": "大家好呀，我是 Meng小羽，好久不见，前一段时间，我领了证，是的，我结婚了。随后休了婚假，在北京，婚假只有连续的 10 天自然日，于是又连加两天年假，一块凑了…"
-      },
-      {
-        "title": "游记 张北草原天路自驾之旅",
-        "link": "https://blog.debuginn.com/p/travel-zhangbei/",
-        "date": "2025-09-06",
-        "image": "https://static.debuginn.com/20250828uaMPQa.jpg",
-        "excerpt": "大家好呀，我是 Meng小羽，上个周末与大学同学相约，一起去了张北草原草原天路自驾，因为 8 月份是草原最好看的季节，因为属于花季，漫山的野花与初秋的微凉，给人…"
       }
     ]
   },
