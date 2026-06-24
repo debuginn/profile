@@ -785,7 +785,7 @@ body {
   }
 
   .page-dots {
-    right: 10px;
+    display: none;
   }
 
   .iassets-card-wrap {
