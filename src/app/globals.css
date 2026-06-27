@@ -1199,21 +1199,31 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(20, 28, 42, 0.38);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   color: #ffffff;
   text-decoration: none !important;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
   flex: none;
   position: relative;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
 }
 
 .social-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.6);
-  transform: translateY(-2px);
+  background: rgba(20, 28, 42, 0.52);
+  border-color: rgba(255, 255, 255, 0.42);
+  transform: translateY(-3px);
   color: #ffffff;
   text-decoration: none !important;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .social-btn-icon {
@@ -1223,6 +1233,7 @@ body {
   width: 28px;
   height: 28px;
   flex: none;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.3));
 }
 
 .social-btn-icon svg {
@@ -1306,19 +1317,31 @@ body {
 }
 
 .social-btn--light {
-  background: rgba(21, 33, 24, 0.08);
-  border-color: rgba(21, 33, 24, 0.25);
-  color: #152118;
+  background: rgba(18, 28, 20, 0.32);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 }
 
 .social-btn--light:hover {
-  background: rgba(21, 33, 24, 0.15);
-  border-color: rgba(21, 33, 24, 0.5);
-  color: #152118;
+  background: rgba(18, 28, 20, 0.46);
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #ffffff;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.social-btn--light .social-btn-icon {
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.3));
 }
 
 .social-btn--light .social-btn-icon img {
-  filter: brightness(0);
+  filter: brightness(0) invert(1);
 }
 
 .social-total {
@@ -1440,7 +1463,7 @@ body {
   position: relative;
   display: block;
   min-height: 0;
-  aspect-ratio: 1.62 / 1;
+  aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
   text-decoration: none !important;
