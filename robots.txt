@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://debuginn.com
+Sitemap: https://debuginn.com/sitemap.xml
