@@ -89,6 +89,17 @@ export function usePageVM(
 
     const root = document.querySelector(".page-stack");
     const els = pageIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const syncByScroll = () => {
+      if (!(root instanceof HTMLElement)) return;
+      const index = Math.min(
+        pageIds.length - 1,
+        Math.max(0, Math.round(root.scrollTop / root.clientHeight))
+      );
+      setActivePage(pageIds[index] ?? "home");
+      setDotsVisible(true);
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+      hideTimer.current = setTimeout(() => setDotsVisible(false), 1000);
+    };
 
     syncByHash();
     window.addEventListener("hashchange", syncByHash);
@@ -113,9 +124,11 @@ export function usePageVM(
     );
 
     els.forEach((el) => observer.observe(el));
+    root.addEventListener("scroll", syncByScroll, { passive: true });
 
     return () => {
       observer.disconnect();
+      root.removeEventListener("scroll", syncByScroll);
       window.removeEventListener("hashchange", syncByHash);
       if (hideTimer.current) clearTimeout(hideTimer.current);
     };

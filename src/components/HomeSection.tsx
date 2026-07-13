@@ -4,9 +4,10 @@ type Props = {
   hitokoto: string;
   bgUrl: string;
   bgThumb: string;
+  onBackgroundLoad?: () => void;
 };
 
-export default function HomeSection({ hitokoto, bgUrl, bgThumb }: Props) {
+export default function HomeSection({ hitokoto, bgUrl, bgThumb, onBackgroundLoad }: Props) {
   return (
     <section className="page-screen page-screen-home" id="home">
       {bgUrl ? (
@@ -19,6 +20,7 @@ export default function HomeSection({ hitokoto, bgUrl, bgThumb }: Props) {
             sizes="100vw"
             placeholder={bgThumb ? "blur" : "empty"}
             blurDataURL={bgThumb || undefined}
+            onLoad={onBackgroundLoad}
             style={{ objectFit: "cover", objectPosition: "center" }}
           />
         </div>
