@@ -31,13 +31,12 @@ export default function Home() {
     config.home.quoteApi
   );
   const [headerTone, setHeaderTone] = useState<"light" | "dark">("light");
-  const [lastPageSettled, setLastPageSettled] = useState(false);
   const [loadStage, setLoadStage] = useState<LoadStage>("home");
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
   const nextSection = config.sections[activeIdx + 1];
-  const isLight = LIGHT_BG_SECTIONS.has(activePage);
-  const showPageDown = activePage !== LAST_PAGE_ID || !lastPageSettled;
+  const isPhotoSection = activePage === FIRST_PAGE_ID || activePage === LAST_PAGE_ID;
+  const isLight = isPhotoSection ? headerTone === "dark" : LIGHT_BG_SECTIONS.has(activePage);
 
   const loadIAssets = useCallback(() => {
     setLoadStage((stage) => (stage === "home" ? "iassets" : stage));
@@ -61,19 +60,6 @@ export default function Home() {
     const timer = window.setTimeout(loadRest, 0);
     return () => window.clearTimeout(timer);
   }, [activeIdx, loadRest]);
-
-  useEffect(() => {
-    if (activePage !== LAST_PAGE_ID) {
-      const resetTimer = window.setTimeout(() => setLastPageSettled(false), 0);
-      return () => window.clearTimeout(resetTimer);
-    }
-
-    const timer = window.setTimeout(() => {
-      setLastPageSettled(true);
-    }, 360);
-
-    return () => window.clearTimeout(timer);
-  }, [activePage]);
 
   useEffect(() => {
     if (activePage !== FIRST_PAGE_ID && activePage !== LAST_PAGE_ID) return;
@@ -182,9 +168,9 @@ export default function Home() {
         return null;
       })}
 
-      {showPageDown && nextSection && (
+      {nextSection && (
         <a
-          className={`global-page-down${isLight ? " global-page-down--light" : ""}${activePage === LAST_PAGE_ID ? " global-page-down--fadeout" : ""}`}
+          className={`global-page-down${isLight ? " global-page-down--light" : ""}`}
           href={`#${nextSection.id}`}
           aria-label="跳转到下一页"
         >
