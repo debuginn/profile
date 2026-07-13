@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import config, { LIGHT_BG_SECTIONS } from "../lib/config";
 import { usePageVM } from "../viewmodels/usePageVM";
@@ -17,6 +17,11 @@ const SocialSection = dynamic(() => import("../components/SocialSection"));
 const PAGE_IDS = config.sections.map((s) => s.id);
 const FIRST_PAGE_ID = PAGE_IDS[0];
 const LAST_PAGE_ID = PAGE_IDS[PAGE_IDS.length - 1];
+type LoadStage = "home" | "iassets" | "rest";
+
+function DeferredSection({ id, type }: { id: string; type: string }) {
+  return <section className={`page-screen page-screen-${type}`} id={id} />;
+}
 
 export default function Home() {
   const { activePage, dotsVisible, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial } = usePageVM(
@@ -27,11 +32,35 @@ export default function Home() {
   );
   const [headerTone, setHeaderTone] = useState<"light" | "dark">("light");
   const [lastPageSettled, setLastPageSettled] = useState(false);
+  const [loadStage, setLoadStage] = useState<LoadStage>("home");
 
   const activeIdx = config.sections.findIndex((s) => s.id === activePage);
   const nextSection = config.sections[activeIdx + 1];
   const isLight = LIGHT_BG_SECTIONS.has(activePage);
   const showPageDown = activePage !== LAST_PAGE_ID || !lastPageSettled;
+
+  const loadIAssets = useCallback(() => {
+    setLoadStage((stage) => (stage === "home" ? "iassets" : stage));
+  }, []);
+  const loadRest = useCallback(() => setLoadStage("rest"), []);
+
+  useEffect(() => {
+    if (loadStage !== "home" || !bgUrl) return;
+    const timer = window.setTimeout(loadIAssets, 3000);
+    return () => window.clearTimeout(timer);
+  }, [bgUrl, loadIAssets, loadStage]);
+
+  useEffect(() => {
+    if (loadStage !== "iassets") return;
+    const timer = window.setTimeout(loadRest, 1400);
+    return () => window.clearTimeout(timer);
+  }, [loadRest, loadStage]);
+
+  useEffect(() => {
+    if (activeIdx <= 1) return;
+    const timer = window.setTimeout(loadRest, 0);
+    return () => window.clearTimeout(timer);
+  }, [activeIdx, loadRest]);
 
   useEffect(() => {
     if (activePage !== LAST_PAGE_ID) {
@@ -103,10 +132,12 @@ export default function Home() {
               hitokoto={hitokoto}
               bgUrl={bgUrl}
               bgThumb={bgThumb}
+              onBackgroundLoad={loadIAssets}
             />
           );
         }
         if (section.type === "iassets") {
+          if (loadStage === "home") return <DeferredSection key={section.id} id={section.id} type={section.type} />;
           return (
             <IAssetsSection
               key={section.id}
@@ -119,11 +150,13 @@ export default function Home() {
           );
         }
         if (section.type === "flybay") {
+          if (loadStage !== "rest") return <DeferredSection key={section.id} id={section.id} type={section.type} />;
           return (
             <FlyBaySection key={section.id} />
           );
         }
         if (section.type === "blog") {
+          if (loadStage !== "rest") return <DeferredSection key={section.id} id={section.id} type={section.type} />;
           return (
             <BlogSection
               key={section.id}
@@ -135,6 +168,7 @@ export default function Home() {
           );
         }
         if (section.type === "social") {
+          if (loadStage !== "rest") return <DeferredSection key={section.id} id={section.id} type={section.type} />;
           return (
             <SocialSection
               key={section.id}

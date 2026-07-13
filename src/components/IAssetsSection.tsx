@@ -125,8 +125,8 @@ export default function IAssetsSection({ shots, columns, durations, delays, butt
                             alt=""
                             width={1410}
                             height={2770}
-                            loading={idx < 2 ? "eager" : "lazy"}
-                            fetchPriority={idx < 2 ? "high" : "auto"}
+                            loading={idx === 0 ? "eager" : "lazy"}
+                            fetchPriority={idx === 0 ? "high" : "auto"}
                             decoding="async"
                           />
                         </figure>
