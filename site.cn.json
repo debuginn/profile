@@ -291,6 +291,11 @@
         "href": "https://www.zhihu.com/people/debuginn",
         "icon": "https://webp.debuginn.com/202605290NgP60.svg",
         "followers": 202
+      },
+      {
+        "label": "少数派",
+        "href": "https://sspai.com/u/debuginn",
+        "icon": "https://sspai.com/apple-touch-icon.png"
       }
     ]
   }
