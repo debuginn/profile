@@ -116,14 +116,40 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
         <div className="social-links">
           {links.map((link) => {
             const hasQrImage = Boolean(link.qrImage);
+            const commonProps = {
+              key: link.label,
+              "aria-label": link.label,
+              className: `social-btn${hasQrImage ? " social-btn-wechat" : ""}${isLight ? " social-btn--light" : ""}`,
+            };
+
+            if (hasQrImage) {
+              return (
+                <button
+                  {...commonProps}
+                  type="button"
+                >
+                  <span className="social-btn-icon">
+                    <SocialIcon icon={link.icon} label={link.label} />
+                  </span>
+                  <span className="social-btn-label">{link.label}</span>
+                  {link.followers != null && (
+                    <BadgeCount target={link.followers} active={animated} isLight={isLight} />
+                  )}
+                  {link.qrImage && (
+                    <span className="social-btn-qr" aria-hidden="true">
+                      <img src={link.qrImage} alt="微信二维码" width={120} height={120} loading="lazy" decoding="async" />
+                    </span>
+                  )}
+                </button>
+              );
+            }
+
             return (
               <a
-                key={link.label}
+                {...commonProps}
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={link.label}
-                className={`social-btn${hasQrImage ? " social-btn-wechat" : ""}${isLight ? " social-btn--light" : ""}`}
               >
                 <span className="social-btn-icon">
                   <SocialIcon icon={link.icon} label={link.label} />
