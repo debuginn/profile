@@ -1639,22 +1639,28 @@ body {
     min-height: 0;
     justify-content: center;
     align-items: center;
-    padding: 72px 18px calc(72px + env(safe-area-inset-bottom, 0px));
+    padding: 48px 16px calc(48px + env(safe-area-inset-bottom, 0px));
+    gap: 0;
   }
 
   .blog-backdrop-word {
-    font-size: clamp(120px, 48vw, 220px);
+    font-size: clamp(120px, 36vw, 200px);
     letter-spacing: -0.06em;
     white-space: nowrap;
     overflow: visible;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .blog-grid {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
-    width: min(100%, 360px);
-    max-width: 360px;
+    gap: 12px;
+    width: min(100%, 340px);
+    max-width: 340px;
     margin: 0 auto;
   }
 
