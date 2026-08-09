@@ -1246,7 +1246,7 @@ body {
   width: 28px;
   height: 28px;
   display: block;
-  filter: brightness(0) invert(1);
+  filter: none; /* custom icons keep original colors */;
 }
 
 .social-btn-label {
@@ -1341,7 +1341,7 @@ body {
 }
 
 .social-btn--light .social-btn-icon img {
-  filter: brightness(0) invert(1);
+  filter: none; /* custom icons keep original colors */;
 }
 
 .social-total {
