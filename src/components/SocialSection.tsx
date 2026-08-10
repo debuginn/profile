@@ -36,7 +36,7 @@ function SocialIcon({ icon, label }: { icon: string; label: string }) {
       </svg>
     );
   }
-  return <img src={icon} alt={label} width={28} height={28} loading="lazy" decoding="async" />;
+  return <img src={icon} alt={label} width={28} height={28} loading="lazy" decoding="async" className="social-custom-icon" />;
 }
 
 function useCountUp(target: number, active: boolean, duration = 800) {
