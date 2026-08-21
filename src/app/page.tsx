@@ -145,9 +145,6 @@ export default function Home() {
           return (
             <BlogSection
               key={section.id}
-              title={config.blog.title}
-              viewAllLabel={config.blog.viewAllLabel}
-              viewAllHref={config.blog.viewAllHref}
               posts={loadStage === "rest" ? config.blog.posts : []}
             />
           );

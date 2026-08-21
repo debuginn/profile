@@ -2,9 +2,6 @@ import Image from "next/image";
 import type { BlogPost } from "../lib/config";
 
 type Props = {
-  title: string;
-  viewAllLabel: string;
-  viewAllHref: string;
   posts: BlogPost[];
 };
 

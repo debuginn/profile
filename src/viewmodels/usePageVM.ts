@@ -13,12 +13,10 @@ type BackgroundSelection = {
 
 type QuoteApi = {
   endpoint: string;
-  linkBase: string;
 };
 
 const DEFAULT_QUOTE_API: QuoteApi = {
   endpoint: "https://v1.hitokoto.cn/?encode=json",
-  linkBase: "https://hitokoto.cn/?id=",
 };
 const EMPTY_BACKGROUNDS_THUMB: string[] = [];
 
@@ -51,7 +49,6 @@ export function usePageVM(
   const [activePage, setActivePage] = useState<ActivePage>("home");
   const [dotsVisible, setDotsVisible] = useState(true);
   const [hitokoto, setHitokoto] = useState(":D 获取中...");
-  const [hitokotoUrl, setHitokotoUrl] = useState("#");
   const [{ bgUrl, bgUrlSocial, bgThumb, bgThumbSocial }, setBackgroundSelection] = useState<BackgroundSelection>({
     bgUrl: "",
     bgUrlSocial: "",
@@ -73,13 +70,11 @@ export function usePageVM(
       .then((r) => r.json())
       .then((data) => {
         setHitokoto(data.hitokoto || "");
-        setHitokotoUrl(data.from ? `${quoteApi.linkBase}${data.id}` : "#");
       })
       .catch(() => {
         setHitokoto("");
-        setHitokotoUrl("#");
       });
-  }, [quoteApi.endpoint, quoteApi.linkBase]);
+  }, [quoteApi.endpoint]);
 
   useEffect(() => {
     const syncByHash = () => {
@@ -134,5 +129,5 @@ export function usePageVM(
     };
   }, [pageIds]);
 
-  return { activePage, setActivePage, dotsVisible, hitokoto, hitokotoUrl, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial };
+  return { activePage, dotsVisible, hitokoto, bgUrl, bgUrlSocial, bgThumb, bgThumbSocial };
 }

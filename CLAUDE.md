@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- `npm run dev` — start the Next.js dev server (defaults to the `com` variant).
-- `npm run build` — produce the static export in `out/`. Set `SITE_VARIANT` to choose locale: `SITE_VARIANT=com npm run build` or `SITE_VARIANT=cn npm run build`. Anything other than `cn` resolves to `com`.
+- `npm run dev` — start the Next.js dev server (defaults to the `com` variant). Runs `sync:flybay` first automatically.
+- `npm run build` — produce the static export in `out/`. Set `SITE_VARIANT` to choose locale: `SITE_VARIANT=com npm run build` or `SITE_VARIANT=cn npm run build`. Anything other than `cn` resolves to `com`. Does **not** run `sync:flybay` itself — CI's `prepare` job does that beforehand; when building locally, run `npm run sync:flybay` first or the FlyBay section's images will 404.
 - `npm run lint` — run ESLint (flat config in `eslint.config.mjs`).
+- `npm run sync:flybay` — copies image assets (`.webp`/`.jpg`/`.jpeg`/`.png`/`.svg`) from `vendor/flybay/public/` into `public/`, skipping files that are already up to date by mtime. These synced files are gitignored (`public/*.webp` etc.) — they're a build artifact of the submodule, not checked in.
 - `npm run gen:lqip` — top up `home.backgroundsThumb` in both JSONs with base64 LQIPs for any new entries in `home.backgrounds`. Idempotent. CI runs this before every build.
-- `npm run gen:blog` — fetch latest posts from the RSS feed and write them into `blog.posts` in both JSONs. CI runs this before every build; scheduled daily at 00:00 UTC.
+- `npm run gen:blog` — fetch latest posts from the RSS feed and write them into `blog.posts` in both JSONs. CI runs this before every build; scheduled twice daily at 00:00 and 06:00 UTC.
 - No test runner is configured.
 
 ## Architecture
@@ -42,20 +43,34 @@ Stacking inside home/social: the `<Image>` lives inside an absolute `.page-bg` d
 
 ### Blog section
 
-`blog.posts` in both JSONs is written by `scripts/gen-blog.mjs`, which fetches `https://blog.debuginn.com/index.xml` and extracts the latest posts. CI refreshes this daily; on scheduled runs with no RSS change the build is skipped entirely (gated in the workflow). `BlogSection` renders the first 4 posts as cards with a large decorative "BLOG" backdrop word.
+`blog.posts` in both JSONs is written by `scripts/gen-blog.mjs`, which fetches `https://blog.debuginn.com/index.xml` and extracts the latest posts. CI refreshes this twice daily; on scheduled runs with no RSS change the build is skipped entirely (gated in the workflow). `BlogSection` renders the first 4 posts as cards with a large decorative "BLOG" backdrop word.
 
 ### Active-section tracking
 
 `usePageVM` syncs `activePage` from two sources: the URL hash (`hashchange`) and an `IntersectionObserver` rooted at `.page-stack` watching each section element. Section ids in the JSON must match the DOM ids the section components render. The `.page-stack` container is the scroll root — sections do not scroll the window.
 
-### Static assets and legacy CSS
+### FlyBay vendor submodule
 
-The site still pulls Bootstrap 3 + jQuery from `public/static/` (loaded as `<Script>` in `src/app/layout.tsx`) and uses `cover.css` for layout primitives. Don't delete these; section markup depends on Bootstrap utility classes.
+`vendor/flybay/` is a git submodule (`debuginn/flyBay.git`) — a separate, standalone Next.js app. `FlyBaySection.tsx` imports its components (`HeroSection`, `WorldMap`, `PosterButton`) directly via relative paths, not as an npm package, and reads `vendor/flybay/config/config.json` for content. Consequences that aren't obvious from `src/` alone:
+
+- `d3-geo`, `topojson-client`, and `world-atlas` in `package.json` look unused if you grep `src/`/`scripts/` — they're actually required transitively by `vendor/flybay/src/components/WorldMap.tsx`.
+- The vendor app styles itself with a scoped inline `<style>` block per component (`const SCOPE = "hs1"`) — it shares no classnames with `globals.css`, so the two style systems never collide.
+- `tsconfig.json`'s `@/*` path maps to both `./src/*` and `./vendor/flybay/src/*`, so the vendor's own internal `@/...` imports still resolve when its files are pulled into this project's compile. Code under `src/` itself uses only relative imports, never `@/*` — match that convention.
+- The vendor's image assets live in `vendor/flybay/public/` and must be copied into this project's `public/` via `npm run sync:flybay` before the FlyBay section will render images; those copied files are gitignored, so `git status` should never show them as untracked additions.
+
+### Legacy Bootstrap utility classes
+
+`src/app/globals.css` still defines a handful of Bootstrap 3 "cover template" utility classes (`.masthead-nav`, `.cover-container`, `.site-wrapper`, etc.) that section markup relies on for layout primitives. Bootstrap's CSS/JS itself is not loaded — only these hand-merged class definitions remain. `public/static/` holds only icons/manifest assets; the `<Script>` tags in `src/app/layout.tsx` are GA/Clarity analytics, not Bootstrap/jQuery.
 
 ### Deployment
 
-`.github/workflows/deploy.yml` runs on pushes to `main`, on a daily schedule (00:00 UTC), and on manual dispatch. It builds both variants in parallel (`SITE_VARIANT=com` → `com` branch, `SITE_VARIANT=cn` → `cn` branch) via `peaceiris/actions-gh-pages` with `force_orphan: true`. Each job runs `npm ci` → `npm run gen:blog` → `npm run gen:lqip` → `npm run build`. Day-to-day work happens on `dev`; merge to `main` to ship.
+`.github/workflows/deploy.yml` runs on pushes to `main`, on a twice-daily schedule (00:00 and 06:00 UTC), and on manual dispatch. It has three jobs:
+
+1. **`prepare`** — checks out with an SSH deploy key (`FLYBAY_DEPLOY_KEY` secret) and fetches `vendor/flybay` at its latest remote commit (`git submodule update --remote`), runs `gen:blog`, then gates: on a scheduled run with no resulting diff, it sets `skip=true` and the rest of the workflow is skipped entirely. Otherwise it commits the updated submodule ref + both site JSONs back to `main` as `github-actions[bot]`, runs `gen:lqip` and `sync:flybay`, and uploads `site.json`/`site.cn.json` as a build artifact for the next jobs.
+2. **`build-com`** / **`build-cn`** — run in parallel, each re-checks out `main` (with the now-updated submodule, via a plain `git submodule update --init`), restores the prepared JSONs from the artifact, and runs `npm run build` with `SITE_VARIANT=com`/`cn`. Deploys `out/` to the `com`/`cn` branch via `peaceiris/actions-gh-pages` with `force_orphan: true`.
+
+Day-to-day work happens on `dev`; merge to `main` to ship.
 
 ### Path alias
 
-`@/*` resolves to `src/*` (see `tsconfig.json`). Existing code uses relative imports — match the surrounding file's style rather than mixing.
+`@/*` resolves to `src/*` (see `tsconfig.json`; it also maps to `vendor/flybay/src/*` for the reason described above). Existing code under `src/` uses relative imports exclusively — match that style rather than introducing `@/*`.

@@ -27,7 +27,6 @@ export type BlogPost = {
   link: string;
   date: string;
   image: string;
-  excerpt: string;
 };
 
 export type SocialLink = {
@@ -63,12 +62,10 @@ export type SiteConfig = {
   sections: SectionDef[];
   home: {
     photoCredit: PhotoCredit | null;
-    scrollToId: string;
     backgrounds: string[];
     backgroundsThumb?: string[];
     quoteApi?: {
       endpoint: string;
-      linkBase: string;
     };
   };
   iassets: {
@@ -80,9 +77,6 @@ export type SiteConfig = {
   };
   blog: {
     feedUrl: string;
-    title: string;
-    viewAllLabel: string;
-    viewAllHref: string;
     posts: BlogPost[];
   };
   social: {
