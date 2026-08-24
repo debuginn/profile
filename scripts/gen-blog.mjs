@@ -11,7 +11,6 @@ import { dirname, resolve } from "node:path";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const FILES = ["site.json", "site.cn.json"];
 const LIMIT = 8;
-const EXCERPT_LEN = 80;
 
 const ENTITIES = { lt: "<", gt: ">", quot: '"', apos: "'", amp: "&", "#39": "'", nbsp: " " };
 
@@ -28,15 +27,6 @@ function pick(itemXml, tag) {
   const re = new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`);
   const m = itemXml.match(re);
   return m ? unwrapCdata(m[1]).trim() : "";
-}
-
-function stripHtml(html) {
-  return html
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
 }
 
 function firstImage(html) {
@@ -61,9 +51,7 @@ function parseFeed(xml) {
     const date = formatDate(pick(raw, "pubDate"));
     const descHtml = decodeEntities(pick(raw, "description"));
     const image = firstImage(descHtml);
-    const text = stripHtml(descHtml);
-    const excerpt = text.length > EXCERPT_LEN ? `${text.slice(0, EXCERPT_LEN)}…` : text;
-    return { title, link, date, image, excerpt };
+    return { title, link, date, image };
   });
 }
 

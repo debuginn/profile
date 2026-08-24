@@ -1,9 +1,7 @@
+import Image from "next/image";
 import type { BlogPost } from "../lib/config";
 
 type Props = {
-  title: string;
-  viewAllLabel: string;
-  viewAllHref: string;
   posts: BlogPost[];
 };
 
@@ -37,12 +35,12 @@ export default function BlogSection({ posts }: Props) {
             >
               {post.image && (
                 <div className="blog-card-image">
-                  <img
+                  <Image
                     src={post.image}
                     alt=""
-                    loading={index < 2 ? "eager" : "lazy"}
-                    fetchPriority={index < 2 ? "high" : "auto"}
-                    decoding="async"
+                    fill
+                    sizes="(max-width: 640px) 340px, (max-width: 1024px) 380px, 25vw"
+                    priority={index < 2}
                   />
                 </div>
               )}

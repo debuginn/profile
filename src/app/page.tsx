@@ -8,10 +8,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HomeSection from "../components/HomeSection";
 import PageDots from "../components/PageDots";
+import BlogSection from "../components/BlogSection";
 
 const IAssetsSection = dynamic(() => import("../components/IAssetsSection"));
 const FlyBaySection = dynamic(() => import("../components/FlyBaySection"));
-const BlogSection = dynamic(() => import("../components/BlogSection"));
 const SocialSection = dynamic(() => import("../components/SocialSection"));
 
 const PAGE_IDS = config.sections.map((s) => s.id);
@@ -142,14 +142,10 @@ export default function Home() {
           );
         }
         if (section.type === "blog") {
-          if (loadStage !== "rest") return <DeferredSection key={section.id} id={section.id} type={section.type} />;
           return (
             <BlogSection
               key={section.id}
-              title={config.blog.title}
-              viewAllLabel={config.blog.viewAllLabel}
-              viewAllHref={config.blog.viewAllHref}
-              posts={config.blog.posts}
+              posts={loadStage === "rest" ? config.blog.posts : []}
             />
           );
         }

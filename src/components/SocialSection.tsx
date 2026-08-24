@@ -36,6 +36,15 @@ function SocialIcon({ icon, label }: { icon: string; label: string }) {
       </svg>
     );
   }
+  if (icon.endsWith(".svg")) {
+    return (
+      <span
+        aria-hidden="true"
+        className="social-custom-icon social-custom-icon--mono"
+        style={{ WebkitMaskImage: `url(${icon})`, maskImage: `url(${icon})` }}
+      />
+    );
+  }
   return <img src={icon} alt={label} width={28} height={28} loading="lazy" decoding="async" className="social-custom-icon" />;
 }
 
@@ -117,7 +126,6 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
           {links.map((link) => {
             const hasQrImage = Boolean(link.qrImage);
             const commonProps = {
-              key: link.label,
               "aria-label": link.label,
               className: `social-btn${hasQrImage ? " social-btn-wechat" : ""}${isLight ? " social-btn--light" : ""}`,
             };
@@ -125,6 +133,7 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
             if (hasQrImage) {
               return (
                 <button
+                  key={link.label}
                   {...commonProps}
                   type="button"
                 >
@@ -146,6 +155,7 @@ export default function SocialSection({ links, bgUrl, bgThumb, isLight }: Props)
 
             return (
               <a
+                key={link.label}
                 {...commonProps}
                 href={link.href}
                 target="_blank"

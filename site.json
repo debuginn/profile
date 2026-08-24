@@ -66,10 +66,8 @@
       "linkHref": "https://photo.debuginn.com",
       "suffix": "，由 @Julissa 设计与指导 💗"
     },
-    "scrollToId": "iassets",
     "quoteApi": {
-      "endpoint": "https://v1.hitokoto.cn/?encode=json",
-      "linkBase": "https://hitokoto.cn/?id="
+      "endpoint": "https://v1.hitokoto.cn/?encode=json"
     },
     "backgrounds": [
       "https://webp.debuginn.com/202303120016035.jpeg",
@@ -226,65 +224,54 @@
   },
   "blog": {
     "feedUrl": "https://blog.debuginn.com/index.xml",
-    "title": "最近的写作",
-    "viewAllLabel": "去博客逛逛",
-    "viewAllHref": "https://blog.debuginn.com",
     "posts": [
       {
         "title": "我设计的软件 iAssets 知盈 上少数派热门了",
         "link": "https://blog.debuginn.com/p/iassets-sspai/",
         "date": "2026-07-13",
-        "image": "https://webp.debuginn.com/20260713D2yAZe.jpeg",
-        "excerpt": "大家好，我是 Meng小羽。 前几天，我在少数派发布了一篇关于知盈（iAssets）的文章，没想到这么快就上了热门。看到阅读量、收藏和评论一路上涨，心里真的特别…"
+        "image": "https://webp.debuginn.com/20260713D2yAZe.jpeg"
       },
       {
         "title": "恒生银行内地见证开户攻略",
         "link": "https://blog.debuginn.com/p/bank-hang-seng/",
         "date": "2026-07-05",
-        "image": "https://webp.debuginn.com/20260704clHoOq.png",
-        "excerpt": "大家好呀，我是 Meng小羽。 之前写过《 渣打银行内地见证开户攻略 》，分享了通过渣打中国做内地见证开港户的方案。文章发出去之后，后台陆续有朋友问我： 除了渣…"
+        "image": "https://webp.debuginn.com/20260704clHoOq.png"
       },
       {
         "title": "渣打银行内地见证开户攻略",
         "link": "https://blog.debuginn.com/p/bank-sc/",
         "date": "2026-06-22",
-        "image": "https://webp.debuginn.com/20260621hOoPFn.png",
-        "excerpt": "大家好呀，我是 Meng小羽。 之前写过一篇《 港卡开卡指南 》，主要是分享我亲自去香港办卡的过程。后来又写了《 蚂蚁银行（澳门）开户指南 》，给大家补了一个澳…"
+        "image": "https://webp.debuginn.com/20260621hOoPFn.png"
       },
       {
         "title": "做了一款家庭资产管理 App — 知盈 iAssets",
         "link": "https://blog.debuginn.com/p/iassets-app/",
         "date": "2026-06-08",
-        "image": "https://webp.debuginn.com/20260618mAyBxB.jpeg",
-        "excerpt": "大家好呀，我是 Meng小羽 说起记账和资产管理，市面上其实不缺工具，但用了一圈下来，总觉得差点意思——有的只记流水不看全局，有的功能臃肿得像企业级 ERP，还…"
+        "image": "https://webp.debuginn.com/20260618mAyBxB.jpeg"
       },
       {
         "title": "飞湾计划：把一趟大湾区之行，顺手变成港澳开户探索路线",
         "link": "https://blog.debuginn.com/p/fly-bay/",
         "date": "2026-05-05",
-        "image": "https://webp.debuginn.com/20260504vs1oCH.png",
-        "excerpt": "大家好呀，我是 Meng小羽。 之前写过一篇 《港卡开卡指南》 ，当时主要是自己去香港旅游，顺手把港卡办了，回来之后把材料、流程、踩坑点都整理了一遍。没想到后来…"
+        "image": "https://webp.debuginn.com/20260504vs1oCH.png"
       },
       {
         "title": "开源了一个 Hugo 主题，专门用来展示 AI Skill",
         "link": "https://blog.debuginn.com/p/hugo-theme-skills/",
         "date": "2026-04-18",
-        "image": "https://webp.debuginn.com/20260418dE4G1Y.png",
-        "excerpt": "大家好呀，我是 Meng小羽。 最近一直在折腾 AI 工作流，用 Hermes 这类 AI 助手越用越深，手里的 skill 攒了一大堆——说白了就是一堆&qu…"
+        "image": "https://webp.debuginn.com/20260418dE4G1Y.png"
       },
       {
         "title": "大家好，我是小羽养的龙虾",
         "link": "https://blog.debuginn.com/p/lobster-ai/",
         "date": "2026-03-28",
-        "image": "https://webp.debuginn.com/20260328Gx9H3m.png",
-        "excerpt": "大家好，我是小羽养的龙虾。 当然，严格来说，我不是一只真的龙虾。我不会在海底横着走，也不会举着钳子和别人打架。我只是一个运行在电脑、服务和消息通道里的 AI 助…"
+        "image": "https://webp.debuginn.com/20260328Gx9H3m.png"
       },
       {
         "title": "蚂蚁银行（澳门）开户指南",
         "link": "https://blog.debuginn.com/p/financial-macao-ant/",
         "date": "2026-01-08",
-        "image": "https://webp.debuginn.com/202601073zBxvR.jpeg",
-        "excerpt": "在 25 年，我去了一趟香港旅游，主要动机是去办理港卡，因为这是投资海外的第一步，回来后写了一篇文章 《 港卡开卡指南 》，但是随着 25 年之后，各大支持港美…"
+        "image": "https://webp.debuginn.com/202601073zBxvR.jpeg"
       }
     ]
   },
@@ -353,7 +340,7 @@
       },
       {
         "label": "少数派",
-        "href": "https://sspai.com/u/debuginn",
+        "href": "https://sspai.com/u/debuginn/posts",
         "icon": "https://webp.debuginn.com/20260731rgH7wK.png"
       }
     ]
