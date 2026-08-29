@@ -1,0 +1,41 @@
+name: Sync flyBay Submodule
+
+on:
+  schedule:
+    # 每天 UTC 02:00 检查（北京 10:00）
+    - cron: "0 2 * * *"
+  workflow_dispatch: # 支持手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for flyBay updates
+        id: check
+        run: |
+          git -C vendor/flybay fetch origin main
+          BEHIND=$(git -C vendor/flybay rev-list HEAD..origin/main --count)
+          echo "behind=$BEHIND" >> $GITHUB_OUTPUT
+          if [ "$BEHIND" != "0" ]; then
+            echo "has_updates=true" >> $GITHUB_OUTPUT
+            echo "New commits: $BEHIND"
+            git -C vendor/flybay log --oneline HEAD..origin/main
+          else
+            echo "has_updates=false" >> $GITHUB_OUTPUT
+            echo "Already up to date"
+          fi
+
+      - name: Update submodule
+        if: steps.check.outputs.has_updates == 'true'
+        run: |
+          git -C vendor/flybay merge origin/main --ff-only
+          git add vendor/flybay
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(flybay): sync submodule (+${{ steps.check.outputs.behind }} commits)"
+          git push
