@@ -1,0 +1,41 @@
+baseURL = "https://debuginn.com/"
+locale = "zh-CN"
+title = "Debug客栈"
+theme = "hugo-theme-debuginn"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。"
+
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/assets"
+    target = "assets"
+  # FlyBay extension mounts
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/hugo/layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/hugo/assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/public"
+    target = "static/flybay"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/config"
+    target = "data/flybay"

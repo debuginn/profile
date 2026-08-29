@@ -1,3 +1,6 @@
 [submodule "vendor/flybay"]
 	path = vendor/flybay
 	url = git@github.com:debuginn/flyBay.git
+[submodule "themes/hugo-theme-debuginn"]
+	path = themes/hugo-theme-debuginn
+	url = https://github.com/debuginn/hugo-theme-debuginn.git

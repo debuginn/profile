@@ -4,11 +4,9 @@
 node_modules/
 .next/
 out/
+public/
+.hugo_build.lock
 tsconfig.tsbuildinfo
 next-env.d.ts
 .DS_Store
 tmp/
-public/*.webp
-public/*.jpg
-public/*.png
-public/*.svg
