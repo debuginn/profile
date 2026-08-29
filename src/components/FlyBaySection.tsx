@@ -12,6 +12,9 @@ function buildProps() {
   const BASE = config.site.baseUrl;
   const abs = (src: string) => src.startsWith("/") ? `${BASE}${src}` : src;
   const hero = config.home.hero;
+  const optionalHero = hero as typeof hero & {
+    tertiaryAction?: { label: string; href: string };
+  };
   const month = new Date().getMonth() + 1;
 
   const poster: PosterConfig = {
@@ -31,7 +34,7 @@ function buildProps() {
   const actions: HeroAction[] = [
     hero.primaryAction,
     hero.secondaryAction,
-    hero.tertiaryAction,
+    optionalHero.tertiaryAction,
   ]
     .filter((a): a is { label: string; href: string } => Boolean(a))
     .map((a) => ({ label: a.label, href: absHref(a.href), target: "_blank" }));
