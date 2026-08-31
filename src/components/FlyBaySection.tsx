@@ -182,7 +182,16 @@ function buildProps() {
     logos: config.institutions
       .filter((i) => i.card.logo)
       .map((i) => ({ src: abs(i.card.logo as string), name: i.name })),
-    stats: config.home.metrics.counters.map((c) => ({ num: String(c.value), label: c.label })),
+    stats: (() => {
+      const active = config.institutions.filter((i) => i.paused !== true);
+      const regions = new Set(active.flatMap((i) => i.regions ?? []));
+      const types = new Set(active.flatMap((i) => i.accountTypes ?? []));
+      return [
+        { num: String(active.length), label: "合作机构" },
+        { num: String(regions.size || 1), label: "覆盖市场" },
+        { num: String(types.size || 1), label: "开户类型" },
+      ];
+    })(),
   };
 
   const absHref = (href: string) => href.startsWith("#") ? `${BASE}/${href}` : href;
