@@ -11,9 +11,11 @@ function buildProps() {
   const config = flyBayConfig;
   const BASE = config.site.baseUrl;
   const abs = (src: string) => src.startsWith("/") ? `${BASE}${src}` : src;
-  const hero = config.home.hero;
-  const optionalHero = hero as typeof hero & {
-    tertiaryAction?: { label: string; href: string };
+  const hero = config.home.hero as typeof config.home.hero & {
+    primaryAction?: HeroAction;
+    secondaryAction?: HeroAction;
+    tertiaryAction?: HeroAction;
+    fourthAction?: HeroAction;
   };
   const month = new Date().getMonth() + 1;
 
@@ -31,13 +33,20 @@ function buildProps() {
 
   const absHref = (href: string) => href.startsWith("#") ? `${BASE}/${href}` : href;
 
+  // flyBay hero actions are optional; keep icon so compass/etc render correctly
   const actions: HeroAction[] = [
     hero.primaryAction,
     hero.secondaryAction,
-    optionalHero.tertiaryAction,
+    hero.tertiaryAction,
+    hero.fourthAction,
   ]
-    .filter((a): a is { label: string; href: string } => Boolean(a))
-    .map((a) => ({ label: a.label, href: absHref(a.href), target: "_blank" }));
+    .filter((a): a is HeroAction => Boolean(a?.label && a?.href))
+    .map((a) => ({
+      label: a.label,
+      href: absHref(a.href),
+      target: "_blank",
+      ...(a.icon ? { icon: a.icon } : {}),
+    }));
 
   return {
     tag: `${month} 月${hero.activityTagText}`,
