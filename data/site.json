@@ -46,7 +46,8 @@
     {
       "id": "flybay",
       "type": "flybay",
-      "dotLabel": "跳转到 FlyBay 飞湾计划"
+      "dotLabel": "跳转到 FlyBay 飞湾计划",
+      "module": "flybay"
     },
     {
       "id": "blog",
