@@ -239,6 +239,7 @@ function buildProps() {
 
   return {
     tag: `${month} 月${hero.activityTagText}`,
+    tagHref: `${config.site.baseUrl}/#institutions`,
     titleLines: hero.titleLines,
     descriptionLines: hero.descriptionLines,
     logo: abs(config.site.logo),
@@ -251,7 +252,7 @@ function buildProps() {
 }
 
 export default function FlyBaySection() {
-  const { tag, titleLines, descriptionLines, logo, actions, shareActionLabel, showShareButton, poster, announcements } = buildProps();
+  const { tag, tagHref, titleLines, descriptionLines, logo, actions, shareActionLabel, showShareButton, poster, announcements } = buildProps();
 
   return (
     <section className="page-screen page-screen-flybay" id="flybay">
@@ -267,6 +268,7 @@ export default function FlyBaySection() {
             />
           }
           tag={tag}
+          tagHref={tagHref}
           title={titleLines}
           description={descriptionLines}
           actions={actions}
