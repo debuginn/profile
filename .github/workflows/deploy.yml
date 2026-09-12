@@ -67,7 +67,9 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: false
-          submodules: recursive
+
+      - name: Fetch pinned submodules via SSH
+        run: git submodule update --init --recursive
 
       - uses: peaceiris/actions-hugo@v2
         with:
@@ -107,7 +109,9 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: false
-          submodules: recursive
+
+      - name: Fetch pinned submodules via SSH
+        run: git submodule update --init --recursive
 
       - uses: peaceiris/actions-hugo@v2
         with:
