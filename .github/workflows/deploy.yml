@@ -1,11 +1,12 @@
-name: Build & Deploy
+name: Build & Deploy Hugo
 
 on:
   push:
     branches:
       - main
+      - preview
   schedule:
-    # 08:00 and 14:00 Asia/Shanghai (00:00 and 06:00 UTC) — refreshes blog.posts from RSS and submodules.
+    # 08:00 and 14:00 Asia/Shanghai (00:00 and 06:00 UTC).
     - cron: "0 0 * * *"
     - cron: "0 6 * * *"
   workflow_dispatch:
@@ -19,66 +20,40 @@ concurrency:
 
 jobs:
   prepare:
-    name: Prepare site assets
+    name: Refresh site data
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.gate.outputs.skip }}
     steps:
-      - uses: webfactory/ssh-agent@v0.9.1
-        with:
-          ssh-private-key: ${{ secrets.FLYBAY_DEPLOY_KEY }}
-
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Fetch submodules via SSH (update to latest remote)
-        run: git submodule update --init --recursive --remote
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-
-      - run: npm ci
 
       - name: Refresh blog and gate scheduled runs
         id: gate
         run: |
           npm run gen:blog
-          if [[ "${{ github.event_name }}" == "schedule" ]] && git diff --quiet; then
-            echo "Scheduled run with no changes — skipping build & deploy."
+          if [[ "${{ github.event_name }}" == "schedule" ]] && git diff --quiet -- site.json site.cn.json; then
+            echo "Scheduled run with no content changes; skipping deploy."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Commit submodule and site.json updates
-        if: steps.gate.outputs.skip != 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add vendor/flybay site.json site.cn.json
-          git diff --cached --quiet || git commit -m "chore(ci): update submodules and blog posts [skip ci]"
-          git push origin main
-
-      - run: npm run gen:lqip
-        if: steps.gate.outputs.skip != 'true'
-
-      - run: npm run sync:flybay
-        if: steps.gate.outputs.skip != 'true'
-
-      - name: Upload prepared site sources
+      - name: Upload prepared site data
         if: steps.gate.outputs.skip != 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: site-sources
+          name: site-data
           path: |
             site.json
             site.cn.json
           retention-days: 1
 
   build-com:
-    name: Build → com branch
+    name: Build Hugo → com branch
     needs: prepare
     if: needs.prepare.outputs.skip != 'true'
     runs-on: ubuntu-latest
@@ -89,38 +64,38 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
           persist-credentials: false
-          ref: main
 
-      - name: Fetch submodules via SSH
+      - name: Fetch pinned submodules via SSH
         run: git submodule update --init --recursive
 
-      - uses: actions/setup-node@v4
+      - uses: peaceiris/actions-hugo@v2
         with:
-          node-version: 22
-          cache: npm
+          hugo-version: "0.163.3"
+          extended: true
 
-      - run: npm ci
-
-      - name: Restore prepared site sources
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
-          name: site-sources
+          name: site-data
 
-      - run: npm run build
-        env:
-          SITE_VARIANT: com
+      - name: Build com site
+        run: |
+          node scripts/prepare-hugo-data.mjs com
+          hugo --minify --gc --baseURL https://debuginn.com/ --destination dist
 
       - name: Deploy to com branch
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: com
-          publish_dir: ./out
+          publish_dir: ./dist
           force_orphan: true
 
   build-cn:
-    name: Build → cn branch
+    name: Build Hugo → cn branch
     needs: prepare
     if: needs.prepare.outputs.skip != 'true'
     runs-on: ubuntu-latest
@@ -131,32 +106,32 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
           persist-credentials: false
-          ref: main
 
-      - name: Fetch submodules via SSH
+      - name: Fetch pinned submodules via SSH
         run: git submodule update --init --recursive
 
-      - uses: actions/setup-node@v4
+      - uses: peaceiris/actions-hugo@v2
         with:
-          node-version: 22
-          cache: npm
+          hugo-version: "0.163.3"
+          extended: true
 
-      - run: npm ci
-
-      - name: Restore prepared site sources
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
-          name: site-sources
+          name: site-data
 
-      - run: npm run build
-        env:
-          SITE_VARIANT: cn
+      - name: Build cn site
+        run: |
+          node scripts/prepare-hugo-data.mjs cn
+          hugo --minify --gc --baseURL https://debuginn.cn/ --destination dist
 
       - name: Deploy to cn branch
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: cn
-          publish_dir: ./out
+          publish_dir: ./dist
           force_orphan: true
