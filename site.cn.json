@@ -5,6 +5,19 @@
     "url": "https://debuginn.cn",
     "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
     "copyrightStartYear": 2017,
+    "footerCredit": {
+      "builderPrefix": "Built with ",
+      "builderLabel": "Hugo",
+      "builderHref": "https://gohugo.io/",
+      "themePrefix": ", theme ",
+      "themeLabel": "Pebble",
+      "themeHref": "https://github.com/debuginn/hugo-theme-pebble",
+      "version": " v1.0.2",
+      "designerPrefix": " designed by ",
+      "designerLabel": "Debuginn",
+      "designerHref": "https://blog.debuginn.com/",
+      "suffix": "."
+    },
     "themeColor": "#0b1220",
     "assetOrigins": [
       "https://webp.debuginn.com"
