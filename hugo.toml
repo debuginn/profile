@@ -1,0 +1,31 @@
+baseURL = "https://debuginn.com/"
+locale = "zh-CN"
+title = "Debug客栈"
+theme = "hugo-theme-debuginn"
+disableKinds = ["taxonomy", "term"]
+
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "public/static"
+    target = "static/static"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/hugo/layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/hugo/assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/hugo/static"
+    target = "static"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/public"
+    target = "static/flybay"
+  [[module.mounts]]
+    source = "themes/hugo-theme-debuginn/extensions/flybay/config"
+    target = "data/flybay"

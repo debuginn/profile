@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run sync:flybay && next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender",
+    "build": "node scripts/prepare-hugo-data.mjs com && hugo --minify --gc --destination dist",
+    "build:cn": "node scripts/prepare-hugo-data.mjs cn && hugo --minify --gc --baseURL https://debuginn.cn/ --destination dist",
+    "dev:next": "next dev",
+    "build:next": "next build",
     "lint": "eslint",
     "gen:lqip": "node scripts/gen-lqip.mjs",
-    "gen:blog": "node scripts/gen-blog.mjs",
-    "sync:flybay": "node scripts/sync-flybay.mjs"
+    "gen:blog": "node scripts/gen-blog.mjs"
   },
   "dependencies": {
     "@types/qrcode": "^1.5.6",

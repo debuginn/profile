@@ -16,6 +16,21 @@
     "analytics": {
       "googleTagId": "G-B1XEJXPQPW",
       "clarityId": "jsxxcoctis"
+    },
+    "buildCredit": {
+      "prefix": "使用 ",
+      "label": "Hugo",
+      "href": "https://gohugo.io/",
+      "suffix": " 构建"
+    },
+    "themeCredit": {
+      "prefix": "主题 ",
+      "label": "DebugInn",
+      "href": "https://github.com/debuginn/hugo-theme-debuginn",
+      "byPrefix": " 由 ",
+      "byLabel": "Meng小羽",
+      "byHref": "https://blog.debuginn.com/about/",
+      "suffix": " 设计"
     }
   },
   "nav": [],
@@ -136,7 +151,8 @@
       "data:image/jpeg;base64,/9j/2wBDABISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////2wBDARISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////wgARCAASACADASIAAhEBAxEB/8QAGQAAAwADAAAAAAAAAAAAAAAAAAUGAQQH/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAFbPWWzVLWcydMYWgUsoQX//xAAoEAACAQMACAcAAAAAAAAAAAABAgMABBEFEhMVIUFRUjEyNDVzdLH/2gAIAQEAAT8AbDRbTlWjr5rKOQRomXckk0mmr1WB2mR2091GsAmdgqaoantzu9ZA3CSVkx0K00mocHOevI1E7u4VMknlV/c3TwxK0hSHGAieBxTe1WX2ZanVTbyZA81HgTjvH5Vr6CL5hX//xAAYEQEBAAMAAAAAAAAAAAAAAAABADEycf/aAAgBAgEBPwBiczq8v//EABsRAAICAwEAAAAAAAAAAAAAAAABAjIRIXEx/9oACAEDAQE/AHR4I7H4ukbR6j//2Q==",
       "data:image/jpeg;base64,/9j/2wBDABISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////2wBDARISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////wgARCAASACADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBv/EABcBAQEBAQAAAAAAAAAAAAAAAAQAAQL/2gAMAwEAAhADEAAAALa8I8TNdFnV9ZU4EmEBX//EACEQAAICAAUFAAAAAAAAAAAAAAACAQMEBRMxQSFEVIGS/9oACAEBAAE/AKXgjYd4gttUVsdHVbm+hbsy8l49mrmE9wPON5ugQjkkfY//xAAaEQACAgMAAAAAAAAAAAAAAAABAgMxAAQQ/9oACAECAQE/AG1pDTjFgYWw7//EABsRAAIBBQAAAAAAAAAAAAAAAAEDAAIQFEFS/9oACAEDAQE/AMhfJhevVJv/AP/Z",
       "data:image/jpeg;base64,/9j/2wBDABISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////2wBDARISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////wgARCAASACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBgX/xAAXAQEBAQEAAAAAAAAAAAAAAAAFBAID/9oADAMBAAIQAxAAAABLOZCQppmZ/pcd5K0Fz2UBLT//xAAiEAACAgEEAgMBAAAAAAAAAAABAgADEQQTITESQSMyYXH/2gAIAQEAAT8A3NykHcGM9CW6imt6k/Mlh6mnuS05Bj/Z/wCRtZU9TL4AH0cTM0nkbhjPR6hass3zMpwODFJDdmL0ICRyCRK2ZreSTxP/xAAfEQABAwMFAAAAAAAAAAAAAAAAAQIDESExBBIyQXH/2gAIAQIBAT8Abp68qpmxJDtfZeiQflfD/8QAGxEAAgMAAwAAAAAAAAAAAAAAAAIDETEBEoH/2gAIAQMBAT8AaWsFftxZHgmen//Z"
-    ]
+    ],
+    "scrollToId": "iassets"
   },
   "iassets": {
     "mosaicShots": [
@@ -192,7 +208,8 @@
         "variant": "ghost",
         "icon": "chevron-right"
       }
-    ]
+    ],
+    "title": "iAssets"
   },
   "blog": {
     "feedUrl": "https://blog.debuginn.com/index.xml",
@@ -245,7 +262,10 @@
         "date": "2026-01-08",
         "image": "https://webp.debuginn.com/202601073zBxvR.jpeg"
       }
-    ]
+    ],
+    "title": "最近的写作",
+    "viewAllHref": "https://blog.debuginn.com",
+    "viewAllLabel": "去博客逛逛"
   },
   "social": {
     "links": [
@@ -281,9 +301,69 @@
       },
       {
         "label": "少数派",
-        "href": "https://sspai.com/u/debuginn/posts",
-        "icon": "https://webp.debuginn.com/20260731rgH7wK.png"
+        "href": "https://sspai.com/u/debuginn",
+        "icon": "https://webp.debuginn.com/20260731rgH7wK.png",
+        "preserveIconColor": true
       }
     ]
+  },
+  "products": {
+    "iassets": {
+      "title": "iAssets",
+      "mosaicShots": [
+        "https://webp.debuginn.com/20260529YUU2cS.png",
+        "https://webp.debuginn.com/20260529X5Cz9s.png",
+        "https://webp.debuginn.com/20260529NpenQi.png",
+        "https://webp.debuginn.com/20260529gLXrE4.png",
+        "https://webp.debuginn.com/20260529XHiuhG.png",
+        "https://webp.debuginn.com/20260529dOY7Gw.png",
+        "https://webp.debuginn.com/20260529mHcIiV.png",
+        "https://webp.debuginn.com/20260529Q9oOii.png",
+        "https://webp.debuginn.com/20260529zmTNhp.png",
+        "https://webp.debuginn.com/202605296uFsCu.png",
+        "https://webp.debuginn.com/202605290txYeq.png",
+        "https://webp.debuginn.com/20260529dEtu6W.png",
+        "https://webp.debuginn.com/20260529daNRqI.png",
+        "https://webp.debuginn.com/20260529wLy3Yb.png",
+        "https://webp.debuginn.com/20260529KdM1kJ.png",
+        "https://webp.debuginn.com/20260529WcSrDP.png",
+        "https://webp.debuginn.com/202605299eJalD.png",
+        "https://webp.debuginn.com/202605295qALW3.png",
+        "https://webp.debuginn.com/202605292bN4ok.png",
+        "https://webp.debuginn.com/20260529sPeNE5.png",
+        "https://webp.debuginn.com/20260529ZYsLJi.png",
+        "https://webp.debuginn.com/20260529DhBnFc.png",
+        "https://webp.debuginn.com/202605299kYBuQ.png",
+        "https://webp.debuginn.com/20260529LBQbLk.png",
+        "https://webp.debuginn.com/202605299bAszf.png"
+      ],
+      "mosaicColumns": 10,
+      "mosaicDurations": [
+        "600s",
+        "660s",
+        "630s",
+        "690s"
+      ],
+      "mosaicDelays": [
+        "0s",
+        "-3s",
+        "-8s",
+        "-6s"
+      ],
+      "buttons": [
+        {
+          "label": "App Store",
+          "href": "https://apps.apple.com/cn/app/%E7%9F%A5%E7%9B%88/id6759790991",
+          "variant": "primary",
+          "icon": "apple"
+        },
+        {
+          "label": "查看官网",
+          "href": "https://iassets.debuginn.com",
+          "variant": "ghost",
+          "icon": "chevron-right"
+        }
+      ]
+    }
   }
 }
