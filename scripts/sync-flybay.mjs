@@ -4,7 +4,7 @@
 //
 // Usage: node scripts/sync-flybay.mjs
 
-import { copyFile, stat } from "node:fs/promises";
+import { copyFile, stat, unlink } from "node:fs/promises";
 import { readdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,10 +15,20 @@ const DEST = resolve(ROOT, "public");
 
 // Extensions we want to sync
 const EXTS = new Set([".webp", ".jpg", ".jpeg", ".png", ".svg"]);
+const LEGACY_ASSETS = ["flybay-icon-v5.png", "flybay-logo-v7.webp", "flybay-favicon.png"];
 
 const files = readdirSync(SRC).filter((f) => EXTS.has(f.slice(f.lastIndexOf("."))));
 
 let copied = 0;
+for (const file of LEGACY_ASSETS) {
+  try {
+    await unlink(resolve(DEST, file));
+    console.log(`sync:flybay  removed ${file}`);
+  } catch (error) {
+    if (error?.code !== "ENOENT") throw error;
+  }
+}
+
 for (const file of files) {
   const src = resolve(SRC, file);
   const dest = resolve(DEST, file);

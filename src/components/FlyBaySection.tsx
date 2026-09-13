@@ -10,7 +10,6 @@ import flyBayConfig from "../../vendor/flybay/config/config.json";
 function buildProps() {
   const config = flyBayConfig;
   const BASE = config.site.baseUrl;
-  const abs = (src: string) => src.startsWith("/") ? `${BASE}${src}` : src;
   const hero = config.home.hero as typeof config.home.hero & {
     primaryAction?: HeroAction;
     secondaryAction?: HeroAction;
@@ -23,11 +22,12 @@ function buildProps() {
     tag: config.poster.tag,
     title: config.poster.title,
     subtitle: config.poster.subtitle,
-    logo: abs(config.poster.logo),
-    qrImage: abs(config.poster.qrImage),
+    // Root-relative assets are synchronized into Profile public/ by sync:flybay.
+    logo: config.poster.logo,
+    qrImage: config.poster.qrImage,
     logos: config.institutions
       .filter((i) => i.card.logo)
-      .map((i) => ({ src: abs(i.card.logo as string), name: i.name })),
+      .map((i) => ({ src: i.card.logo as string, name: i.name })),
     stats: config.home.metrics.counters.map((c) => ({ num: String(c.value), label: c.label })),
   };
 
@@ -53,7 +53,7 @@ function buildProps() {
     tagHref: `${config.site.baseUrl}/#institutions`,
     titleLines: hero.titleLines,
     descriptionLines: hero.descriptionLines,
-    logo: abs(config.site.logo),
+    logo: config.site.logo,
     actions,
     shareActionLabel: hero.shareActionLabel,
     showShareButton: hero.showShareButton ?? false,
