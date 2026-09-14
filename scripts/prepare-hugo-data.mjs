@@ -1,4 +1,5 @@
-import { copyFile, mkdir } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -14,6 +15,26 @@ if (!(variant in sources)) {
 }
 
 const dataDir = resolve(root, "data");
+const themeDir = resolve(root, "themes/hugo-theme-debuginn");
+const revision = execFileSync(
+  "git",
+  ["-C", themeDir, "describe", "--tags", "--always", "--dirty"],
+  { encoding: "utf8" },
+).trim();
+const version = /^v\d/.test(revision)
+  ? ` ${revision}`
+  : /^\d+\.\d+\.\d+/.test(revision)
+    ? ` v${revision}`
+    : ` @${revision}`;
+
+const siteData = JSON.parse(
+  await readFile(resolve(root, sources[variant]), "utf8"),
+);
+siteData.site.footerCredit.version = version;
+
 await mkdir(dataDir, { recursive: true });
-await copyFile(resolve(root, sources[variant]), resolve(dataDir, "site.json"));
-console.log(`Prepared data/site.json for ${variant}`);
+await writeFile(
+  resolve(dataDir, "site.json"),
+  `${JSON.stringify(siteData, null, 2)}\n`,
+);
+console.log(`Prepared data/site.json for ${variant} with theme ${revision}`);
