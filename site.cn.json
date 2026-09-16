@@ -51,6 +51,8 @@
       "type": "home",
       "navIcon": "home",
       "navLabel": "首页",
+      "navAccent": "#d96f36",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到首页"
     },
     {
@@ -58,6 +60,8 @@
       "type": "iassets",
       "navIcon": "product",
       "navLabel": "iAssets",
+      "navAccent": "#dc782d",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到 iAssets 页"
     },
     {
@@ -65,6 +69,8 @@
       "type": "social",
       "navIcon": "social",
       "navLabel": "社交",
+      "navAccent": "#cf5666",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到社交媒体"
     }
   ],
