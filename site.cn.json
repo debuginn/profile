@@ -49,16 +49,19 @@
     {
       "id": "home",
       "type": "home",
+      "navLabel": "首页",
       "dotLabel": "跳转到首页"
     },
     {
       "id": "iassets",
       "type": "iassets",
+      "navLabel": "iAssets",
       "dotLabel": "跳转到 iAssets 页"
     },
     {
       "id": "social",
       "type": "social",
+      "navLabel": "社交",
       "dotLabel": "跳转到社交媒体"
     }
   ],
