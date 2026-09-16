@@ -49,16 +49,28 @@
     {
       "id": "home",
       "type": "home",
+      "navIcon": "home",
+      "navLabel": "首页",
+      "navAccent": "#2d3f57",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到首页"
     },
     {
       "id": "iassets",
       "type": "iassets",
+      "navIcon": "product",
+      "navLabel": "iAssets",
+      "navAccent": "#3d8ef0",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到 iAssets 页"
     },
     {
       "id": "social",
       "type": "social",
+      "navIcon": "social",
+      "navLabel": "社交",
+      "navAccent": "#2d3f57",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到社交媒体"
     }
   ],
