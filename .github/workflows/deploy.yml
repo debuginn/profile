@@ -69,7 +69,10 @@ jobs:
           persist-credentials: false
 
       - name: Fetch pinned submodules via SSH
-        run: git submodule update --init --recursive
+        run: |
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
+          git submodule sync --recursive
+          git submodule update --init --recursive
 
       - uses: peaceiris/actions-hugo@v2
         with:
@@ -111,7 +114,10 @@ jobs:
           persist-credentials: false
 
       - name: Fetch pinned submodules via SSH
-        run: git submodule update --init --recursive
+        run: |
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
+          git submodule sync --recursive
+          git submodule update --init --recursive
 
       - uses: peaceiris/actions-hugo@v2
         with:
