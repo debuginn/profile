@@ -62,27 +62,32 @@
     {
       "id": "home",
       "type": "home",
+      "navLabel": "首页",
       "dotLabel": "跳转到首页"
     },
     {
       "id": "iassets",
       "type": "iassets",
+      "navLabel": "iAssets",
       "dotLabel": "跳转到 iAssets 页"
     },
     {
       "id": "flybay",
       "type": "extension",
+      "navLabel": "飞湾",
       "dotLabel": "跳转到飞湾计划",
       "module": "flybay"
     },
     {
       "id": "blog",
       "type": "blog",
+      "navLabel": "博客",
       "dotLabel": "跳转到博客文章"
     },
     {
       "id": "social",
       "type": "social",
+      "navLabel": "社交",
       "dotLabel": "跳转到社交媒体"
     }
   ],
