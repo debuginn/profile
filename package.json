@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender",
-    "build": "node scripts/prepare-hugo-data.mjs com && hugo --minify --gc --destination dist",
-    "build:cn": "node scripts/prepare-hugo-data.mjs cn && hugo --minify --gc --baseURL https://debuginn.cn/ --destination dist",
+    "setup": "git submodule update --init --recursive",
+    "dev": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender",
+    "build": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs com && hugo --minify --gc --destination dist",
+    "build:cn": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs cn && hugo --minify --gc --baseURL https://debuginn.cn/ --destination dist",
     "dev:next": "next dev",
     "build:next": "next build",
     "lint": "eslint",
