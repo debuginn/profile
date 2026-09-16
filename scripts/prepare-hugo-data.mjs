@@ -21,10 +21,9 @@ const revision = execFileSync(
   ["-C", themeDir, "describe", "--tags", "--always", "--dirty"],
   { encoding: "utf8" },
 ).trim();
-const version = /^v\d/.test(revision)
-  ? ` ${revision}`
-  : /^\d+\.\d+\.\d+/.test(revision)
-    ? ` v${revision}`
+const releaseVersion = revision.match(/^v?\d+\.\d+\.\d+/)?.[0];
+const version = releaseVersion
+  ? ` ${releaseVersion.startsWith("v") ? releaseVersion : `v${releaseVersion}`}`
     : ` @${revision}`;
 
 const siteData = JSON.parse(
