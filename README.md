@@ -7,9 +7,13 @@ its FlyBay Hugo adapter as a nested submodule.
 ## Local development
 
 ```bash
-git submodule update --init --recursive
+npm run setup
 npm run dev
 ```
+
+The development and build commands also repair a missing theme or nested
+FlyBay checkout automatically. Both submodules remain pinned to the exact
+commits recorded by their parent repositories.
 
 Build both production variants:
 
