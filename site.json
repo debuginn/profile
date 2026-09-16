@@ -64,7 +64,7 @@
       "type": "home",
       "navIcon": "home",
       "navLabel": "首页",
-      "navAccent": "#d96f36",
+      "navAccent": "#2d3f57",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到首页"
     },
@@ -73,7 +73,7 @@
       "type": "iassets",
       "navIcon": "product",
       "navLabel": "iAssets",
-      "navAccent": "#dc782d",
+      "navAccent": "#3d8ef0",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到 iAssets 页"
     },
@@ -82,7 +82,7 @@
       "type": "extension",
       "navIcon": "flybay",
       "navLabel": "飞湾",
-      "navAccent": "#9f4678",
+      "navAccent": "#3f9f5f",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到飞湾计划",
       "module": "flybay"
@@ -92,8 +92,8 @@
       "type": "blog",
       "navIcon": "blog",
       "navLabel": "博客",
-      "navAccent": "#d5a94f",
-      "navAccentText": "#172019",
+      "navAccent": "#416f80",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到博客文章"
     },
     {
@@ -101,7 +101,7 @@
       "type": "social",
       "navIcon": "social",
       "navLabel": "社交",
-      "navAccent": "#cf5666",
+      "navAccent": "#2d3f57",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到社交媒体"
     }
