@@ -44,7 +44,16 @@
       "suffix": " 设计"
     }
   },
-  "nav": [],
+  "nav": [
+    {
+      "label": "Blog",
+      "href": "https://blog.debuginn.com"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/debuginn"
+    }
+  ],
   "sections": [
     {
       "id": "home",
@@ -63,6 +72,11 @@
       "navAccent": "#3d8ef0",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到 iAssets 页"
+    },
+    {
+      "id": "blog",
+      "type": "blog",
+      "dotLabel": "跳转到博客文章"
     },
     {
       "id": "social",
