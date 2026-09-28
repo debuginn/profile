@@ -308,8 +308,15 @@
     "links": [
       {
         "label": "Email",
-        "href": "mailto:idebuginn@gmail.com",
-        "icon": "email"
+        "href": "https://blog.debuginn.com/subscribe/",
+        "icon": "email",
+        "followers": 41
+      },
+      {
+        "label": "Blog",
+        "href": "https://blog.debuginn.com",
+        "icon": "blog",
+        "followers": 409
       },
       {
         "label": "微信",
@@ -335,6 +342,30 @@
         "href": "https://www.zhihu.com/people/debuginn",
         "icon": "https://webp.debuginn.com/202605290NgP60.svg",
         "followers": 210
+      },
+      {
+        "label": "X",
+        "href": "https://x.com/xdebuginn",
+        "icon": "https://webp.debuginn.com/20260529dntbQO.svg",
+        "followers": 12
+      },
+      {
+        "label": "Telegram",
+        "href": "https://t.me/xdebuginn",
+        "icon": "https://webp.debuginn.com/2026052916fIxC.svg",
+        "followers": 55
+      },
+      {
+        "label": "Discord",
+        "href": "https://discord.gg/RF33jPV2r",
+        "icon": "discord",
+        "followers": 10
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/debuginn",
+        "icon": "github",
+        "followers": 58
       },
       {
         "label": "少数派",
