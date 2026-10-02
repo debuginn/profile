@@ -444,17 +444,34 @@
     }
   },
   "venture": {
-    "kicker": "一人团队，长期构建",
-    "title": "把想法，做成正在运行的产品。",
-    "intro": "从内容品牌到资产工具，再到跨境账户与全球资产知识服务。每个项目解决一个真实问题，也共同组成持续演进的产品版图。",
-    "note": "独立设计、开发与运营，长期维护真实用户正在使用的产品。",
-    "mapLabel": "Debug客栈创业项目",
-    "origin": {
-      "name": "Debug客栈",
-      "role": "内容与产品的起点",
-      "logo": "/venture/debuginn-logo.webp"
+    "kicker": "主业沉淀能力，创业验证价值",
+    "titleLines": [
+      "工程为根，",
+      "产品向外生长。"
+    ],
+    "intro": "主业专注复杂系统与稳定服务，创业则把技术、设计和长期运营组合成真正被使用的产品。两条路径彼此校验，也彼此增强。",
+    "note": "系统设计 × 产品设计 × 独立运营",
+    "mapLabel": "主业与创业项目版图",
+    "career": {
+      "label": "主业",
+      "title": "服务端开发工程师",
+      "description": "构建可靠、可演进的服务与系统",
+      "skills": [
+        "系统设计",
+        "性能优化",
+        "服务架构"
+      ]
     },
     "projects": [
+      {
+        "id": "debuginn",
+        "name": "Debug客栈",
+        "description": "技术内容与个人品牌",
+        "href": "https://blog.debuginn.com",
+        "logo": "/venture/debuginn-logo.webp",
+        "accent": "#47bad0",
+        "glow": "rgba(71, 186, 208, 0.26)"
+      },
       {
         "id": "iassets",
         "name": "iAssets 知盈",
@@ -462,7 +479,7 @@
         "href": "https://iassets.debuginn.com",
         "logo": "/venture/iassets-logo.png",
         "accent": "#4b9cff",
-        "glow": "rgba(75, 156, 255, 0.3)"
+        "glow": "rgba(75, 156, 255, 0.28)"
       },
       {
         "id": "flybay",
@@ -471,7 +488,7 @@
         "href": "https://flybay.debuginn.com",
         "logo": "/venture/flybay-icon.png",
         "accent": "#58bd78",
-        "glow": "rgba(88, 189, 120, 0.28)"
+        "glow": "rgba(88, 189, 120, 0.26)"
       },
       {
         "id": "plural",
@@ -480,7 +497,7 @@
         "href": "https://plural.debuginn.com",
         "logo": "/venture/plural-logo.webp",
         "accent": "#58c4d8",
-        "glow": "rgba(88, 196, 216, 0.3)"
+        "glow": "rgba(88, 196, 216, 0.28)"
       }
     ]
   }
