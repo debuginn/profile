@@ -15,6 +15,9 @@ disableKinds = ["taxonomy", "term"]
     source = "public/static"
     target = "static/static"
   [[module.mounts]]
+    source = "public/venture"
+    target = "static/venture"
+  [[module.mounts]]
     source = "themes/hugo-theme-debuginn/extensions/flybay/hugo/layouts"
     target = "layouts"
   [[module.mounts]]
