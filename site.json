@@ -20,7 +20,7 @@
     },
     "themeColor": "#0b1220",
     "assetOrigins": [
-      "https://webp.debuginn.com"
+      "https://static.debuginn.com"
     ],
     "alternates": {
       "zh-CN": "https://debuginn.cn",
@@ -99,52 +99,52 @@
       "endpoint": "https://v1.hitokoto.cn/?encode=json"
     },
     "backgrounds": [
-      "https://webp.debuginn.com/202303120016035.jpeg",
-      "https://webp.debuginn.com/202303120014022.jpeg",
-      "https://webp.debuginn.com/202303120017184.jpeg",
-      "https://webp.debuginn.com/202303120020529.jpeg",
-      "https://webp.debuginn.com/202303120018416.jpeg",
-      "https://webp.debuginn.com/202303120018147.jpeg",
-      "https://webp.debuginn.com/202305162149771.jpg",
-      "https://webp.debuginn.com/202305162151707.jpg",
-      "https://webp.debuginn.com/202305162152763.jpg",
-      "https://webp.debuginn.com/202305162152732.jpg",
-      "https://webp.debuginn.com/202305162153714.jpg",
-      "https://webp.debuginn.com/202305162153417.jpg",
-      "https://webp.debuginn.com/202305162154852.jpg",
-      "https://webp.debuginn.com/202305162154677.jpg",
-      "https://webp.debuginn.com/202305162155271.jpg",
-      "https://webp.debuginn.com/202305162155529.jpg",
-      "https://webp.debuginn.com/202312241440666.jpg",
-      "https://webp.debuginn.com/202312241448297.jpg",
-      "https://webp.debuginn.com/202312241459045.jpg",
-      "https://webp.debuginn.com/202312241509754.jpg",
-      "https://webp.debuginn.com/20250101R4kCmh.jpg",
-      "https://webp.debuginn.com/20250101gM3cIt.jpg",
-      "https://webp.debuginn.com/20250101M4FjnX.jpg",
-      "https://webp.debuginn.com/202501014ap3u9.jpg",
-      "https://webp.debuginn.com/20250101V6b86k.jpg",
-      "https://webp.debuginn.com/20250101DxpIDD.jpg",
-      "https://webp.debuginn.com/202501014MMQzm.jpg",
-      "https://webp.debuginn.com/202501018dy1Ym.jpg",
-      "https://webp.debuginn.com/2025051038jxzl.jpg",
-      "https://webp.debuginn.com/202505109vsKjY.jpg",
-      "https://webp.debuginn.com/20250510yJb8ur.jpeg",
-      "https://webp.debuginn.com/20250510MCKPqG.jpg",
-      "https://webp.debuginn.com/20250510Y48j7B.jpg",
-      "https://webp.debuginn.com/202505105A03Qm.jpg",
-      "https://webp.debuginn.com/20250510zkQn5O.jpg",
-      "https://webp.debuginn.com/20250510zQqYeK.jpg",
-      "https://webp.debuginn.com/20250727qmakyu.jpg",
-      "https://webp.debuginn.com/20250828uaMPQa.jpg",
-      "https://webp.debuginn.com/20250831RN4Jmt.jpg",
-      "https://webp.debuginn.com/20250902G7dA4g.jpg",
-      "https://webp.debuginn.com/20250902gFdYgH.jpg",
-      "https://webp.debuginn.com/20250902GbJQtR.JPG",
-      "https://webp.debuginn.com/20250902ASdtvq.jpg",
-      "https://webp.debuginn.com/20251215creWKt.jpg",
-      "https://webp.debuginn.com/20251215dbzf0t.jpg",
-      "https://webp.debuginn.com/20251215d5bKCo.jpg"
+      "https://static.debuginn.com/202303120016035.jpeg",
+      "https://static.debuginn.com/202303120014022.jpeg",
+      "https://static.debuginn.com/202303120017184.jpeg",
+      "https://static.debuginn.com/202303120020529.jpeg",
+      "https://static.debuginn.com/202303120018416.jpeg",
+      "https://static.debuginn.com/202303120018147.jpeg",
+      "https://static.debuginn.com/202305162149771.jpg",
+      "https://static.debuginn.com/202305162151707.jpg",
+      "https://static.debuginn.com/202305162152763.jpg",
+      "https://static.debuginn.com/202305162152732.jpg",
+      "https://static.debuginn.com/202305162153714.jpg",
+      "https://static.debuginn.com/202305162153417.jpg",
+      "https://static.debuginn.com/202305162154852.jpg",
+      "https://static.debuginn.com/202305162154677.jpg",
+      "https://static.debuginn.com/202305162155271.jpg",
+      "https://static.debuginn.com/202305162155529.jpg",
+      "https://static.debuginn.com/202312241440666.jpg",
+      "https://static.debuginn.com/202312241448297.jpg",
+      "https://static.debuginn.com/202312241459045.jpg",
+      "https://static.debuginn.com/202312241509754.jpg",
+      "https://static.debuginn.com/20250101R4kCmh.jpg",
+      "https://static.debuginn.com/20250101gM3cIt.jpg",
+      "https://static.debuginn.com/20250101M4FjnX.jpg",
+      "https://static.debuginn.com/202501014ap3u9.jpg",
+      "https://static.debuginn.com/20250101V6b86k.jpg",
+      "https://static.debuginn.com/20250101DxpIDD.jpg",
+      "https://static.debuginn.com/202501014MMQzm.jpg",
+      "https://static.debuginn.com/202501018dy1Ym.jpg",
+      "https://static.debuginn.com/2025051038jxzl.jpg",
+      "https://static.debuginn.com/202505109vsKjY.jpg",
+      "https://static.debuginn.com/20250510yJb8ur.jpeg",
+      "https://static.debuginn.com/20250510MCKPqG.jpg",
+      "https://static.debuginn.com/20250510Y48j7B.jpg",
+      "https://static.debuginn.com/202505105A03Qm.jpg",
+      "https://static.debuginn.com/20250510zkQn5O.jpg",
+      "https://static.debuginn.com/20250510zQqYeK.jpg",
+      "https://static.debuginn.com/20250727qmakyu.jpg",
+      "https://static.debuginn.com/20250828uaMPQa.jpg",
+      "https://static.debuginn.com/20250831RN4Jmt.jpg",
+      "https://static.debuginn.com/20250902G7dA4g.jpg",
+      "https://static.debuginn.com/20250902gFdYgH.jpg",
+      "https://static.debuginn.com/20250902GbJQtR.JPG",
+      "https://static.debuginn.com/20250902ASdtvq.jpg",
+      "https://static.debuginn.com/20251215creWKt.jpg",
+      "https://static.debuginn.com/20251215dbzf0t.jpg",
+      "https://static.debuginn.com/20251215d5bKCo.jpg"
     ],
     "backgroundsThumb": [
       "data:image/jpeg;base64,/9j/2wBDABISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////2wBDARISEhITEhQWFhQcHhseHCkmIiImKT4sMCwwLD5eO0U7O0U7XlNlUk1SZVOWdmhodpatkYqRrdK8vNL/+///////wgARCAAYACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFBAH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAMT5OnOqKZsxEgFxwR//xAAlEAACAgEBBwUAAAAAAAAAAAABAgAEAxEFEjFBUWFxIiNSYoL/2gAIAQEAAT8AWsTygqN0gpt0lhcNYa5XA7cTK9vNTLBHQr8Wi7fzBjvYkYSztuzm9OP2l+s3ix1OpJ5ma95+hF4nxF1AfxP/xAAbEQACAQUAAAAAAAAAAAAAAAABAhEAEBNBUf/aAAgBAgEBPwDIdLNBjyL/AP/EABoRAAICAwAAAAAAAAAAAAAAAAECEUEAEBL/2gAIAQMBAT8A4FtGFQLnf//Z",
@@ -198,31 +198,31 @@
   },
   "iassets": {
     "mosaicShots": [
-      "https://webp.debuginn.com/20260529YUU2cS.png",
-      "https://webp.debuginn.com/20260529X5Cz9s.png",
-      "https://webp.debuginn.com/20260529NpenQi.png",
-      "https://webp.debuginn.com/20260529gLXrE4.png",
-      "https://webp.debuginn.com/20260529XHiuhG.png",
-      "https://webp.debuginn.com/20260529dOY7Gw.png",
-      "https://webp.debuginn.com/20260529mHcIiV.png",
-      "https://webp.debuginn.com/20260529Q9oOii.png",
-      "https://webp.debuginn.com/20260529zmTNhp.png",
-      "https://webp.debuginn.com/202605296uFsCu.png",
-      "https://webp.debuginn.com/202605290txYeq.png",
-      "https://webp.debuginn.com/20260529dEtu6W.png",
-      "https://webp.debuginn.com/20260529daNRqI.png",
-      "https://webp.debuginn.com/20260529wLy3Yb.png",
-      "https://webp.debuginn.com/20260529KdM1kJ.png",
-      "https://webp.debuginn.com/20260529WcSrDP.png",
-      "https://webp.debuginn.com/202605299eJalD.png",
-      "https://webp.debuginn.com/202605295qALW3.png",
-      "https://webp.debuginn.com/202605292bN4ok.png",
-      "https://webp.debuginn.com/20260529sPeNE5.png",
-      "https://webp.debuginn.com/20260529ZYsLJi.png",
-      "https://webp.debuginn.com/20260529DhBnFc.png",
-      "https://webp.debuginn.com/202605299kYBuQ.png",
-      "https://webp.debuginn.com/20260529LBQbLk.png",
-      "https://webp.debuginn.com/202605299bAszf.png"
+      "https://static.debuginn.com/20260529YUU2cS.png",
+      "https://static.debuginn.com/20260529X5Cz9s.png",
+      "https://static.debuginn.com/20260529NpenQi.png",
+      "https://static.debuginn.com/20260529gLXrE4.png",
+      "https://static.debuginn.com/20260529XHiuhG.png",
+      "https://static.debuginn.com/20260529dOY7Gw.png",
+      "https://static.debuginn.com/20260529mHcIiV.png",
+      "https://static.debuginn.com/20260529Q9oOii.png",
+      "https://static.debuginn.com/20260529zmTNhp.png",
+      "https://static.debuginn.com/202605296uFsCu.png",
+      "https://static.debuginn.com/202605290txYeq.png",
+      "https://static.debuginn.com/20260529dEtu6W.png",
+      "https://static.debuginn.com/20260529daNRqI.png",
+      "https://static.debuginn.com/20260529wLy3Yb.png",
+      "https://static.debuginn.com/20260529KdM1kJ.png",
+      "https://static.debuginn.com/20260529WcSrDP.png",
+      "https://static.debuginn.com/202605299eJalD.png",
+      "https://static.debuginn.com/202605295qALW3.png",
+      "https://static.debuginn.com/202605292bN4ok.png",
+      "https://static.debuginn.com/20260529sPeNE5.png",
+      "https://static.debuginn.com/20260529ZYsLJi.png",
+      "https://static.debuginn.com/20260529DhBnFc.png",
+      "https://static.debuginn.com/202605299kYBuQ.png",
+      "https://static.debuginn.com/20260529LBQbLk.png",
+      "https://static.debuginn.com/202605299bAszf.png"
     ],
     "mosaicColumns": 10,
     "mosaicDurations": [
@@ -260,49 +260,49 @@
         "title": "我设计的软件 iAssets 知盈 上少数派热门了",
         "link": "https://blog.debuginn.com/p/iassets-sspai/",
         "date": "2026-07-13",
-        "image": "https://webp.debuginn.com/20260713D2yAZe.jpeg"
+        "image": "https://static.debuginn.com/20260713D2yAZe.jpeg"
       },
       {
         "title": "恒生银行内地见证开户攻略",
         "link": "https://blog.debuginn.com/p/bank-hang-seng/",
         "date": "2026-07-05",
-        "image": "https://webp.debuginn.com/20260704clHoOq.png"
+        "image": "https://static.debuginn.com/20260704clHoOq.png"
       },
       {
         "title": "渣打银行内地见证开户攻略",
         "link": "https://blog.debuginn.com/p/bank-sc/",
         "date": "2026-06-22",
-        "image": "https://webp.debuginn.com/20260621hOoPFn.png"
+        "image": "https://static.debuginn.com/20260621hOoPFn.png"
       },
       {
         "title": "做了一款家庭资产管理 App — 知盈 iAssets",
         "link": "https://blog.debuginn.com/p/iassets-app/",
         "date": "2026-06-08",
-        "image": "https://webp.debuginn.com/20260618mAyBxB.jpeg"
+        "image": "https://static.debuginn.com/20260618mAyBxB.jpeg"
       },
       {
         "title": "飞湾计划：把一趟大湾区之行，顺手变成港澳开户探索路线",
         "link": "https://blog.debuginn.com/p/fly-bay/",
         "date": "2026-05-05",
-        "image": "https://webp.debuginn.com/20260504vs1oCH.png"
+        "image": "https://static.debuginn.com/20260504vs1oCH.png"
       },
       {
         "title": "开源了一个 Hugo 主题，专门用来展示 AI Skill",
         "link": "https://blog.debuginn.com/p/hugo-theme-skills/",
         "date": "2026-04-18",
-        "image": "https://webp.debuginn.com/20260418dE4G1Y.png"
+        "image": "https://static.debuginn.com/20260418dE4G1Y.png"
       },
       {
         "title": "大家好，我是小羽养的龙虾",
         "link": "https://blog.debuginn.com/p/lobster-ai/",
         "date": "2026-03-28",
-        "image": "https://webp.debuginn.com/20260328Gx9H3m.png"
+        "image": "https://static.debuginn.com/20260328Gx9H3m.png"
       },
       {
         "title": "蚂蚁银行（澳门）开户指南",
         "link": "https://blog.debuginn.com/p/financial-macao-ant/",
         "date": "2026-01-08",
-        "image": "https://webp.debuginn.com/202601073zBxvR.jpeg"
+        "image": "https://static.debuginn.com/202601073zBxvR.jpeg"
       }
     ],
     "title": "最近的写作",
@@ -326,38 +326,38 @@
       {
         "label": "微信",
         "href": "https://debuginn.com/wechat",
-        "icon": "https://webp.debuginn.com/20260529XetLUr.svg",
-        "qrImage": "https://webp.debuginn.com/20260529OjuRvn.jpg",
+        "icon": "https://static.debuginn.com/20260529XetLUr.svg",
+        "qrImage": "https://static.debuginn.com/20260529OjuRvn.jpg",
         "followers": 1859
       },
       {
         "label": "微博",
         "href": "https://weibo.com/u/7096209693",
-        "icon": "https://webp.debuginn.com/202605296DKhwc.svg",
+        "icon": "https://static.debuginn.com/202605296DKhwc.svg",
         "followers": 1891
       },
       {
         "label": "小红书",
         "href": "https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068",
-        "icon": "https://webp.debuginn.com/202605290mdDFJ.svg",
+        "icon": "https://static.debuginn.com/202605290mdDFJ.svg",
         "followers": 191
       },
       {
         "label": "知乎",
         "href": "https://www.zhihu.com/people/debuginn",
-        "icon": "https://webp.debuginn.com/202605290NgP60.svg",
+        "icon": "https://static.debuginn.com/202605290NgP60.svg",
         "followers": 213
       },
       {
         "label": "X",
         "href": "https://x.com/xdebuginn",
-        "icon": "https://webp.debuginn.com/20260529dntbQO.svg",
+        "icon": "https://static.debuginn.com/20260529dntbQO.svg",
         "followers": 14
       },
       {
         "label": "Telegram",
         "href": "https://t.me/tdebuginn",
-        "icon": "https://webp.debuginn.com/2026052916fIxC.svg",
+        "icon": "https://static.debuginn.com/2026052916fIxC.svg",
         "followers": 56
       },
       {
@@ -375,7 +375,7 @@
       {
         "label": "少数派",
         "href": "https://sspai.com/u/debuginn",
-        "icon": "https://webp.debuginn.com/20260731rgH7wK.png",
+        "icon": "https://static.debuginn.com/20260731rgH7wK.png",
         "preserveIconColor": true
       }
     ]
@@ -384,31 +384,31 @@
     "iassets": {
       "title": "iAssets",
       "mosaicShots": [
-        "https://webp.debuginn.com/20260529YUU2cS.png",
-        "https://webp.debuginn.com/20260529X5Cz9s.png",
-        "https://webp.debuginn.com/20260529NpenQi.png",
-        "https://webp.debuginn.com/20260529gLXrE4.png",
-        "https://webp.debuginn.com/20260529XHiuhG.png",
-        "https://webp.debuginn.com/20260529dOY7Gw.png",
-        "https://webp.debuginn.com/20260529mHcIiV.png",
-        "https://webp.debuginn.com/20260529Q9oOii.png",
-        "https://webp.debuginn.com/20260529zmTNhp.png",
-        "https://webp.debuginn.com/202605296uFsCu.png",
-        "https://webp.debuginn.com/202605290txYeq.png",
-        "https://webp.debuginn.com/20260529dEtu6W.png",
-        "https://webp.debuginn.com/20260529daNRqI.png",
-        "https://webp.debuginn.com/20260529wLy3Yb.png",
-        "https://webp.debuginn.com/20260529KdM1kJ.png",
-        "https://webp.debuginn.com/20260529WcSrDP.png",
-        "https://webp.debuginn.com/202605299eJalD.png",
-        "https://webp.debuginn.com/202605295qALW3.png",
-        "https://webp.debuginn.com/202605292bN4ok.png",
-        "https://webp.debuginn.com/20260529sPeNE5.png",
-        "https://webp.debuginn.com/20260529ZYsLJi.png",
-        "https://webp.debuginn.com/20260529DhBnFc.png",
-        "https://webp.debuginn.com/202605299kYBuQ.png",
-        "https://webp.debuginn.com/20260529LBQbLk.png",
-        "https://webp.debuginn.com/202605299bAszf.png"
+        "https://static.debuginn.com/20260529YUU2cS.png",
+        "https://static.debuginn.com/20260529X5Cz9s.png",
+        "https://static.debuginn.com/20260529NpenQi.png",
+        "https://static.debuginn.com/20260529gLXrE4.png",
+        "https://static.debuginn.com/20260529XHiuhG.png",
+        "https://static.debuginn.com/20260529dOY7Gw.png",
+        "https://static.debuginn.com/20260529mHcIiV.png",
+        "https://static.debuginn.com/20260529Q9oOii.png",
+        "https://static.debuginn.com/20260529zmTNhp.png",
+        "https://static.debuginn.com/202605296uFsCu.png",
+        "https://static.debuginn.com/202605290txYeq.png",
+        "https://static.debuginn.com/20260529dEtu6W.png",
+        "https://static.debuginn.com/20260529daNRqI.png",
+        "https://static.debuginn.com/20260529wLy3Yb.png",
+        "https://static.debuginn.com/20260529KdM1kJ.png",
+        "https://static.debuginn.com/20260529WcSrDP.png",
+        "https://static.debuginn.com/202605299eJalD.png",
+        "https://static.debuginn.com/202605295qALW3.png",
+        "https://static.debuginn.com/202605292bN4ok.png",
+        "https://static.debuginn.com/20260529sPeNE5.png",
+        "https://static.debuginn.com/20260529ZYsLJi.png",
+        "https://static.debuginn.com/20260529DhBnFc.png",
+        "https://static.debuginn.com/202605299kYBuQ.png",
+        "https://static.debuginn.com/20260529LBQbLk.png",
+        "https://static.debuginn.com/202605299bAszf.png"
       ],
       "mosaicColumns": 10,
       "mosaicDurations": [
