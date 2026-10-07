@@ -648,6 +648,15 @@
         "y": 56,
         "width": 5.7,
         "rotation": -8
+      },
+      {
+        "type": "logo",
+        "src": "/closing/homekit.webp",
+        "alt": "HomeKit",
+        "x": 18,
+        "y": 60,
+        "width": 5.5,
+        "rotation": 7
       }
     ],
     "photoPool": [

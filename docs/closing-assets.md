@@ -16,6 +16,7 @@ Photographs were resized to 720 px wide and encoded as WebP at quality 78. Raste
 | `mijia.webp` | Approved design reference: footer-mijia-logo-official.png | `83d3feff7c67b09df0c658228e3d23cb8da0fae7347ee866bd8da29f080c4111` |
 | `apple.svg` | Approved design reference: footer-apple-official.svg | `86fd3a54dc7d36f7e5c60c39a9fd2b5ec300dc7a129aea26f5633caa08559aab` |
 | `openhosts.webp` | Approved OpenHosts project design reference: footer-openhosts-official-logo.png | `bcda4c0930fd867aa59fa1dcba93683f124e537120c92a1aa7fb2be1a3b65123` |
+| `homekit.webp` | Apple Developer HomeKit framework icon: https://developer.apple.com/assets/elements/icons/homekit/homekit-96x96_2x.png | `302d5bd3ad73eb8ef234dbe68f7210dbb7382cf4863d28eddc2e530138b99c45` |
 
 The temporary reference filenames identify the original approved design assets. Their hashes document the exact input files even after temporary files have been cleaned up.
 
@@ -24,6 +25,7 @@ The additional official reference sources are:
 - Apple: the navigation mark from https://www.apple.com/.
 - Mijia: the PNG in the current https://home.mi.com/ bundle, https://cdn.web-global.fds.api.mi-img.com/mijia/prod/home/main.ec78fdc73e.js.
 - OpenHosts: https://raw.githubusercontent.com/debuginn/OpenHosts/main/OpenHosts/Resources/Assets.xcassets/AppIcon.appiconset/icon_1024x1024.png, from https://github.com/debuginn/OpenHosts.
+- HomeKit: the dedicated framework icon referenced by `search_icon` on https://developer.apple.com/apple-home/ (the current destination of https://developer.apple.com/homekit/). Its 192 × 192 px PNG was trimmed to its transparent bounds and encoded at WebP quality 88 without enlargement; the deployed asset is 174 × 174 px with alpha transparency, 3,394 bytes.
 
 ## Configuration
 
