@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "setup": "git submodule update --init --recursive",
-    "dev": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender",
+    "dev": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender --destination dist",
     "build": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs com && hugo --minify --gc --destination dist",
     "build:cn": "node scripts/ensure-hugo-submodules.mjs && node scripts/prepare-hugo-data.mjs cn && hugo --minify --gc --baseURL https://debuginn.cn/ --destination dist",
     "dev:next": "next dev",

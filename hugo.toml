@@ -29,3 +29,18 @@ disableKinds = ["taxonomy", "term"]
   [[module.mounts]]
     source = "themes/hugo-theme-debuginn/extensions/flybay/config"
     target = "data/flybay"
+  [[module.mounts]]
+    source = "extensions/plural/hugo/layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "extensions/plural/hugo/assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "extensions/plural/hugo/static"
+    target = "static"
+  [[module.mounts]]
+    source = "extensions/plural/hugo/data"
+    target = "data"
+  [[module.mounts]]
+    source = "extensions/plural/public"
+    target = "static/plural-assets"

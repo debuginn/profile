@@ -31,6 +31,13 @@ const siteData = JSON.parse(
 );
 siteData.site.footerCredit.version = version;
 
+const sections = siteData.sections ?? [];
+siteData.sections = sections.filter((section) => {
+  if (section.type !== "extension" && section.type !== "flybay") return true;
+  const moduleName = section.module ?? section.extension ?? section.id;
+  return siteData.extensions?.[moduleName]?.enabled !== false;
+});
+
 await mkdir(dataDir, { recursive: true });
 await writeFile(
   resolve(dataDir, "site.json"),

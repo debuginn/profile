@@ -1,0 +1,25 @@
+{{- $data := hugo.Data.plural.hero -}}
+{{- $extension := index .cfg.extensions "plural" | default dict -}}
+{{- $assetBase := $extension.assetBase | default "/plural-assets" -}}
+{{- $bundleBase := $extension.bundleBase | default "/plural" -}}
+{{- $baseUrl := $extension.href | default $data.site.baseUrl -}}
+<section class="page-screen page-screen-plural" id="{{ .section.id }}" data-section="{{ .section.id }}" data-extension="plural">
+  <div class="pa-page">
+    <div id="plural-root" class="plural-embed" data-plural-root data-asset-base="{{ $assetBase }}" data-base-url="{{ $baseUrl }}">
+      {{- with resources.Get "plural/hero.html" -}}
+        {{- $html := strings.Replace .Content "/plural-assets/" (printf "%s/" $assetBase) -}}
+        {{- strings.Replace $html $data.site.baseUrl $baseUrl | safeHTML -}}
+      {{- else -}}
+        <section class="pa-hero"><div class="pa-hero-stage"><div class="pa-hero-copy">
+          <a href="{{ $baseUrl }}" class="pa-hero-brand">{{ $data.site.name }} · {{ $data.site.alternateName }}</a>
+          <h1>{{ range $data.hero.titleLines }}<span>{{ . }}</span>{{ end }}</h1>
+          <p>{{ range $data.hero.descriptionLines }}<span>{{ . }}</span>{{ end }}</p>
+          <div class="pa-hero-actions">{{ with $data.hero.primaryAction }}<a class="pa-hero-action" href="{{ printf "%s/%s" $baseUrl (strings.TrimPrefix "/" .href) }}">{{ .label }}</a>{{ end }}</div>
+        </div></div></section>
+      {{- end -}}
+    </div>
+    <script type="application/json" data-plural-payload>{{ $data | jsonify | safeJS }}</script>
+    <link rel="stylesheet" href="{{ $bundleBase }}/plural.css">
+    <script src="{{ $bundleBase }}/plural.js" type="module" defer></script>
+  </div>
+</section>

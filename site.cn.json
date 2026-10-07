@@ -74,6 +74,16 @@
       "dotLabel": "跳转到 iAssets 页"
     },
     {
+      "id": "plural",
+      "type": "extension",
+      "navIcon": "product",
+      "navLabel": "多元派",
+      "navAccent": "#238da6",
+      "navAccentText": "#ffffff",
+      "dotLabel": "跳转到多元派",
+      "module": "plural"
+    },
+    {
       "id": "blog",
       "type": "blog",
       "dotLabel": "跳转到博客文章"
@@ -374,6 +384,19 @@
         "preserveIconColor": true
       }
     ]
+  },
+  "extensions": {
+    "plural": {
+      "enabled": true,
+      "partial": "debuginn/extensions/plural.html",
+      "data": "plural.hero",
+      "assetBase": "/plural-assets",
+      "bundleBase": "/plural",
+      "href": "https://plural.debuginn.com",
+      "styles": [
+        "css/plural-extension.css"
+      ]
+    }
   },
   "products": {
     "iassets": {
