@@ -114,6 +114,15 @@
       "navAccent": "#2d3f57",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到社交媒体"
+    },
+    {
+      "id": "closing",
+      "type": "closing",
+      "navIcon": "contact",
+      "navLabel": "与我联系",
+      "navAccent": "#25252a",
+      "navAccentText": "#ffffff",
+      "dotLabel": "跳转到与我联系"
     }
   ],
   "home": {
@@ -488,5 +497,158 @@
         "css/plural-extension.css"
       ]
     }
+  },
+  "closing": {
+    "contactLabel": "与我联系",
+    "contactHref": "mailto:idebuginn@gmail.com",
+    "logo": "/closing/debuginn.webp",
+    "logoHref": "https://debuginn.com",
+    "wordmark": "DEBUGINN",
+    "items": [
+      {
+        "type": "photo",
+        "src": "/closing/dusk.webp",
+        "alt": "城市暮色摄影",
+        "x": 18,
+        "y": 15,
+        "width": 15,
+        "rotation": 8
+      },
+      {
+        "type": "photo",
+        "src": "/closing/lake.webp",
+        "alt": "湖畔风景摄影",
+        "x": 17.5,
+        "y": 40,
+        "width": 12,
+        "rotation": -6
+      },
+      {
+        "type": "photo",
+        "src": "/closing/lake.webp",
+        "alt": "湖畔风景摄影",
+        "x": 1.5,
+        "y": 22,
+        "width": 8,
+        "rotation": 7
+      },
+      {
+        "type": "photo",
+        "src": "/closing/dusk.webp",
+        "alt": "城市暮色摄影",
+        "x": 5.5,
+        "y": 48,
+        "width": 7,
+        "rotation": -12
+      },
+      {
+        "type": "photo",
+        "src": "/closing/lake.webp",
+        "alt": "湖畔风景摄影",
+        "x": 83.5,
+        "y": 14,
+        "width": 9,
+        "rotation": -9
+      },
+      {
+        "type": "photo",
+        "src": "/closing/lake.webp",
+        "alt": "湖畔风景摄影",
+        "x": 98,
+        "y": 14,
+        "width": 7,
+        "rotation": 11
+      },
+      {
+        "type": "photo",
+        "src": "/closing/lake.webp",
+        "alt": "湖畔风景摄影",
+        "x": 80.5,
+        "y": 31,
+        "width": 12,
+        "rotation": 11
+      },
+      {
+        "type": "photo",
+        "src": "/closing/lake.webp",
+        "alt": "湖畔风景摄影",
+        "x": 97.5,
+        "y": 38.5,
+        "width": 8,
+        "rotation": 9
+      },
+      {
+        "type": "photo",
+        "src": "/closing/dusk.webp",
+        "alt": "城市暮色摄影",
+        "x": 87,
+        "y": 49,
+        "width": 8.5,
+        "rotation": 8
+      },
+      {
+        "type": "logo",
+        "src": "/closing/flybay.webp",
+        "alt": "飞湾计划",
+        "x": 32,
+        "y": 18,
+        "width": 8,
+        "rotation": 2
+      },
+      {
+        "type": "logo",
+        "src": "/closing/plural.webp",
+        "alt": "多元派",
+        "x": 8.5,
+        "y": 33,
+        "width": 6.5,
+        "rotation": -10
+      },
+      {
+        "type": "logo",
+        "src": "/closing/iassets.webp",
+        "alt": "知盈",
+        "x": 30.5,
+        "y": 49,
+        "width": 6.2,
+        "rotation": -7
+      },
+      {
+        "type": "logo",
+        "src": "/closing/xiaomi.webp",
+        "alt": "小米",
+        "x": 70.5,
+        "y": 17,
+        "width": 6,
+        "rotation": -13
+      },
+      {
+        "type": "logo",
+        "src": "/closing/mijia.webp",
+        "alt": "米家",
+        "x": 91.5,
+        "y": 26,
+        "width": 5.6,
+        "rotation": 10
+      },
+      {
+        "type": "logo",
+        "src": "/closing/apple.svg",
+        "alt": "Apple",
+        "x": 69.5,
+        "y": 49,
+        "width": 4.8,
+        "rotation": 0
+      },
+      {
+        "type": "logo",
+        "src": "/closing/openhosts.webp",
+        "alt": "OpenHosts",
+        "x": 95.5,
+        "y": 56,
+        "width": 5.7,
+        "rotation": -8
+      }
+    ]
   }
 }
