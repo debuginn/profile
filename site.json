@@ -657,6 +657,15 @@
         "y": 60,
         "width": 5.5,
         "rotation": 7
+      },
+      {
+        "type": "logo",
+        "src": "/closing/skills.webp",
+        "alt": "Skills Store",
+        "x": 81,
+        "y": 63,
+        "width": 6.1,
+        "rotation": -7
       }
     ],
     "photoPool": [

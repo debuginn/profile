@@ -17,6 +17,7 @@ Photographs were resized to 720 px wide and encoded as WebP at quality 78. Raste
 | `apple.svg` | Approved design reference: footer-apple-official.svg | `86fd3a54dc7d36f7e5c60c39a9fd2b5ec300dc7a129aea26f5633caa08559aab` |
 | `openhosts.webp` | Approved OpenHosts project design reference: footer-openhosts-official-logo.png | `bcda4c0930fd867aa59fa1dcba93683f124e537120c92a1aa7fb2be1a3b65123` |
 | `homekit.webp` | Apple Developer HomeKit framework icon: https://developer.apple.com/assets/elements/icons/homekit/homekit-96x96_2x.png | `302d5bd3ad73eb8ef234dbe68f7210dbb7382cf4863d28eddc2e530138b99c45` |
+| `skills.webp` | Deployed Skills site header logo: https://skills.debuginn.com/img/logo.png | `aa1e5cb6bc785a38f673cc09e5b9e0a93e4638d617d2eae2b16eabf24e7cabad` |
 
 The temporary reference filenames identify the original approved design assets. Their hashes document the exact input files even after temporary files have been cleaned up.
 
@@ -26,6 +27,7 @@ The additional official reference sources are:
 - Mijia: the PNG in the current https://home.mi.com/ bundle, https://cdn.web-global.fds.api.mi-img.com/mijia/prod/home/main.ec78fdc73e.js.
 - OpenHosts: https://raw.githubusercontent.com/debuginn/OpenHosts/main/OpenHosts/Resources/Assets.xcassets/AppIcon.appiconset/icon_1024x1024.png, from https://github.com/debuginn/OpenHosts.
 - HomeKit: the dedicated framework icon referenced by `search_icon` on https://developer.apple.com/apple-home/ (the current destination of https://developer.apple.com/homekit/). Its 192 × 192 px PNG was trimmed to its transparent bounds and encoded at WebP quality 88 without enlargement; the deployed asset is 174 × 174 px with alpha transparency, 3,394 bytes.
+- Skills: https://skills.debuginn.com/zh/ uses `/img/logo.png` in its deployed header, hero, and footer. The actual 1024 × 1024 px PNG has cyan, blue, and purple bars on a white rounded square with transparent corners. It was resized to 320 × 320 px and encoded at WebP quality 88 while preserving the original artwork, white face, and alpha transparency.
 
 ## Configuration
 
