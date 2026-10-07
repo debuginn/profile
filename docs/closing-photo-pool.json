@@ -1,0 +1,418 @@
+{
+  "source": "Existing home.backgrounds in site.json and site.cn.json",
+  "transform": {
+    "width": 720,
+    "height": 540,
+    "fit": "cover",
+    "position": "centre",
+    "startingWebpQuality": 76,
+    "maximumFileBytes": 102400
+  },
+  "photos": [
+    {
+      "source": "https://static.debuginn.com/202303120016035.jpeg",
+      "sourceSha256": "23c5a3320a97aa3a98b3a7ba7b1bd3ac3968f05c0952836c8314d4181e660bb5",
+      "src": "/closing/photos/314bebfd0c5a1448.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 15658
+    },
+    {
+      "source": "https://static.debuginn.com/202303120014022.jpeg",
+      "sourceSha256": "4dae485cee031bb5c85af90ab0aeaf406739dcc269d7e927cfdf8d6644080411",
+      "src": "/closing/photos/fb4e98d47de2120f.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 80338
+    },
+    {
+      "source": "https://static.debuginn.com/202303120017184.jpeg",
+      "sourceSha256": "9dbe9913a82bc68ce4ef836e98201b2695e5f0551db6ba7174c18911021cf3c7",
+      "src": "/closing/photos/8580f578d2276a9a.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 58950
+    },
+    {
+      "source": "https://static.debuginn.com/202303120020529.jpeg",
+      "sourceSha256": "d0994f457bbcff72f5674c7c366959e0cfdfbf91fb7096e29e1ac7dba78f3d74",
+      "src": "/closing/photos/3fd9db2b52593737.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 56792
+    },
+    {
+      "source": "https://static.debuginn.com/202303120018416.jpeg",
+      "sourceSha256": "fb0d55bdc83b52ddcb4818735125acf91116fec8d1a054322c88969d2f56a6bd",
+      "src": "/closing/photos/9bc67f09db4ca180.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 61114
+    },
+    {
+      "source": "https://static.debuginn.com/202303120018147.jpeg",
+      "sourceSha256": "dbb15123788897496cb569165fe29ffe8c3443e36e9d07290d0e229403b69802",
+      "src": "/closing/photos/628e30b44ce1034a.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 32580
+    },
+    {
+      "source": "https://static.debuginn.com/202305162149771.jpg",
+      "sourceSha256": "5ab00125c38c1f29c2ef45acafda9c975d6338c14ccd320c27f2551d0e94a587",
+      "src": "/closing/photos/7d7b9bf3db84661c.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 7804
+    },
+    {
+      "source": "https://static.debuginn.com/202305162151707.jpg",
+      "sourceSha256": "17e49c5ab833ff0c182d8b8cb02c20bbd99d544f27180a7ff84356d4fac57b9b",
+      "src": "/closing/photos/d651e13cfe884e47.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 28100
+    },
+    {
+      "source": "https://static.debuginn.com/202305162152763.jpg",
+      "sourceSha256": "3e75bfb50ee4be66c2f3f30c976969401f85c90980b9627549dc8151fb203198",
+      "src": "/closing/photos/1baa1e587774ec19.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 31360
+    },
+    {
+      "source": "https://static.debuginn.com/202305162152732.jpg",
+      "sourceSha256": "6c8c8ac736f41398bd4138d64370c471de36875828b7008926e05b1af69d1624",
+      "src": "/closing/photos/21a4d0f621f64f12.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 66386
+    },
+    {
+      "source": "https://static.debuginn.com/202305162153714.jpg",
+      "sourceSha256": "ba06a9f1eac5e7fa5245692969a9e52836b13752243f0aef199187586b47671e",
+      "src": "/closing/photos/302a21007c2f0ee7.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 13918
+    },
+    {
+      "source": "https://static.debuginn.com/202305162153417.jpg",
+      "sourceSha256": "795338234489210d337aacee6f5ba4ff9ada0c6b1d5a816c332365d7d6917616",
+      "src": "/closing/photos/074040ca043e4934.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 55466
+    },
+    {
+      "source": "https://static.debuginn.com/202305162154852.jpg",
+      "sourceSha256": "f92a2e93736714f5b7da1f7787bc60993d2bb45ec1f3c7c3dfb4af507efed0cc",
+      "src": "/closing/photos/ffe5f22aacb37858.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 42296
+    },
+    {
+      "source": "https://static.debuginn.com/202305162154677.jpg",
+      "sourceSha256": "e5c6e4f2db3c6ccf08063c0dbc71905df7e54eb14deba4cf58e8cec0e1be68fe",
+      "src": "/closing/photos/ad166d3d11b9b655.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 73132
+    },
+    {
+      "source": "https://static.debuginn.com/202305162155271.jpg",
+      "sourceSha256": "7ab7cd9b193c4fb2b4cf7daf5e4e56869ccf46b8af4f35f45b0537f0b618faf2",
+      "src": "/closing/photos/c7e2f2418d70bb07.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 33928
+    },
+    {
+      "source": "https://static.debuginn.com/202305162155529.jpg",
+      "sourceSha256": "cad07b93cd678096247c83b97b2f1a27fde4438bc6b6d3b917eaf6b488cf0f75",
+      "src": "/closing/photos/8791a4385209c3db.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 18244
+    },
+    {
+      "source": "https://static.debuginn.com/202312241440666.jpg",
+      "sourceSha256": "2f5ee9e97bd47c64120541a59a72fd7e497b3d7fb8b40f5a687b3b62d29a60d4",
+      "src": "/closing/photos/06d3c2204d1a2e5c.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 10756
+    },
+    {
+      "source": "https://static.debuginn.com/202312241448297.jpg",
+      "sourceSha256": "8de594b52bc223fabc381939f546be1a8a557963d187ad8cf03cfa7749346bc1",
+      "src": "/closing/photos/8134ac7658bfbbfd.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 57432
+    },
+    {
+      "source": "https://static.debuginn.com/202312241459045.jpg",
+      "sourceSha256": "9fbcc3d88299533b9a563b373086137f2f6ac42dd72dad9f367cd0ffd04e3e35",
+      "src": "/closing/photos/ca2dbc24364e1bd6.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 27144
+    },
+    {
+      "source": "https://static.debuginn.com/202312241509754.jpg",
+      "sourceSha256": "4e076717ae0dc74e4f8ced0a3e7de74e2720946078610e0174abbfe37949afef",
+      "src": "/closing/photos/3f3c981e4b1de69a.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 22068
+    },
+    {
+      "source": "https://static.debuginn.com/20250101R4kCmh.jpg",
+      "sourceSha256": "63a6b262b6f52cd83affa8ad75e38135adb2bc7aa702efde671c3f88d09b4e89",
+      "src": "/closing/photos/0568fd70bfce1ea1.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 38922
+    },
+    {
+      "source": "https://static.debuginn.com/20250101gM3cIt.jpg",
+      "sourceSha256": "da830b8b697ed336a50ea08d3ff5261b3daffd31c9b1133b1f96fdd38f611870",
+      "src": "/closing/photos/7183126078b4ad19.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 82460
+    },
+    {
+      "source": "https://static.debuginn.com/20250101M4FjnX.jpg",
+      "sourceSha256": "d93940860a6f0502860cc097c2d45045da6d74c2e83c677fbf159930c0817801",
+      "src": "/closing/photos/1cb8893840fb6a59.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 40112
+    },
+    {
+      "source": "https://static.debuginn.com/202501014ap3u9.jpg",
+      "sourceSha256": "8b0a2f865026c8be5db4fe54f60426e478bbac22ad16ca43e2014850ab22c23d",
+      "src": "/closing/photos/50e805d60c7421de.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 12220
+    },
+    {
+      "source": "https://static.debuginn.com/20250101V6b86k.jpg",
+      "sourceSha256": "956d06f04d2d85f357733397c1279c6ab23be3e12dd289c54377446bb634f79d",
+      "src": "/closing/photos/2cb874268f763a5b.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 53868
+    },
+    {
+      "source": "https://static.debuginn.com/20250101DxpIDD.jpg",
+      "sourceSha256": "38b6069c22811403342a79058ade3fa665ff87e61ebb996b1cae58fdc8fb6e7f",
+      "src": "/closing/photos/85823a2f8f9252fa.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 61822
+    },
+    {
+      "source": "https://static.debuginn.com/202501014MMQzm.jpg",
+      "sourceSha256": "205996a7500a01a7eb64d4af383c7fdbd3f477846c2c41127e4e4e65e94f7fd2",
+      "src": "/closing/photos/b3e7d6150c03296e.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 10768
+    },
+    {
+      "source": "https://static.debuginn.com/202501018dy1Ym.jpg",
+      "sourceSha256": "bd255d585d01173848df951ae52f37f66e3eccdad0e045e81f82fa8481c5f3e9",
+      "src": "/closing/photos/f613d033151deef9.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 42978
+    },
+    {
+      "source": "https://static.debuginn.com/2025051038jxzl.jpg",
+      "sourceSha256": "1953b8b314be6073ce364f9596555c25ae8f9d0f09e0ce7900585136b71e3319",
+      "src": "/closing/photos/7faa72e8630bd973.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 25378
+    },
+    {
+      "source": "https://static.debuginn.com/202505109vsKjY.jpg",
+      "sourceSha256": "a44ea68733ecfb4696f38f71bacbffc58b701560e43414123eda459aeef6a578",
+      "src": "/closing/photos/ed559e1592fe8bb3.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 22844
+    },
+    {
+      "source": "https://static.debuginn.com/20250510MCKPqG.jpg",
+      "sourceSha256": "820a5ed303d5ba4d3e35bacfc4c1ddfabc039cb1582eee68b0b02d17f16d4abd",
+      "src": "/closing/photos/93c55d3844a265ea.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 40416
+    },
+    {
+      "source": "https://static.debuginn.com/20250510Y48j7B.jpg",
+      "sourceSha256": "aa816d79d8a2a8e29dba104cfedc065ba5e60e6fa8066182c914eaa5c70d1b88",
+      "src": "/closing/photos/3e24779628acb7eb.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 31590
+    },
+    {
+      "source": "https://static.debuginn.com/202505105A03Qm.jpg",
+      "sourceSha256": "774a949c249d47dfcb10f5868746fd27d655a65421e5307d5068c4e0c582fcc1",
+      "src": "/closing/photos/a8e71dd92466634c.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 17160
+    },
+    {
+      "source": "https://static.debuginn.com/20250510zkQn5O.jpg",
+      "sourceSha256": "672bad49544b98f16f688b032b00c3cf1a56b949e7f0f5bc4350c3062f700a86",
+      "src": "/closing/photos/9850580847844498.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 9496
+    },
+    {
+      "source": "https://static.debuginn.com/20250510zQqYeK.jpg",
+      "sourceSha256": "9cbb5b0378c3f546da718980ec73c6c02c78e09f7d9eb02f2d939ced639f5e62",
+      "src": "/closing/photos/d6422418874867b5.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 11482
+    },
+    {
+      "source": "https://static.debuginn.com/20250727qmakyu.jpg",
+      "sourceSha256": "eeea7291cd05b33d9c46b8623355ad850a629460e0007bc999e3ad81ac7c8be1",
+      "src": "/closing/photos/a896bcf2fe7e8537.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 31136
+    },
+    {
+      "source": "https://static.debuginn.com/20250828uaMPQa.jpg",
+      "sourceSha256": "ef96de6ca26f69a6d7c44392e358ed2e1321be8438432d17516d11a13291607d",
+      "src": "/closing/photos/e148f253e558922c.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 39768
+    },
+    {
+      "source": "https://static.debuginn.com/20250831RN4Jmt.jpg",
+      "sourceSha256": "ca99d8ccc166681ba77c0bb2a42440d1e551e279118569629eb02a3e23433cec",
+      "src": "/closing/photos/3b9d6baa133b3cc2.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 45830
+    },
+    {
+      "source": "https://static.debuginn.com/20250902G7dA4g.jpg",
+      "sourceSha256": "d641ae58f2a36688806d29372f6dae865d464914d05ea1ec7142154fc4154908",
+      "src": "/closing/photos/01e77ba0a6fc10ea.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 56670
+    },
+    {
+      "source": "https://static.debuginn.com/20250902gFdYgH.jpg",
+      "sourceSha256": "bb899f4ad6fa94b7e5f7766542d42fdc8ccfd3e172dad8ca55500a8092bcde78",
+      "src": "/closing/photos/614d5c50d4209010.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 95024
+    },
+    {
+      "source": "https://static.debuginn.com/20250902GbJQtR.JPG",
+      "sourceSha256": "1df9ba91916c6c88ddb2d09ffcb9fbc5c6f49fecae037ab7f45e8bd0dc13d907",
+      "src": "/closing/photos/643f1ce27f4b3697.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 52,
+      "bytes": 100756
+    },
+    {
+      "source": "https://static.debuginn.com/20250902ASdtvq.jpg",
+      "sourceSha256": "bef7b10607f8c9cac0f7f0b814b49b585d1a45c28e8527d5488b1aa070687ed3",
+      "src": "/closing/photos/a1f8883ec7d1ea89.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 100838
+    },
+    {
+      "source": "https://static.debuginn.com/20251215creWKt.jpg",
+      "sourceSha256": "66e9cc2ff7221456afe799861dc286e97050f5997b81c2bee267a2f8df99d7d6",
+      "src": "/closing/photos/6020f57958b64324.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 83866
+    },
+    {
+      "source": "https://static.debuginn.com/20251215dbzf0t.jpg",
+      "sourceSha256": "544ce4022b17ec17261fd552bf4ba4c2259e6936a2a3e0b79c19d170bd98a9e7",
+      "src": "/closing/photos/14d944fd6e03a278.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 21750
+    },
+    {
+      "source": "https://static.debuginn.com/20251215d5bKCo.jpg",
+      "sourceSha256": "86561f795b11435d4766ee263485680ecde19e1a4779b625b5bb56f0b6b7c37d",
+      "src": "/closing/photos/da92752f1adac511.webp",
+      "width": 720,
+      "height": 540,
+      "quality": 76,
+      "bytes": 5730
+    }
+  ]
+}

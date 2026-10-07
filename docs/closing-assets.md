@@ -29,4 +29,8 @@ The additional official reference sources are:
 
 `closing.items` contains photo/logo entries with local `src`, descriptive `alt`, percentage center coordinates `x` and `y`, percentage viewport `width`, and `rotation` in degrees. The last section has `id: closing`, `type: closing`, and its own navigation entry.
 
+`closing.photoPool` contains local, optimized derivatives from the existing `home.backgrounds` gallery. The client shuffles this pool and selects different photographs for the fixed photo tiles; positions, rotations, and logos remain unchanged. The original two local images in `closing.items` remain fallback sources.
+
+To update the pool after adding gallery photographs, install the normal project dependencies and run `node scripts/gen-closing-photos.mjs`. Previously prepared files are reused, so a repeated run can complete without image downloads. Use `--refresh` only when intentionally regenerating existing photographs. The script writes at least nine usable images before updating the configuration and records each source URL, source hash, dimensions, quality, and output size in `docs/closing-photo-pool.json`. Photos use a fixed 4:3 frame (720 × 540 px, centre cover crop) and at most 100 KiB each, beginning at WebP quality 76. Commit the resulting local assets, manifest, and configuration together. Production build and deployment scripts do not invoke this generator or require gallery network access.
+
 The contact entry uses `mailto:idebuginn@gmail.com`, explicitly supplied by the user for this page. The site footer partial supplies its existing release version dynamically; the closing configuration does not hardcode a version.
