@@ -10,13 +10,11 @@
       "builderLabel": "Hugo",
       "builderHref": "https://gohugo.io/",
       "themePrefix": ", theme ",
-      "themeLabel": "Pebble",
-      "themeHref": "https://github.com/debuginn/hugo-theme-pebble",
-      "version": " v1.0.2",
-      "designerPrefix": " designed by ",
-      "designerLabel": "Debuginn",
-      "designerHref": "https://blog.debuginn.com/",
-      "suffix": "."
+      "themeLabel": "Debuginn",
+      "themeHref": "https://github.com/debuginn/hugo-theme-debuginn",
+      "copyrightLabel": "Debug客栈",
+      "copyrightHref": "https://debuginn.com/",
+      "suffix": ""
     },
     "themeColor": "#0b1220",
     "assetOrigins": [
@@ -64,33 +62,57 @@
     {
       "id": "home",
       "type": "home",
+      "navIcon": "home",
+      "navLabel": "首页",
+      "navAccent": "#2d3f57",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到首页"
     },
     {
       "id": "iassets",
       "type": "iassets",
+      "navIcon": "product",
+      "navLabel": "iAssets",
+      "navAccent": "#3d8ef0",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到 iAssets 页"
     },
     {
       "id": "flybay",
       "type": "extension",
+      "navIcon": "flybay",
+      "navLabel": "飞湾",
+      "navAccent": "#3f9f5f",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到飞湾计划",
       "module": "flybay"
     },
     {
       "id": "plural",
       "type": "extension",
+      "navIcon": "product",
+      "navLabel": "多元派",
+      "navAccent": "#238da6",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到多元派",
       "module": "plural"
     },
     {
       "id": "blog",
       "type": "blog",
+      "navIcon": "blog",
+      "navLabel": "博客",
+      "navAccent": "#416f80",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到博客文章"
     },
     {
       "id": "social",
       "type": "social",
+      "navIcon": "social",
+      "navLabel": "社交",
+      "navAccent": "#2d3f57",
+      "navAccentText": "#ffffff",
       "dotLabel": "跳转到社交媒体"
     }
   ],

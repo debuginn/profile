@@ -1,4 +1,5 @@
-import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -14,21 +15,32 @@ if (!(variant in sources)) {
 }
 
 const dataDir = resolve(root, "data");
-await mkdir(dataDir, { recursive: true });
-const sourcePath = resolve(root, sources[variant]);
-const outputPath = resolve(dataDir, "site.json");
-const config = JSON.parse(await readFile(sourcePath, "utf8"));
-const sections = config.sections ?? [];
-const activeSections = sections.filter((section) => {
+const themeDir = resolve(root, "themes/hugo-theme-debuginn");
+const revision = execFileSync(
+  "git",
+  ["-C", themeDir, "describe", "--tags", "--always", "--dirty"],
+  { encoding: "utf8" },
+).trim();
+const releaseVersion = revision.match(/^v?\d+\.\d+\.\d+/)?.[0];
+const version = releaseVersion
+  ? ` ${releaseVersion.startsWith("v") ? releaseVersion : `v${releaseVersion}`}`
+    : ` @${revision}`;
+
+const siteData = JSON.parse(
+  await readFile(resolve(root, sources[variant]), "utf8"),
+);
+siteData.site.footerCredit.version = version;
+
+const sections = siteData.sections ?? [];
+siteData.sections = sections.filter((section) => {
   if (section.type !== "extension" && section.type !== "flybay") return true;
   const moduleName = section.module ?? section.extension ?? section.id;
-  return config.extensions?.[moduleName]?.enabled !== false;
+  return siteData.extensions?.[moduleName]?.enabled !== false;
 });
 
-if (activeSections.length === sections.length) {
-  await copyFile(sourcePath, outputPath);
-} else {
-  config.sections = activeSections;
-  await writeFile(outputPath, `${JSON.stringify(config, null, 2)}\n`);
-}
-console.log(`Prepared data/site.json for ${variant}`);
+await mkdir(dataDir, { recursive: true });
+await writeFile(
+  resolve(dataDir, "site.json"),
+  `${JSON.stringify(siteData, null, 2)}\n`,
+);
+console.log(`Prepared data/site.json for ${variant} with theme ${revision}`);

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "producer": "plural-profile-extension",
   "sourceRepository": "https://github.com/debuginn/Plural",
-  "sourceRevision": "733b7c9d20bade4f77f1e491f0c1a97f9bf9d5e8",
-  "sourceDirty": true,
+  "sourceRevision": "2be1884fd0b6e5e973d8462370b99e8495017311",
+  "sourceDirty": false,
   "configSha256": "2079fb9ecf07c30e84b3e9437642b7d5f43593aef97aa471198cef172badc3e3",
   "sourceFiles": {
     "config/config.json": "2079fb9ecf07c30e84b3e9437642b7d5f43593aef97aa471198cef172badc3e3",
