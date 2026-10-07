@@ -1,0 +1,294 @@
+{
+  "site": {
+    "name": "多元派",
+    "alternateName": "Plural Atlas",
+    "baseUrl": "https://plural.debuginn.com",
+    "logo": "/brand/duoyuanpai-mark-700.webp"
+  },
+  "hero": {
+    "titleLines": [
+      "世界很大，",
+      "选择可以更多元。"
+    ],
+    "descriptionLines": [
+      "从认识账户开始，建立自己的全球资产视野。",
+      "银行资料、办理准备与资产工具，在这里慢慢看懂。"
+    ],
+    "activityTagText": "全球资产视野",
+    "destinationLabel": "全球账户与资产知识导航",
+    "shareActionLabel": "分享海报",
+    "showShareButton": true,
+    "showAnnouncements": true,
+    "mapBayAreaLabel": "银行资料",
+    "secondaryAction": {
+      "label": "获取资产配置指导",
+      "href": "#contact"
+    },
+    "primaryAction": {
+      "label": "浏览银行品牌",
+      "href": "#mainland-foreign-brands"
+    },
+    "artwork": {
+      "ariaLabel": "多元派品牌图形：围绕个人目标，认识账户、币种与时间",
+      "logoAlt": "多元派：多元视角，围绕自己的目标",
+      "labels": [
+        {
+          "title": "认识账户",
+          "description": "看懂用途与费用"
+        },
+        {
+          "title": "理解币种",
+          "description": "了解汇率与收付"
+        },
+        {
+          "title": "留意时间",
+          "description": "关注目标与流动性"
+        }
+      ],
+      "caption": "把选择，放回自己的生活里。"
+    }
+  },
+  "announcements": [
+    {
+      "id": "ant-macau-oct-2026",
+      "show": true,
+      "date": "2026-10-01",
+      "label": "10月活动",
+      "logo": "/ant-bank-macau-logo.webp",
+      "text": "澳门蚂蚁银行10月活动更新：开户券、入金3000港币享阿里/小米股票与三个月0佣金权益，渠道入口已同步。",
+      "startTime": "2026-10-01T00:00:00+08:00",
+      "endTime": "2026-10-31T23:59:59+08:00",
+      "scope": [
+        "home",
+        "ant-bank-macau"
+      ]
+    },
+    {
+      "id": "ant-macau-2026-08",
+      "date": "2026-08-20",
+      "label": "预约提示",
+      "logo": "/ant-bank-macau-logo.webp",
+      "text": "澳门蚂蚁银行到店开户建议提前预约，携带港澳通行证原件",
+      "startTime": "2026-08-01T00:00:00+08:00",
+      "endTime": "2026-12-31T23:59:59+08:00",
+      "scope": [
+        "home",
+        "ant-bank-macau"
+      ]
+    },
+    {
+      "id": "plural-regional-bank-guide",
+      "show": true,
+      "label": "资料更新",
+      "logo": "/brand/duoyuanpai-mark-700.webp",
+      "text": "大陆、香港、澳门、新加坡与英国银行品牌资料已统一整理",
+      "scope": [
+        "home"
+      ]
+    },
+    {
+      "id": "plural-iassets-guide",
+      "show": true,
+      "label": "工具推荐",
+      "logo": "/iassets-logo.png",
+      "text": "使用 iAssets 知盈记录家庭资产、负债与长期目标",
+      "action": {
+        "label": "了解更多",
+        "href": "https://iassets.debuginn.com/zh/"
+      },
+      "scope": [
+        "home"
+      ]
+    }
+  ],
+  "logoBySlug": {
+    "ant-bank-macau": "/ant-bank-macau-logo.webp"
+  },
+  "registerUrlBySlug": {
+    "ant-bank-macau": "https://render.alipay.com/p/c/180020570000149153/index.html?invite-code=LPCPRHSF"
+  },
+  "cardGradientBySlug": {
+    "ant-bank-macau": "bg-[linear-gradient(135deg,#0a3fa8_0%,#1565d8_54%,#3d8ef0_115%)]"
+  },
+  "poster": {
+    "editorial": {
+      "backgrounds": [
+        {
+          "src": "/regional-brands/beijing-cbd-v1.webp",
+          "label": "中国大陆 · 北京",
+          "crop": {
+            "zoom": 1.16,
+            "x": 0.62,
+            "y": 0.02
+          }
+        },
+        {
+          "src": "/regional-brands/mainland-shanghai-skyline-v1.webp",
+          "label": "中国大陆 · 上海",
+          "crop": {
+            "zoom": 1.18,
+            "x": 0.5,
+            "y": 0
+          }
+        },
+        {
+          "src": "/regional-brands/guangzhou-zhujiang-new-town-v1.webp",
+          "label": "中国大陆 · 广州",
+          "crop": {
+            "zoom": 1.15,
+            "x": 0.9,
+            "y": 0
+          }
+        },
+        {
+          "src": "/regional-brands/shenzhen-futian-cbd-v1.webp",
+          "label": "中国大陆 · 深圳",
+          "crop": {
+            "zoom": 1.12,
+            "x": 0.58,
+            "y": 0.03
+          }
+        },
+        {
+          "src": "/regional-brands/hong-kong-harbour-v3.webp",
+          "label": "中国香港 · 维多利亚港",
+          "crop": {
+            "zoom": 1.85,
+            "x": 0.59,
+            "y": 0.11
+          }
+        },
+        {
+          "src": "/regional-brands/macau-skyline-v1.webp",
+          "label": "中国澳门 · 南湾湖",
+          "crop": {
+            "zoom": 1.4,
+            "x": 0.53,
+            "y": 0
+          }
+        },
+        {
+          "src": "/regional-brands/london-thames-v1.webp",
+          "label": "英国 · 伦敦",
+          "crop": {
+            "zoom": 1.35,
+            "x": 0.12,
+            "y": 0
+          }
+        },
+        {
+          "src": "/regional-brands/singapore-marina-bay-v1.webp",
+          "label": "新加坡 · 滨海湾",
+          "crop": {
+            "zoom": 1.35,
+            "x": 0.12,
+            "y": 0
+          }
+        },
+        {
+          "src": "/regional-brands/new-york-skyline-v1.webp",
+          "label": "美国 · 纽约",
+          "crop": {
+            "zoom": 1.08,
+            "x": 0.43,
+            "y": 0.05
+          }
+        }
+      ],
+      "headline": [
+        "世界很大，",
+        "选择可以更多元。"
+      ],
+      "tagline": "EXPLORE MORE. UNDERSTAND BETTER.",
+      "brandDescriptor": "全球账户与资产知识导航",
+      "statement": [
+        "让每一种选择，",
+        "都多一分了解。"
+      ],
+      "topics": "银行账户 / 保险保障 / 资产配置",
+      "website": "plural.debuginn.com",
+      "disclaimer": "资料仅供参考，不构成投资建议 · 请以相关机构官方信息为准",
+      "channels": [
+        {
+          "image": "/feishu-qrcode.png",
+          "label": "飞书 / Lark",
+          "note": "多元派交流群"
+        },
+        {
+          "image": "/telegram-qrcode.jpg",
+          "label": "Telegram",
+          "note": "多元派交流群"
+        },
+        {
+          "image": "/wechat-qrcode.jpg",
+          "label": "微信公众号",
+          "note": "回复「多元派」加群"
+        }
+      ]
+    },
+    "tag": "全球资产视野",
+    "title": "多元派",
+    "subtitle": "看见世界，也看清自己的选择。",
+    "logo": "/brand/duoyuanpai-mark-700.webp",
+    "qrImage": "/wechat-qrcode.jpg",
+    "wechatQrImage": "/wechat-qrcode.jpg",
+    "logos": [
+      {
+        "src": "/ant-bank-macau-logo.webp",
+        "name": "澳门蚂蚁银行"
+      },
+      {
+        "src": "/za-bank-logo.webp",
+        "name": "香港众安银行"
+      },
+      {
+        "src": "/boc-hk-logo.webp",
+        "name": "香港中国银行"
+      },
+      {
+        "src": "/hsbc-hk-logo.webp",
+        "name": "香港汇丰银行"
+      },
+      {
+        "src": "/hsbc-us-logo.svg",
+        "name": "美国汇丰银行"
+      },
+      {
+        "src": "/scb-cn-logo.webp",
+        "name": "渣打银行"
+      },
+      {
+        "src": "/hang-seng-cn-logo.webp",
+        "name": "恒生银行"
+      },
+      {
+        "src": "/hsbc-cn-logo.webp",
+        "name": "汇丰银行"
+      },
+      {
+        "src": "/dbs-bank-logo.webp",
+        "name": "星展银行"
+      },
+      {
+        "src": "/ifast-global-bank-logo.png",
+        "name": "iFAST Global Bank"
+      }
+    ],
+    "stats": [
+      {
+        "num": "10",
+        "label": "收录银行"
+      },
+      {
+        "num": "7",
+        "label": "覆盖市场"
+      },
+      {
+        "num": "2",
+        "label": "开户类型"
+      }
+    ],
+    "totalReward": 4405,
+    "buildVersion": "20261007733b7c9"
+  }
+}

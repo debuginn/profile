@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender",
+    "dev": "node scripts/prepare-hugo-data.mjs com && hugo server --disableFastRender --destination dist",
     "build": "node scripts/prepare-hugo-data.mjs com && hugo --minify --gc --destination dist",
     "build:cn": "node scripts/prepare-hugo-data.mjs cn && hugo --minify --gc --baseURL https://debuginn.cn/ --destination dist",
     "dev:next": "next dev",

@@ -1,0 +1,35 @@
+/* Host adapter only. All interactive styles live under .plural-embed. */
+.page-screen-plural {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--background, #f6f8fb);
+  color: var(--foreground, #203c50);
+}
+.page-screen-plural .pa-page {
+  width: 100%;
+  max-width: 1152px;
+  margin: auto;
+  padding: 32px 32px 64px;
+  box-sizing: border-box;
+}
+.page-screen-plural #plural-root { width: 100%; }
+.page-screen-plural:has(.plural-embed[data-theme="dark"]) {
+  background: #0d1824;
+  color: #e4edf4;
+}
+/* Keep the host's page indicators legible only while this screen is active. */
+.page-dots:has([data-section-dot="plural"].is-active) .page-dot {
+  background: rgba(35, 141, 166, .32);
+}
+.page-dots:has([data-section-dot="plural"].is-active) .page-dot:hover {
+  background: rgba(35, 141, 166, .72);
+}
+.page-dots:has([data-section-dot="plural"].is-active) .page-dot.is-active {
+  background: #238da6;
+}
+@media (max-width: 767px) {
+  .page-screen-plural .pa-page { padding: 32px 20px 48px; }
+}
