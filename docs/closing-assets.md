@@ -2,7 +2,7 @@
 
 All runtime assets are served from `public/closing/`. No remote image request or private FlyBay submodule is required by this section. Author photographs and existing identity assets were reused; no generated mockup was cropped into production assets.
 
-Photographs were resized to 720 px wide and encoded as WebP at quality 78. Raster identity assets had transparent padding trimmed, were fitted within 320 × 320 px without enlargement, and were encoded as WebP at quality 88. The Apple SVG was copied unchanged. Filters, blur, rotation, and shadows belong to the section styles rather than being baked into these files.
+Photographs were resized to 720 px wide and encoded as WebP at quality 78. Raster identity assets had transparent padding trimmed, were fitted within 320 × 320 px without enlargement, and were encoded as WebP at quality 88. The Apple SVG was copied unchanged. Rotation, contrast filters, and shadows belong to the section styles rather than being baked into these files. Photos and logos remain sharp, including on hover and after resizing; the pointer enlargement still works without a blur effect. The WeChat dialog dims its backdrop without blurring the page.
 
 | Runtime file | Original source | Original SHA-256 |
 | --- | --- | --- |

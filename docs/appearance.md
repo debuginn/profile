@@ -1,6 +1,6 @@
 # Appearance
 
-The right navigation has a circular light/dark switch. With no saved preference, it follows the system appearance; a manual choice is saved in the `debuginn-theme` browser storage key. Removing that key restores system following. The head applies the resolved `html[data-theme]` before loading stylesheets, and other tabs synchronize through browser storage events. On phones, section dots stay visible and the switch sits above them.
+The desktop right navigation has a circular light/dark switch. With no saved preference, it follows the system appearance; a manual choice is saved in the `debuginn-theme` browser storage key. Removing that key restores system following. The head applies the resolved `html[data-theme]` before loading stylesheets, and other tabs synchronize through browser storage events. On phones and compact touch screens, only section dots stay visible; the navigation rail and appearance switch are hidden.
 
 The theme owns the navigation and each section owns its colors. Photo sections keep their original images and use a dark veil for readable foreground content. Closing uses its own surfaces, text colors, hover contacts, QR dialog, and iridescent wordmark. The Hugo closing configuration remains compatible with the original button-based layout when contact mode is omitted.
 
