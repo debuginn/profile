@@ -8,6 +8,11 @@
   background: var(--background, #f6f8fb);
   color: var(--foreground, #203c50);
 }
+/* Resolve the outer screen before the embedded component finishes hydrating. */
+:root[data-theme="dark"] .page-screen-plural {
+  background: #0d1824;
+  color: #e4edf4;
+}
 .page-screen-plural .pa-page {
   width: 100%;
   max-width: 1152px;
@@ -42,6 +47,7 @@
   min-height: 100dvh;
   background: #f5fafc;
 }
+:root[data-theme="dark"] .page-screen-plural[data-plural-layout="fullbleed"] { background: #0d1824; }
 .page-screen-plural[data-plural-layout="fullbleed"] .pa-page {
   width: 100%;
   max-width: none;

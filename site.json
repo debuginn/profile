@@ -66,7 +66,8 @@
       "navLabel": "首页",
       "navAccent": "#2d3f57",
       "navAccentText": "#ffffff",
-      "dotLabel": "跳转到首页"
+      "dotLabel": "跳转到首页",
+      "navAccentDark": "#a9bbd1"
     },
     {
       "id": "iassets",
@@ -75,7 +76,8 @@
       "navLabel": "iAssets",
       "navAccent": "#3d8ef0",
       "navAccentText": "#ffffff",
-      "dotLabel": "跳转到 iAssets 页"
+      "dotLabel": "跳转到 iAssets 页",
+      "navAccentDark": "#8ebcff"
     },
     {
       "id": "flybay",
@@ -85,7 +87,8 @@
       "navAccent": "#3f9f5f",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到飞湾计划",
-      "module": "flybay"
+      "module": "flybay",
+      "navAccentDark": "#7c9cff"
     },
     {
       "id": "plural",
@@ -95,7 +98,8 @@
       "navAccent": "#238da6",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到多元派",
-      "module": "plural"
+      "module": "plural",
+      "navAccentDark": "#80c6df"
     },
     {
       "id": "blog",
@@ -104,7 +108,8 @@
       "navLabel": "博客",
       "navAccent": "#416f80",
       "navAccentText": "#ffffff",
-      "dotLabel": "跳转到博客文章"
+      "dotLabel": "跳转到博客文章",
+      "navAccentDark": "#a1c5d1"
     },
     {
       "id": "social",
@@ -113,7 +118,8 @@
       "navLabel": "社交",
       "navAccent": "#2d3f57",
       "navAccentText": "#ffffff",
-      "dotLabel": "跳转到社交媒体"
+      "dotLabel": "跳转到社交媒体",
+      "navAccentDark": "#a9bbd1"
     },
     {
       "id": "closing",
@@ -122,7 +128,8 @@
       "navLabel": "与我联系",
       "navAccent": "#25252a",
       "navAccentText": "#ffffff",
-      "dotLabel": "跳转到与我联系"
+      "dotLabel": "跳转到与我联系",
+      "navAccentDark": "#b6c2d3"
     }
   ],
   "home": {
@@ -500,7 +507,7 @@
     }
   },
   "closing": {
-    "contactLabel": "与我联系",
+    "contactLabel": "联系我",
     "contactHref": "mailto:idebuginn@gmail.com",
     "logo": "/closing/debuginn.webp",
     "logoHref": "https://debuginn.com",
@@ -639,7 +646,8 @@
         "x": 69.5,
         "y": 49,
         "width": 4.8,
-        "rotation": 0
+        "rotation": 0,
+        "monochrome": true
       },
       {
         "type": "logo",
@@ -715,6 +723,28 @@
       "/closing/photos/6020f57958b64324.webp",
       "/closing/photos/14d944fd6e03a278.webp",
       "/closing/photos/da92752f1adac511.webp"
+    ],
+    "contactMode": "orbit",
+    "closedLabel": "移至 Logo",
+    "contacts": [
+      {
+        "id": "email",
+        "label": "邮箱",
+        "icon": "email",
+        "href": "mailto:idebuginn@gmail.com"
+      },
+      {
+        "id": "wechat",
+        "label": "微信",
+        "icon": "https://static.debuginn.com/20260529XetLUr.svg",
+        "qrImage": "/closing/wechat-qr.jpg"
+      },
+      {
+        "id": "telegram",
+        "label": "电报",
+        "icon": "https://static.debuginn.com/2026052916fIxC.svg",
+        "href": "https://t.me/tdebuginn"
+      }
     ]
   }
 }

@@ -18,6 +18,7 @@ Photographs were resized to 720 px wide and encoded as WebP at quality 78. Raste
 | `openhosts.webp` | Approved OpenHosts project design reference: footer-openhosts-official-logo.png | `bcda4c0930fd867aa59fa1dcba93683f124e537120c92a1aa7fb2be1a3b65123` |
 | `homekit.webp` | Apple Developer HomeKit framework icon: https://developer.apple.com/assets/elements/icons/homekit/homekit-96x96_2x.png | `302d5bd3ad73eb8ef234dbe68f7210dbb7382cf4863d28eddc2e530138b99c45` |
 | `skills.webp` | Deployed Skills site header logo: https://skills.debuginn.com/img/logo.png | `aa1e5cb6bc785a38f673cc09e5b9e0a93e4638d617d2eae2b16eabf24e7cabad` |
+| `wechat-qr.jpg` | Existing Profile social QR: https://static.debuginn.com/20260529OjuRvn.jpg | `cbfc80d4fc749ee0d7a1e64baa1a4e29a7933b2c7a1402f6477fe0b2eb7b3de2` |
 
 The temporary reference filenames identify the original approved design assets. Their hashes document the exact input files even after temporary files have been cleaned up.
 
@@ -38,3 +39,5 @@ The additional official reference sources are:
 To update the pool after adding gallery photographs, install the normal project dependencies and run `node scripts/gen-closing-photos.mjs`. Previously prepared files are reused, so a repeated run can complete without image downloads. Use `--refresh` only when intentionally regenerating existing photographs. The script writes at least nine usable images before updating the configuration and records each source URL, source hash, dimensions, quality, and output size in `docs/closing-photo-pool.json`. Photos use a fixed 4:3 frame (720 × 540 px, centre cover crop) and at most 100 KiB each, beginning at WebP quality 76. Commit the resulting local assets, manifest, and configuration together. Production build and deployment scripts do not invoke this generator or require gallery network access.
 
 The contact entry uses `mailto:idebuginn@gmail.com`, explicitly supplied by the user for this page. The site footer partial supplies its existing release version dynamically; the closing configuration does not hardcode a version.
+
+`closing.contactMode: "orbit"` uses the central logo as the contact entry. The configured email, WeChat, and Telegram contacts expand into a compact fan on hover or keyboard focus; touch uses a tap fallback. Moving out or pressing Escape closes the fan. The small question badge briefly cues this interaction and respects reduced motion. The WeChat QR is the unmodified original 426 × 426 JPEG stored locally so preview origins also work with the source server's referer rules. The single-color Apple item uses `monochrome: true`; photographs and colored logos retain their artwork in either appearance.
