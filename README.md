@@ -30,8 +30,9 @@ configuration and `site.cn.json` supplies the `.cn` configuration.
 
 The multi-region account and asset navigation Hero is maintained in Plural,
 including its brand lockup, three actions, announcement bar, and branded orb.
-Profile renders that same component through Plural's Hugo adapter; it does not
-maintain a second copy of the design.
+Profile renders the maintained embed component through Plural's Hugo adapter;
+it does not maintain a second copy of the design. The Plural website keeps its
+own original full-width homepage layout, independent of this embed.
 
 Plural is a private source repository. `extensions/plural` contains only the
 generated Hugo adapter, JavaScript, CSS, data, and required images. It is a
@@ -40,11 +41,12 @@ its generated files manually.
 
 The `plural` section is configured in both site variants. Change its position
 in `sections` to reorder it. The `extensions.plural` object configures its
-enabled state, adapter partial, target site URL, and asset namespaces:
+enabled state, layout, adapter partial, target site URL, and asset namespaces:
 
 ```json
 "plural": {
   "enabled": true,
+  "layout": "fullbleed",
   "partial": "debuginn/extensions/plural.html",
   "data": "plural.hero",
   "assetBase": "/plural-assets",
@@ -58,6 +60,13 @@ enabled state, adapter partial, target site URL, and asset namespaces:
 images are served under `/plural-assets/`, while the adapter bundle uses
 `/plural/`. The extension scopes its styles to `.page-screen-plural` and loads
 its interactive code when the section approaches the viewport.
+
+`layout: "fullbleed"` is the default presentation: its background fills the
+entire Profile screen, with no outer card border, rounded corners, or shadow.
+The text, actions, announcement, and orbital artwork stay in a centered
+1152px content area; narrow or short screens can scroll inside the section.
+Set `layout: "contained"` to use the previous inset card layout. Both variants
+share the same configuration, markup, theme, and interactions.
 
 Set `extensions.plural.enabled` to `false` to hide the section and its page
 navigation dot. The variant preparation step removes disabled extension

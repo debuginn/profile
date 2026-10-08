@@ -397,6 +397,7 @@
   "extensions": {
     "plural": {
       "enabled": true,
+      "layout": "fullbleed",
       "partial": "debuginn/extensions/plural.html",
       "data": "plural.hero",
       "assetBase": "/plural-assets",

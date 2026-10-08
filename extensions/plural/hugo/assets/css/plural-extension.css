@@ -33,3 +33,151 @@
 @media (max-width: 767px) {
   .page-screen-plural .pa-page { padding: 32px 20px 48px; }
 }
+
+/* Profile's full-screen presentation; contained keeps the portable card above.
+   The layout attribute also keeps these overrides stronger than the lazy-loaded
+   .plural-embed component styles, without relying on the host section's ID. */
+.page-screen-plural[data-plural-layout="fullbleed"] {
+  display: block;
+  min-height: 100dvh;
+  background: #f5fafc;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] [data-plural-root] {
+  width: 100%;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero {
+  width: 100%;
+  min-height: 100dvh;
+  /* Crop decoration without creating an invisible focus-scroll container. */
+  overflow: clip;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: radial-gradient(ellipse at 80% 48%, rgba(55,166,205,.16), transparent 40%), linear-gradient(108deg, #f8fbfd 0%, #f4fafc 48%, #e5f2f7 100%);
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero::before {
+  top: -44%;
+  right: -7%;
+  width: min(54vw, 760px);
+  height: 188%;
+  opacity: .68;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero::after {
+  opacity: .35;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-stage {
+  width: min(100%, 1152px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 80px 32px 96px;
+  grid-template-columns: minmax(0, 1.14fr) minmax(0, .86fr);
+  grid-template-rows: auto auto;
+  column-gap: 40px;
+  align-content: center;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-copy {
+  align-self: end;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-brand {
+  margin-bottom: 32px;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-title {
+  font-size: clamp(42px, 4.5vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -.05em;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-description {
+  margin-top: 26px;
+  line-height: 1.95;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-actions {
+  gap: 14px;
+  margin-top: 32px;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero .pa-hero-actions > :is(a, button) {
+  min-height: 48px;
+  font-size: 13px;
+  padding-inline: 18px;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-announcement {
+  margin-top: 22px;
+  max-width: 40rem;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-art {
+  max-width: 470px;
+  aspect-ratio: 1.08;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-art-field {
+  opacity: .55;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-art-label {
+  background: var(--pa-glass);
+  box-shadow: none;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-art-label-account {
+  top: 5%;
+  left: 4%;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-art-label-currency {
+  right: 0;
+}
+.page-screen-plural[data-plural-layout="fullbleed"] .pa-art-caption {
+  bottom: -5%;
+}
+.page-screen-plural[data-plural-layout="fullbleed"]:has(.plural-embed[data-theme="dark"]) .pa-hero {
+  background: radial-gradient(ellipse at 80% 48%, rgba(48,174,210,.17), transparent 42%), linear-gradient(108deg, #0b1723 0%, #0e2233 52%, #123a50 100%);
+  box-shadow: none;
+}
+@media (min-width: 901px) and (max-width: 1199px) {
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-stage {
+    grid-template-areas: "copy art" "announcement announcement";
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 72px 40px 88px;
+  }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-title { font-size: 44px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-announcement { margin-top: 0; max-width: none; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-actions { gap: 10px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero .pa-hero-actions > :is(a, button) { padding-inline: 14px; font-size: 12px; }
+}
+@media (max-width: 900px) {
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-stage {
+    grid-template-areas: "copy" "announcement" "art";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    padding: 56px 32px 96px;
+    align-content: center;
+  }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-copy { align-self: start; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-title { font-size: 42px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-brand { margin-bottom: 24px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-announcement { max-width: none; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-art { max-width: 380px; margin: 42px auto 10px; }
+}
+@media (max-width: 640px) {
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-stage { padding: 40px 22px 88px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-title { font-size: clamp(28px, 8.8vw, 38px); }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-description { margin-top: 20px; font-size: 12px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-actions { gap: 8px; margin-top: 26px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero .pa-hero-actions > :is(a, button) { min-height: 42px; padding-inline: 12px; font-size: 11px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-art { max-width: 320px; margin-top: 34px; }
+}
+@media (max-width: 359px) {
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-stage { padding-inline: 18px; }
+}
+/* A shorter desktop keeps its natural content height and scrolls when needed,
+   rather than clipping actions or shrinking typography to force a fit. */
+@media (min-width: 901px) and (max-height: 619px) {
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-stage { padding-block: 40px 56px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-brand { margin-bottom: 20px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-description { margin-top: 18px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-actions { margin-top: 24px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-hero-announcement { margin-top: 18px; }
+  .page-screen-plural[data-plural-layout="fullbleed"] .pa-art { max-width: min(470px, 72dvh); }
+}

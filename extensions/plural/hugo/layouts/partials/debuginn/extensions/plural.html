@@ -3,7 +3,11 @@
 {{- $assetBase := $extension.assetBase | default "/plural-assets" -}}
 {{- $bundleBase := $extension.bundleBase | default "/plural" -}}
 {{- $baseUrl := $extension.href | default $data.site.baseUrl -}}
-<section class="page-screen page-screen-plural" id="{{ .section.id }}" data-section="{{ .section.id }}" data-extension="plural">
+{{- $layout := $extension.layout | default "fullbleed" -}}
+{{- if not (in (slice "fullbleed" "contained") $layout) -}}
+  {{- $layout = "fullbleed" -}}
+{{- end -}}
+<section class="page-screen page-screen-plural" id="{{ .section.id }}" data-section="{{ .section.id }}" data-extension="plural" data-plural-layout="{{ $layout }}">
   <div class="pa-page">
     <div id="plural-root" class="plural-embed" data-plural-root data-asset-base="{{ $assetBase }}" data-base-url="{{ $baseUrl }}">
       {{- with resources.Get "plural/hero.html" -}}
