@@ -101,16 +101,6 @@
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到社交媒体",
       "navAccentDark": "#a9bbd1"
-    },
-    {
-      "id": "closing",
-      "type": "closing",
-      "navIcon": "contact",
-      "navLabel": "与我联系",
-      "navAccent": "#25252a",
-      "navAccentText": "#ffffff",
-      "dotLabel": "跳转到与我联系",
-      "navAccentDark": "#b6c2d3"
     }
   ],
   "home": {
@@ -397,8 +387,18 @@
         "href": "https://sspai.com/u/debuginn",
         "icon": "https://static.debuginn.com/20260731rgH7wK.png",
         "preserveIconColor": true
+      },
+      {
+        "label": "YouTube",
+        "href": "https://www.youtube.com/@debuginn",
+        "icon": "youtube",
+        "followers": 6
       }
-    ]
+    ],
+    "footer": {
+      "enabled": true,
+      "wordmark": "DEBUGINN"
+    }
   },
   "extensions": {
     "plural": {
@@ -472,245 +472,5 @@
         }
       ]
     }
-  },
-  "closing": {
-    "contactLabel": "联系我",
-    "contactHref": "mailto:idebuginn@gmail.com",
-    "logo": "/closing/debuginn.webp",
-    "logoHref": "https://debuginn.cn",
-    "wordmark": "DEBUGINN",
-    "items": [
-      {
-        "type": "photo",
-        "src": "/closing/photos/314bebfd0c5a1448.webp",
-        "alt": "摄影作品",
-        "x": 18,
-        "y": 15,
-        "width": 15,
-        "rotation": 8
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/fb4e98d47de2120f.webp",
-        "alt": "摄影作品",
-        "x": 17.5,
-        "y": 40,
-        "width": 12,
-        "rotation": -6
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/8580f578d2276a9a.webp",
-        "alt": "摄影作品",
-        "x": 1.5,
-        "y": 22,
-        "width": 8,
-        "rotation": 7
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/3fd9db2b52593737.webp",
-        "alt": "摄影作品",
-        "x": 5.5,
-        "y": 48,
-        "width": 7,
-        "rotation": -12
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/9bc67f09db4ca180.webp",
-        "alt": "摄影作品",
-        "x": 83.5,
-        "y": 14,
-        "width": 9,
-        "rotation": -9
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/628e30b44ce1034a.webp",
-        "alt": "摄影作品",
-        "x": 98,
-        "y": 14,
-        "width": 7,
-        "rotation": 11
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/7d7b9bf3db84661c.webp",
-        "alt": "摄影作品",
-        "x": 80.5,
-        "y": 31,
-        "width": 12,
-        "rotation": 11
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/d651e13cfe884e47.webp",
-        "alt": "摄影作品",
-        "x": 97.5,
-        "y": 38.5,
-        "width": 8,
-        "rotation": 9
-      },
-      {
-        "type": "photo",
-        "src": "/closing/photos/1baa1e587774ec19.webp",
-        "alt": "摄影作品",
-        "x": 87,
-        "y": 49,
-        "width": 8.5,
-        "rotation": 8
-      },
-      {
-        "type": "logo",
-        "src": "/closing/flybay.webp",
-        "alt": "飞湾计划",
-        "x": 32,
-        "y": 18,
-        "width": 8,
-        "rotation": 2
-      },
-      {
-        "type": "logo",
-        "src": "/closing/plural.webp",
-        "alt": "多元派",
-        "x": 8.5,
-        "y": 33,
-        "width": 6.5,
-        "rotation": -10
-      },
-      {
-        "type": "logo",
-        "src": "/closing/iassets.webp",
-        "alt": "知盈",
-        "x": 30.5,
-        "y": 49,
-        "width": 6.2,
-        "rotation": -7
-      },
-      {
-        "type": "logo",
-        "src": "/closing/xiaomi.webp",
-        "alt": "小米",
-        "x": 70.5,
-        "y": 17,
-        "width": 6,
-        "rotation": -13
-      },
-      {
-        "type": "logo",
-        "src": "/closing/mijia.webp",
-        "alt": "米家",
-        "x": 91.5,
-        "y": 26,
-        "width": 5.6,
-        "rotation": 10
-      },
-      {
-        "type": "logo",
-        "src": "/closing/apple.svg",
-        "alt": "Apple",
-        "x": 69.5,
-        "y": 49,
-        "width": 4.8,
-        "rotation": 0,
-        "monochrome": true
-      },
-      {
-        "type": "logo",
-        "src": "/closing/openhosts.webp",
-        "alt": "OpenHosts",
-        "x": 95.5,
-        "y": 56,
-        "width": 5.7,
-        "rotation": -8
-      },
-      {
-        "type": "logo",
-        "src": "/closing/homekit.webp",
-        "alt": "HomeKit",
-        "x": 18,
-        "y": 60,
-        "width": 5.5,
-        "rotation": 7
-      },
-      {
-        "type": "logo",
-        "src": "/closing/skills.webp",
-        "alt": "Skills Store",
-        "x": 81,
-        "y": 63,
-        "width": 6.1,
-        "rotation": -7
-      }
-    ],
-    "photoPool": [
-      "/closing/photos/314bebfd0c5a1448.webp",
-      "/closing/photos/fb4e98d47de2120f.webp",
-      "/closing/photos/8580f578d2276a9a.webp",
-      "/closing/photos/3fd9db2b52593737.webp",
-      "/closing/photos/9bc67f09db4ca180.webp",
-      "/closing/photos/628e30b44ce1034a.webp",
-      "/closing/photos/7d7b9bf3db84661c.webp",
-      "/closing/photos/d651e13cfe884e47.webp",
-      "/closing/photos/1baa1e587774ec19.webp",
-      "/closing/photos/21a4d0f621f64f12.webp",
-      "/closing/photos/302a21007c2f0ee7.webp",
-      "/closing/photos/074040ca043e4934.webp",
-      "/closing/photos/ffe5f22aacb37858.webp",
-      "/closing/photos/ad166d3d11b9b655.webp",
-      "/closing/photos/c7e2f2418d70bb07.webp",
-      "/closing/photos/8791a4385209c3db.webp",
-      "/closing/photos/06d3c2204d1a2e5c.webp",
-      "/closing/photos/8134ac7658bfbbfd.webp",
-      "/closing/photos/ca2dbc24364e1bd6.webp",
-      "/closing/photos/3f3c981e4b1de69a.webp",
-      "/closing/photos/0568fd70bfce1ea1.webp",
-      "/closing/photos/7183126078b4ad19.webp",
-      "/closing/photos/1cb8893840fb6a59.webp",
-      "/closing/photos/50e805d60c7421de.webp",
-      "/closing/photos/2cb874268f763a5b.webp",
-      "/closing/photos/85823a2f8f9252fa.webp",
-      "/closing/photos/b3e7d6150c03296e.webp",
-      "/closing/photos/f613d033151deef9.webp",
-      "/closing/photos/7faa72e8630bd973.webp",
-      "/closing/photos/ed559e1592fe8bb3.webp",
-      "/closing/photos/93c55d3844a265ea.webp",
-      "/closing/photos/3e24779628acb7eb.webp",
-      "/closing/photos/a8e71dd92466634c.webp",
-      "/closing/photos/9850580847844498.webp",
-      "/closing/photos/d6422418874867b5.webp",
-      "/closing/photos/a896bcf2fe7e8537.webp",
-      "/closing/photos/e148f253e558922c.webp",
-      "/closing/photos/3b9d6baa133b3cc2.webp",
-      "/closing/photos/01e77ba0a6fc10ea.webp",
-      "/closing/photos/614d5c50d4209010.webp",
-      "/closing/photos/643f1ce27f4b3697.webp",
-      "/closing/photos/a1f8883ec7d1ea89.webp",
-      "/closing/photos/6020f57958b64324.webp",
-      "/closing/photos/14d944fd6e03a278.webp",
-      "/closing/photos/da92752f1adac511.webp"
-    ],
-    "contactMode": "orbit",
-    "contacts": [
-      {
-        "id": "email",
-        "label": "邮箱",
-        "icon": "email",
-        "href": "mailto:idebuginn@gmail.com"
-      },
-      {
-        "id": "wechat",
-        "label": "微信",
-        "icon": "https://static.debuginn.com/20260529XetLUr.svg",
-        "qrImage": "/closing/wechat-qr.jpg"
-      },
-      {
-        "id": "telegram",
-        "label": "电报",
-        "icon": "https://static.debuginn.com/2026052916fIxC.svg",
-        "href": "https://t.me/tdebuginn"
-      }
-    ]
   }
 }
