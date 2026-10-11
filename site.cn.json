@@ -78,7 +78,7 @@
     {
       "id": "plural",
       "type": "extension",
-      "navIcon": "ingot",
+      "navIcon": "plural",
       "navLabel": "多元派",
       "navAccent": "#238da6",
       "navAccentText": "#ffffff",
