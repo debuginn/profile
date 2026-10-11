@@ -93,7 +93,7 @@
     {
       "id": "plural",
       "type": "extension",
-      "navIcon": "product",
+      "navIcon": "ingot",
       "navLabel": "多元派",
       "navAccent": "#238da6",
       "navAccentText": "#ffffff",
@@ -232,6 +232,10 @@
   },
   "iassets": {
     "mosaicShots": [
+      "/static/iassets/screenshots/iassets-261005-stock-search.png",
+      "/static/iassets/screenshots/iassets-260614-assets.png",
+      "/static/iassets/screenshots/iassets-261005-ai.png",
+      "/static/iassets/screenshots/iassets-261005-family-sharing.png",
       "https://static.debuginn.com/20260529YUU2cS.png",
       "https://static.debuginn.com/20260529X5Cz9s.png",
       "https://static.debuginn.com/20260529NpenQi.png",
@@ -428,6 +432,10 @@
     "iassets": {
       "title": "iAssets",
       "mosaicShots": [
+        "/static/iassets/screenshots/iassets-261005-stock-search.png",
+        "/static/iassets/screenshots/iassets-260614-assets.png",
+        "/static/iassets/screenshots/iassets-261005-ai.png",
+        "/static/iassets/screenshots/iassets-261005-family-sharing.png",
         "https://static.debuginn.com/20260529YUU2cS.png",
         "https://static.debuginn.com/20260529X5Cz9s.png",
         "https://static.debuginn.com/20260529NpenQi.png",
