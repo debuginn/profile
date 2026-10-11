@@ -421,6 +421,11 @@
         "href": "https://www.youtube.com/@debuginn",
         "icon": "youtube",
         "followers": 6
+      },
+      {
+        "label": "Reddit",
+        "href": "https://www.reddit.com/u/Other-Farmer-6995/s/kDkTO6wPnk",
+        "icon": "reddit"
       }
     ],
     "footer": {
