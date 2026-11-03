@@ -50,6 +50,18 @@
   },
   "announcements": [
     {
+      "id": "ant-macau-alipay-transfer-2026-10",
+      "show": true,
+      "date": "2026-10-25",
+      "logo": "/ant-bank-macau-logo.webp",
+      "text": "蚂蚁银行澳门汇款更方便！经澳门支付宝免费汇至内地支付宝，最快秒到账，自动兑换人民币。",
+      "startTime": "2026-10-25T00:00:00+08:00",
+      "scope": [
+        "home",
+        "ant-bank-macau"
+      ]
+    },
+    {
       "id": "ant-macau-oct-2026",
       "show": true,
       "date": "2026-10-01",
@@ -289,6 +301,6 @@
       }
     ],
     "totalReward": 4405,
-    "buildVersion": "202610082be1884"
+    "buildVersion": "202611033e5dbe7"
   }
 }
