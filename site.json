@@ -430,7 +430,8 @@
     ],
     "footer": {
       "enabled": true,
-      "wordmark": "DEBUGINN"
+      "wordmark": "DEBUGINN",
+      "complianceLinks": []
     }
   },
   "products": {
