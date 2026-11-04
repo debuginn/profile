@@ -1,0 +1,159 @@
+{{- $cfg := hugo.Data.flybay.config -}}
+{{- $base := strings.TrimSuffix "/" $cfg.site.baseUrl -}}
+{{- $updated := printf "%d年%d月" now.Year now.Month -}}
+{{- $active := slice -}}
+{{- $regions := dict -}}
+{{- $accountTypes := dict -}}
+{{- $securities := 0 -}}
+{{- $banks := 0 -}}
+{{- $regionList := slice -}}
+{{- $typeList := slice -}}
+{{- range $cfg.institutions -}}
+  {{- if and (not .disabled) (ne .paused true) -}}
+    {{- $active = $active | append . -}}
+    {{- if eq .type "证券" }}{{ $securities = add $securities 1 }}{{ end -}}
+    {{- if eq .type "银行" }}{{ $banks = add $banks 1 }}{{ end -}}
+    {{- range .regions -}}
+      {{- $regions = merge $regions (dict . true) -}}
+      {{- if not (in $regionList .) }}{{ $regionList = $regionList | append . }}{{ end -}}
+    {{- end -}}
+    {{- if .accountTypes -}}
+      {{- range .accountTypes -}}
+        {{- $accountTypes = merge $accountTypes (dict . true) -}}
+        {{- if not (in $typeList .) }}{{ $typeList = $typeList | append . }}{{ end -}}
+      {{- end -}}
+    {{- else if .type -}}
+      {{- $accountTypes = merge $accountTypes (dict .type true) -}}
+      {{- if not (in $typeList .type) }}{{ $typeList = $typeList | append .type }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $regionLabel := "香港、澳门、新加坡、全球" -}}
+{{- if gt (len $regionList) 0 }}{{ $regionLabel = delimit (sort $regionList) "、" }}{{ end -}}
+{{- $typeLabel := "港股、美股、银行账户" -}}
+{{- if gt (len $typeList) 0 }}{{ $typeLabel = delimit (sort $typeList) "、" }}{{ end -}}
+{{- $grouped := dict -}}
+# FlyBay 飞湾计划
+
+> 港美股全球开户一站式办卡开户交易
+
+**网站**：{{ $base }}
+**作者**：{{ $cfg.site.author.name }}（{{ $cfg.site.author.url }}）
+**更新**：{{ $updated }}
+
+---
+
+## 项目简介
+
+飞湾计划（FlyBay）定位：**港美股全球开户一站式办卡开户交易**。
+汇总香港、澳门、新加坡与全球合作机构的证券/银行开户教程、邀请码与渠道返利，支持内地在线、到港/到澳与见证办理。
+
+**核心数据（构建时统计）**：
+- 合作机构：{{ len $active }} 家（证券 {{ $securities }} / 银行 {{ $banks }}）
+- 覆盖市场：{{ $regionLabel }}
+- 开户类型：{{ $typeLabel }}
+
+**核心价值**：
+- 一站式对照官方激励与渠道返利，减少信息分散
+- 分场景导航：推荐机构、到港/到澳银行、内地身份开户、内地见证、全球券商
+- 专属邀请码直达注册，完成开户/入金后可叠加渠道返利
+
+---
+
+## 支持开户机构
+
+{{- range $cfg.home.groups }}
+{{- $title := .title -}}
+{{- $items := slice -}}
+{{- range .slugs -}}
+  {{- $slug := . -}}
+  {{- range $active -}}
+    {{- if eq .slug $slug }}{{ $items = $items | append . }}{{ $grouped = merge $grouped (dict $slug true) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- if gt (len $items) 0 }}
+
+### {{ $title }}
+{{ range $items }}
+#### {{ .name }}
+- **页面**：{{ $base }}/detail/{{ .slug }}
+- **类型**：{{ .type }}{{ with .card.badge }} · {{ . }}{{ end }}
+{{- $currency := .currency | default "HKD" -}}
+{{- $suffix := .rewardSuffix | default "" -}}
+{{- with .official }}{{ if gt . 0 }}
+- **官方激励**：{{ . }} {{ $currency }}{{ $suffix }}{{ end }}{{ end }}
+{{- with .rebate }}{{ if gt . 0 }}
+- **渠道返利**：{{ . }} {{ $currency }}{{ $suffix }}{{ end }}{{ end }}
+{{- with .inviteCode }}
+- **邀请码**：{{ . }}{{ end }}
+{{- with .registerUrl }}
+- **注册链接**：{{ . }}{{ end }}
+{{- with .regions }}
+- **覆盖地区**：{{ delimit . "、" }}{{ end }}
+{{- with .accountTypes }}
+- **开户类型**：{{ delimit . "、" }}{{ end }}
+{{- with .card.tags }}
+- **特点**：{{ delimit . "、" }}{{ end }}
+{{- if reflect.IsSlice .steps }}
+- **开户流程**：
+{{- range $index, $step := .steps }}
+  {{ add $index 1 }}. {{ $step }}
+{{- end }}
+{{- else if .steps }}
+- **开户步骤**：
+
+{{ .steps }}
+{{- end }}
+{{ end }}
+{{- end }}
+{{- end }}
+{{- $ungrouped := slice -}}
+{{- range $active -}}
+  {{- if not (index $grouped .slug) }}{{ $ungrouped = $ungrouped | append . }}{{ end -}}
+{{- end -}}
+{{- if gt (len $ungrouped) 0 }}
+
+### 其他合作机构
+{{ range $ungrouped }}
+#### {{ .name }}
+- **页面**：{{ $base }}/detail/{{ .slug }}
+- **类型**：{{ .type }}{{ with .card.badge }} · {{ . }}{{ end }}
+{{- with .registerUrl }}
+- **注册链接**：{{ . }}{{ end }}
+{{ end }}
+{{- end }}
+
+---
+
+## 常见问题
+
+**Q：内地身份证可以开港股账户吗？**
+A：可以。部分证券支持内地居民凭身份证在线开户；银行类通常需到港/到澳或内地见证。
+
+**Q：开户需要多少资金？**
+A：因机构而异。证券类常见入金门槛约 1 万 HKD 起才解锁奖励；银行类有的无最低存款，有的有验资要求。
+
+**Q：邀请码有什么用？**
+A：填写专属邀请码后，在完成开户和入金任务后可获得额外渠道返利。返利由飞湾计划运营方发放，可与官方激励叠加。
+
+**Q：赴港开户需要什么证件？**
+A：内地居民通常需有效港澳通行证及内地身份证。部分银行还需要资金证明或存款要求。
+
+**Q：返利如何领取？**
+A：完成开户后，关注微信公众号「Debug客栈」，回复「飞湾计划」加入社群，联系工作人员确认开户信息后发放返利。
+
+---
+
+## 联系方式
+
+- **微信公众号**：Debug客栈（回复「飞湾计划」）
+- **作者主页**：{{ $cfg.site.author.url }}
+- **站点**：{{ $base }}
+
+---
+
+## 免责声明
+
+本网站面向香港居民及计划赴港、赴澳人士提供开户流程与活动资讯展示，不构成投资建议、要约或要约邀请。所列信息仅供参考，金融产品存在风险，请在充分了解产品特性后自行决策。
+
+官方激励与渠道返利金额以各机构当期活动规则及实际到账结果为准，邀请码与返利活动可能随机构政策调整而变化，最终以官方公告为准。用户所获收益须依法自行申报纳税，平台不承担因此产生的任何法律责任。
