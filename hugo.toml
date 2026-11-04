@@ -4,6 +4,15 @@ title = "Debug客栈"
 theme = "hugo-theme-debuginn"
 disableKinds = ["taxonomy", "term"]
 
+[outputs]
+  home = ["HTML", "llms"]
+
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
+
 [module]
   [[module.mounts]]
     source = "content"
@@ -47,3 +56,6 @@ disableKinds = ["taxonomy", "term"]
   [[module.mounts]]
     source = "extensions/plural/public"
     target = "static/plural-assets"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
