@@ -1,76 +1,26 @@
-# CLAUDE.md
+# Profile repository guide
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+`debuginn.com` and `debuginn.cn` are Hugo static sites. The retired Next.js implementation and root-level static HTML pages have been removed; do not reintroduce them as the production entry point. The standalone `hugo-theme-debuginn` is pinned as a Git submodule, with the FlyBay Hugo adapter pinned inside that theme. `extensions/plural` is a committed distribution generated from Plural, not editable source.
 
-## Commands
+## Local commands
 
-- `npm run dev` — start the Next.js dev server (defaults to the `com` variant). Runs `sync:flybay` first automatically.
-- `npm run build` — produce the static export in `out/`. Set `SITE_VARIANT` to choose locale: `SITE_VARIANT=com npm run build` or `SITE_VARIANT=cn npm run build`. Anything other than `cn` resolves to `com`. Does **not** run `sync:flybay` itself — CI's `prepare` job does that beforehand; when building locally, run `npm run sync:flybay` first or the FlyBay section's images will 404.
-- `npm run lint` — run ESLint (flat config in `eslint.config.mjs`).
-- `npm run sync:flybay` — copies image assets (`.webp`/`.jpg`/`.jpeg`/`.png`/`.svg`) from `vendor/flybay/public/` into `public/`, skipping files that are already up to date by mtime. These synced files are gitignored (`public/*.webp` etc.) — they're a build artifact of the submodule, not checked in.
-- `npm run gen:lqip` — top up `home.backgroundsThumb` in both JSONs with base64 LQIPs for any new entries in `home.backgrounds`. Idempotent. CI runs this before every build.
-- `npm run gen:blog` — fetch latest posts from the RSS feed and write them into `blog.posts` in both JSONs. CI runs this before every build; scheduled twice daily at 00:00 and 06:00 UTC.
-- No test runner is configured.
+- `npm run setup` — initialize the pinned submodules.
+- `npm run dev` — prepare the COM data and start the Hugo development server.
+- `npm run build` — prepare and build COM into `dist/`.
+- `npm run build:cn` — prepare and build CN into `dist/`.
+- `npm run gen:blog` — fetch recent blog posts into both source JSON files; the deployment workflow runs this before building.
+- `npm run gen:lqip` — fill in missing background thumbnails for both source JSON files; this helper requires the remaining `sharp` npm dependency.
 
-## Architecture
+The build scripts call `scripts/ensure-hugo-submodules.mjs` and `scripts/prepare-hugo-data.mjs`. `site.json` and `site.cn.json` are the two source configurations; the generated `data/site.json` is ignored. Update both variants when changing their shared schema.
 
-This is a Next.js 16 App Router site exported as static HTML and deployed to GitHub Pages. The whole product is a single full-bleed scrollable page composed of sections, parameterized by JSON so the same code ships two variants.
+## Source of truth
 
-### Variant system (com / cn)
+- Hugo pages and behavior: `themes/hugo-theme-debuginn/`; the parent repository points to an exact theme commit. Do not edit a detached submodule checkout directly: work on a named theme branch/worktree, then update the parent gitlink deliberately.
+- Profile-specific config and integrations: `hugo.toml`, `layouts/`, `site.json`, `site.cn.json`, `public/`, and `extensions/plural/`.
+- FlyBay design and assets: the theme's nested FlyBay Hugo adapter; do not copy old Next.js components back into Profile.
+- Plural design: the Plural source project; regenerate `extensions/plural` with its exporter, then verify both Profile variants.
+- A small subset of the old Bootstrap Cover template styles remains in the active theme CSS. These layout rules are in use; Bootstrap CSS/JS is not loaded.
 
-`next.config.ts` exposes `SITE_VARIANT` to the client. `src/config/site.ts` imports both `site.json` and `site.cn.json` at build time and picks one based on `SITE_VARIANT`. **Never read `process.env.SITE_VARIANT` from components** — go through `src/lib/config.ts` (which re-exports the default of `src/config/site.ts`) so the right JSON is bundled. Types for the JSON shape live in `src/lib/config.ts` (`SiteConfig`, `SectionDef`, etc.); update both JSON files together when changing schema.
+## Deployment
 
-### Page composition
-
-`src/app/page.tsx` is the single client page. It:
-
-1. Calls `usePageVM(PAGE_IDS, config.home.backgrounds, config.home.backgroundsThumb)` (in `src/viewmodels/usePageVM.ts`) to get `activePage`, two independently-randomized background URLs (`bgUrl` for the home section, `bgUrlSocial` for the social section) paired with their LQIP thumbs (`bgThumb`, `bgThumbSocial`), and a hitokoto string fetched from `v1.hitokoto.cn`. URL and thumb are picked by index — keep them in sync.
-2. Maps `config.sections` to section components (`HomeSection`, `IAssetsSection`, `FlyBaySection`, `BlogSection`, `SocialSection`) by `section.type`. To add a section, extend the `SectionType` union in `src/lib/config.ts`, add a JSON entry, and add a branch in `page.tsx`.
-3. Renders a global page-down chevron pointing at `config.sections[activeIdx + 1]` and a `PageDots` rail. The chevron and dots use a fixed `LIGHT_BG_SECTIONS` set (just `flybay` today) to switch between dark/light color themes.
-
-### Background image pipeline (LQIP)
-
-Home and social sections use `next/image` with `placeholder="blur"`, not CSS `background-image`. The setup spans four places:
-
-1. `home.backgrounds` in `site.json` / `site.cn.json` lists the full-size remote URLs (CDN: `webp.debuginn.com`).
-2. `home.backgroundsThumb` is a parallel array of base64 JPEG data URIs (~600 bytes each, 32px wide, q45) used as `blurDataURL`. Generated by `scripts/gen-lqip.mjs` via `sharp`.
-3. The two arrays are paired by index — `usePageVM` picks an index, then reads URL and thumb from the same slot.
-4. `next.config.ts` sets `images.unoptimized: true` so `<Image>` works with arbitrary remote URLs under `output: "export"`.
-
-To add a new background: append the URL to both JSONs' `home.backgrounds`, then run `npm run gen:lqip` locally or just commit and push — CI regenerates missing thumbs before the build.
-
-Stacking inside home/social: the `<Image>` lives inside an absolute `.page-bg` div at z-index 0; the content wrapper is `position: relative; z-index: 1`.
-
-### Blog section
-
-`blog.posts` in both JSONs is written by `scripts/gen-blog.mjs`, which fetches `https://blog.debuginn.com/index.xml` and extracts the latest posts. CI refreshes this twice daily; on scheduled runs with no RSS change the build is skipped entirely (gated in the workflow). `BlogSection` renders the first 4 posts as cards with a large decorative "BLOG" backdrop word.
-
-### Active-section tracking
-
-`usePageVM` syncs `activePage` from two sources: the URL hash (`hashchange`) and an `IntersectionObserver` rooted at `.page-stack` watching each section element. Section ids in the JSON must match the DOM ids the section components render. The `.page-stack` container is the scroll root — sections do not scroll the window.
-
-### FlyBay vendor submodule
-
-`vendor/flybay/` is a git submodule (`debuginn/flyBay.git`) — a separate, standalone Next.js app. `FlyBaySection.tsx` imports its components (`HeroSection`, `WorldMap`, `PosterButton`) directly via relative paths, not as an npm package, and reads `vendor/flybay/config/config.json` for content. Consequences that aren't obvious from `src/` alone:
-
-- `d3-geo`, `topojson-client`, and `world-atlas` in `package.json` look unused if you grep `src/`/`scripts/` — they're actually required transitively by `vendor/flybay/src/components/WorldMap.tsx`.
-- The vendor app styles itself with a scoped inline `<style>` block per component (`const SCOPE = "hs1"`) — it shares no classnames with `globals.css`, so the two style systems never collide.
-- `tsconfig.json`'s `@/*` path maps to both `./src/*` and `./vendor/flybay/src/*`, so the vendor's own internal `@/...` imports still resolve when its files are pulled into this project's compile. Code under `src/` itself uses only relative imports, never `@/*` — match that convention.
-- The vendor's image assets live in `vendor/flybay/public/` and must be copied into this project's `public/` via `npm run sync:flybay` before the FlyBay section will render images; those copied files are gitignored, so `git status` should never show them as untracked additions.
-
-### Legacy Bootstrap utility classes
-
-`src/app/globals.css` still defines a handful of Bootstrap 3 "cover template" utility classes (`.masthead-nav`, `.cover-container`, `.site-wrapper`, etc.) that section markup relies on for layout primitives. Bootstrap's CSS/JS itself is not loaded — only these hand-merged class definitions remain. `public/static/` holds only icons/manifest assets; the `<Script>` tags in `src/app/layout.tsx` are GA/Clarity analytics, not Bootstrap/jQuery.
-
-### Deployment
-
-`.github/workflows/deploy.yml` runs on pushes to `main`, on a twice-daily schedule (00:00 and 06:00 UTC), and on manual dispatch. It has three jobs:
-
-1. **`prepare`** — checks out with an SSH deploy key (`FLYBAY_DEPLOY_KEY` secret) and fetches `vendor/flybay` at its latest remote commit (`git submodule update --remote`), runs `gen:blog`, then gates: on a scheduled run with no resulting diff, it sets `skip=true` and the rest of the workflow is skipped entirely. Otherwise it commits the updated submodule ref + both site JSONs back to `main` as `github-actions[bot]`, runs `gen:lqip` and `sync:flybay`, and uploads `site.json`/`site.cn.json` as a build artifact for the next jobs.
-2. **`build-com`** / **`build-cn`** — run in parallel, each re-checks out `main` (with the now-updated submodule, via a plain `git submodule update --init`), restores the prepared JSONs from the artifact, and runs `npm run build` with `SITE_VARIANT=com`/`cn`. Deploys `out/` to the `com`/`cn` branch via `peaceiris/actions-gh-pages` with `force_orphan: true`.
-
-Day-to-day work happens on `dev`; merge to `main` to ship.
-
-### Path alias
-
-`@/*` resolves to `src/*` (see `tsconfig.json`; it also maps to `vendor/flybay/src/*` for the reason described above). Existing code under `src/` uses relative imports exclusively — match that style rather than introducing `@/*`.
+`.github/workflows/deploy.yml` builds COM and CN on pushes to `preview` or `main`. Only `main` publishes `dist/` to the `com` and `cn` deployment branches. Scheduled runs refresh blog data and skip the build if it has not changed. Day-to-day changes go to `dev`; merging to `main` requires the user's approval. Verify both site variants before proposing a release.
