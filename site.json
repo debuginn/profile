@@ -112,6 +112,16 @@
       "navAccentDark": "#a1c5d1"
     },
     {
+      "id": "services",
+      "type": "services",
+      "navIcon": "services",
+      "navLabel": "服务",
+      "navAccent": "#c4a574",
+      "navAccentText": "#ffffff",
+      "dotLabel": "跳转到服务",
+      "navAccentDark": "#e6c9a8"
+    },
+    {
       "id": "social",
       "type": "social",
       "navIcon": "social",
