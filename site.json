@@ -357,6 +357,135 @@
     "viewAllHref": "https://blog.debuginn.com",
     "viewAllLabel": "去博客逛逛"
   },
+  "services": {
+    "eyebrow": "Service",
+    "title": "服务",
+    "description": "专业讨论、长期陪伴、持续成长、品牌合作。",
+    "background": "/static/services/bg.jpg",
+    "cards": [
+      {
+        "id": "consult",
+        "badge": "Consulting",
+        "title": "专业讨论",
+        "type": "一次",
+        "lines": [
+          "一对一语音会议，",
+          "把你的疑惑讲清楚。"
+        ],
+        "tags": [
+          "语音会议",
+          "60 分钟",
+          "AI 实战"
+        ],
+        "action": "查看详情",
+        "logo": "/static/services/facetime.png",
+        "logoBackground": "#39e055",
+        "gradient": "linear-gradient(135deg, #0c6e2e 0%, #1fae45 54%, #39e055 115%)",
+        "watermark": "microphone",
+        "dialog": {
+          "image": "/static/services/wechat-follow.jpg",
+          "imageAlt": "微信搜一搜 Debug客栈",
+          "blocks": [
+            {
+              "text": "关注公众号，回复「咨询」进行预约。"
+            },
+            {
+              "heading": "话题",
+              "text": "AI 实战与生产、独立开发、App Store 上架、后端求职、系统设计、内容创作、个人 IP。"
+            },
+            {
+              "heading": "形式",
+              "text": "一对一语音会议，60 分钟。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "coaching",
+        "badge": "Coaching",
+        "title": "长期陪伴",
+        "type": "长期",
+        "lines": [
+          "围绕你的项目目标拆开，",
+          "一对一持续解答、推进。"
+        ],
+        "tags": [
+          "拆解任务",
+          "持续解答"
+        ],
+        "action": "查看详情",
+        "logo": "/static/services/calendar.png",
+        "logoBackground": "#fff",
+        "gradient": "linear-gradient(135deg, #c41218 0%, #ff181e 54%, #ff6b6b 115%)",
+        "watermark": "user-group",
+        "dialog": {
+          "image": "/static/services/wechat-follow.jpg",
+          "imageAlt": "微信搜一搜 Debug客栈",
+          "blocks": [
+            {
+              "text": "关注公众号，回复「陪跑」进行预约。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "community",
+        "badge": "Community",
+        "title": "持续成长",
+        "type": "一起",
+        "lines": [
+          "一起浸泡，互相交流。",
+          "在实践里持续成长。"
+        ],
+        "tags": [
+          "浸泡交流",
+          "一线实战"
+        ],
+        "action": "查看详情",
+        "logo": "/static/services/books.png",
+        "logoBackground": "#f0881e",
+        "gradient": "linear-gradient(135deg, #c24100 0%, #e85d04 54%, #f0881e 115%)",
+        "watermark": "academic-cap",
+        "dialog": {
+          "image": "/static/services/wechat-follow.jpg",
+          "imageAlt": "微信搜一搜 Debug客栈",
+          "blocks": [
+            {
+              "text": "关注公众号，回复「社群」加入。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "business",
+        "badge": "Partnerships",
+        "title": "品牌合作",
+        "type": "品牌",
+        "lines": [
+          "自媒体商单、品牌推广。",
+          "有合作就来联系沟通。"
+        ],
+        "tags": [
+          "商单",
+          "品牌推广"
+        ],
+        "action": "查看详情",
+        "logo": "/static/services/keynote.png",
+        "logoBackground": "#1a8fe8",
+        "gradient": "linear-gradient(135deg, #0057b8 0%, #0077e6 54%, #3aa8f7 115%)",
+        "watermark": "megaphone",
+        "dialog": {
+          "image": "/static/services/wechat-follow.jpg",
+          "imageAlt": "微信搜一搜 Debug客栈",
+          "blocks": [
+            {
+              "text": "关注公众号，回复「合作」联系。"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "social": {
     "links": [
       {
