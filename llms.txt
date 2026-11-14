@@ -1,0 +1,79 @@
+# Meng小羽爱编程
+
+> Meng小羽（debuginn）的个人主页，汇集个人项目、博客写作与公开社交入口。
+
+专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。
+
+本文档是个人主页的内容索引。项目详情、APP 功能与活动规则请以对应官方网站的最新内容为准。
+
+## 作者与站点
+
+- 作者：Meng小羽（debuginn）
+- [个人主页](https://debuginn.cn/)：当前站点。
+- [关于作者](https://blog.debuginn.com/about/)：作者介绍。
+- [GitHub](https://github.com/debuginn)：公开代码与开源项目。
+
+## 主页内容
+
+- [首页](https://debuginn.cn/#home)：个人主页入口。
+- [iAssets 知盈](https://debuginn.cn/#iassets)：作者的家庭资产管理 APP 项目展示。
+- [多元派 Plural Atlas](https://debuginn.cn/#plural)：全球账户与资产知识导航。
+- [博客文章](https://debuginn.cn/#blog)：博客近期文章入口。
+- [社交与联系](https://debuginn.cn/#social)：作者公开的订阅和社交平台入口。
+
+## 项目官方网站
+
+- [iAssets 知盈](https://iassets.debuginn.cn/zh/)：家庭资产管理 APP 的产品介绍。
+
+- [多元派 Plural Atlas](https://plural.debuginn.com)：全球账户、币种与资产相关知识导航。
+
+
+## 博客与写作
+
+- [Debug客栈博客](https://blog.debuginn.com)：技术、软件项目及个人经验分享。
+- [RSS 订阅](https://blog.debuginn.com/index.xml)：博客文章订阅源。
+
+- [Starryblu 使用指南：多币种账户、海外支付与跨境汇款](https://blog.debuginn.com/p/starryblu/)：发布于 2026-11-11。
+
+- [知盈 iAssets 更新近况：家庭共享、AI 资产分析和存款提醒](https://blog.debuginn.com/p/iassets-share/)：发布于 2026-10-10。
+
+- [我设计的软件 iAssets 知盈 上少数派热门了](https://blog.debuginn.com/p/iassets-sspai/)：发布于 2026-07-13。
+
+- [恒生银行内地见证开户攻略](https://blog.debuginn.com/p/bank-hang-seng/)：发布于 2026-07-05。
+
+
+## 公开社交与订阅
+
+- [Email](https://blog.debuginn.com/subscribe/)
+
+- [Blog](https://blog.debuginn.com)
+
+- [微信](https://debuginn.cn/wechat)
+
+- [微博](https://weibo.com/u/7096209693)
+
+- [小红书](https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068)
+
+- [知乎](https://www.zhihu.com/people/debuginn)
+
+- [X](https://x.com/xdebuginn)
+
+- [Telegram](https://t.me/tdebuginn)
+
+- [Discord](https://discord.gg/RF33jPV2r)
+
+- [GitHub](https://github.com/debuginn)
+
+- [少数派](https://sspai.com/u/debuginn)
+
+- [YouTube](https://www.youtube.com/@debuginn)
+
+- [Reddit](https://www.reddit.com/u/Other-Farmer-6995/s/kDkTO6wPnk)
+
+
+## 内容说明
+
+- 本文档按当前站点配置生成，仅列出当前版本配置的页面模块及公开链接。
+- 主页以单页分区方式展示，章节链接中的 # 标识对应页面区域，并非独立文章。
+- 引用文章时请使用博客原文链接；介绍项目时请使用相应项目官方网站。
+- 博客列表会随站点更新变化；产品功能、金融机构政策与活动信息应查阅对应页面，不应从本索引推断。
