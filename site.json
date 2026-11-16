@@ -489,16 +489,10 @@
   "social": {
     "links": [
       {
-        "label": "Email",
-        "href": "https://blog.debuginn.com/subscribe/",
-        "icon": "email",
-        "followers": 41
-      },
-      {
         "label": "Blog",
         "href": "https://blog.debuginn.com",
         "icon": "blog",
-        "followers": 409
+        "followers": 411
       },
       {
         "label": "微信",
@@ -550,21 +544,10 @@
         "followers": 58
       },
       {
-        "label": "少数派",
-        "href": "https://sspai.com/u/debuginn",
-        "icon": "https://static.debuginn.com/20260731rgH7wK.png",
-        "preserveIconColor": true
-      },
-      {
         "label": "YouTube",
         "href": "https://www.youtube.com/@debuginn",
         "icon": "youtube",
         "followers": 6
-      },
-      {
-        "label": "Reddit",
-        "href": "https://www.reddit.com/u/Other-Farmer-6995/s/kDkTO6wPnk",
-        "icon": "reddit"
       }
     ],
     "footer": {
