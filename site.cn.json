@@ -532,7 +532,7 @@
     ],
     "footer": {
       "enabled": true,
-      "wordmark": "DEBUGINN",
+      "wordmark": "",
       "complianceLinks": []
     }
   },
