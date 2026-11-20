@@ -1,6 +1,7 @@
 {
   "site": {
-    "title": "Meng小羽爱编程",
+    "title": "Meng小羽",
+    "mastheadTitle": "Meng小羽",
     "homeHref": "/",
     "url": "https://debuginn.cn",
     "description": "专注于前沿技术、算法分享、互联网、IT 前沿、优质网站推荐、Linux 技术，做一个爱分享的程序猿。",
@@ -12,7 +13,7 @@
       "themePrefix": ", theme ",
       "themeLabel": "Debuginn",
       "themeHref": "https://github.com/debuginn/hugo-theme-debuginn",
-      "copyrightLabel": "Debug客栈",
+      "copyrightLabel": "Meng小羽",
       "copyrightHref": "https://debuginn.com/",
       "suffix": ""
     },
