@@ -533,7 +533,12 @@
     "footer": {
       "enabled": true,
       "wordmark": "",
-      "complianceLinks": []
+      "complianceLinks": [
+        {
+          "label": "鲁ICP备18012789号",
+          "href": "https://beian.miit.gov.cn/"
+        }
+      ]
     }
   },
   "extensions": {
