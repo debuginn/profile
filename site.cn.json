@@ -102,10 +102,10 @@
       "type": "services",
       "navIcon": "services",
       "navLabel": "服务",
-      "navAccent": "#c4a574",
+      "navAccent": "#6B4EFF",
       "navAccentText": "#ffffff",
       "dotLabel": "跳转到服务",
-      "navAccentDark": "#e6c9a8"
+      "navAccentDark": "#B8A2FF"
     },
     {
       "id": "social",
